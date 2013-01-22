@@ -1,0 +1,73 @@
+<%= form_for(@listing) do |f| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% @listing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :listing_type %><br />
+	<%= f.select :listing_type, [ ['Buy', 'Buy'],['Rent', 'Rent'] ]%>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :laonpayment %><br />
+    <%= f.text_field :laonpayment %>
+  </div>
+  <div class="field">
+    <%= f.label :bedrooms %><br />
+    <%= f.number_field :bedrooms %>
+  </div>
+  <div class="field">
+    <%= f.label :bathrooms %><br />
+    <%= f.number_field :bathrooms %>
+  </div>
+  <div class="field">
+    <%= f.label :squarefootage %><br />
+    <%= f.number_field :squarefootage %>
+  </div>
+  <div class="field">
+    <%= f.label :costpersqft %><br />
+    <%= f.text_field :costpersqft %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :adjustment_type %>
+  </div>
+  <div class="field">
+    <%= f.label :yearbuilt %><br />
+    <%= f.number_field :yearbuilt %>
+  </div>
+  <div class="field">
+    <%= f.label :lotsize %><br />
+    <%= f.number_field :lotsize %>
+  </div>
+  <div class="field">
+    <%= f.label :daysontapski %><br />
+    <%= f.number_field :daysontapski %>
+  </div>
+  <div class="field">
+    <%= f.label :neighbourhood %><br />
+    <%= f.text_field :neighbourhood %>
+  </div>
+  <div class="field">
+    <%= f.label :mls %><br />
+    <%= f.text_field :mls %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.check_box :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

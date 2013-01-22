@@ -1,0 +1,17 @@
+*{
+	margin:0;
+	padding:0;
+}
+li{list-style:none;}
+img{border:0;}
+a{font:normal 12px Arial, Helvetica, sans-serif;}
+a:visited{font:normal 12px Arial, Helvetica, sans-serif;}
+a:hover{font:normal 12px Arial, Helvetica, sans-serif;}
+body{background:url(/assets/body_bg.jpg) left top repeat-x #fff;}
+
+.container{width:1000px; margin:0 auto; overflow:hidden;}
+.header{background:url(/assets/Logo_bg.jpg) left top repeat-x; width:1000px; height:115px;}
+.nav{width:1000px; height:40px; padding-top:4px; background:url(/assets/Nav_bg.jpg) left bottom repeat-x; clear:both;}
+.content{width:980px; background:#fff; padding:10px;}
+.footer{width:1000px; text-align:center; padding:30px; color:#686868;}
+

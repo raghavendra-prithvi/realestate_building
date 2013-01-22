@@ -1,0 +1,131 @@
+<!-- <table>
+  <tr>
+  	<th>Listing Type</th>
+    <th>Price</th>
+    <th>Laonpayment</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>Squarefootage</th>
+    <th>Costpersqft</th>
+    <th>Type</th>
+    <th>Yearbuilt</th>
+    <th>Lotsize</th>
+    <th>Daysontapski</th>
+    <th>Neighbourhood</th>
+    <th>Mls#</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @listings.each do |listing| %>
+  <tr>
+  	<td><%= listing.listing_type %></td>
+    <td><%= listing.price %></td>
+    <td><%= listing.laonpayment %></td>
+    <td><%= listing.bedrooms %></td>
+    <td><%= listing.bathrooms %></td>
+    <td><%= listing.squarefootage %></td>
+    <td><%= listing.costpersqft %></td>
+    <td><%= listing.adjustment_type %></td>
+    <td><%= listing.yearbuilt %></td>
+    <td><%= listing.lotsize %></td>
+    <td><%= listing.daysontapski %></td>
+    <td><%= listing.neighbourhood %></td>
+    <td><%= listing.mls %></td>
+    <td><%= listing.status %></td>
+    <td><%= link_to 'Show', listing %></td>
+    <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+    <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+-->
+
+
+
+
+
+<div class="innerPageContent">
+
+<div class="innerLeft">
+<ul class="leftNav">
+  <% @listings.each do |l| %>
+
+  		<a href="#" id=<%=l.id%> onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
+
+  <% end %>
+
+</ul>
+
+<div class="optOne">
+  <select>
+    <option>For Sale</option>
+    <option>For Rent</option>
+    <option>Both</option>
+  </select>
+</div>
+<div class="optTwo">
+ <select>
+    <option>Active</option>
+    <option>Inactive</option>
+    <option>Both</option>
+  </select>
+</div>
+</div>
+<img src="/assets/topInnerForm.png" style="margin:0px 0px 0px 10px;"/>
+<div class="innerRight">
+
+  <div class="pageHeading"><h1>My Listing</h1></div>
+  <div class="uname" ><div class="uimage"><img src="/assets/user.png"  /></div><div class="username">Welcome! Liz</div></div>
+
+  <div class="clrbth"></div>
+
+  <div class="contentInner" id="result_data">
+
+	  <div class="infoAction">
+
+  <div class="contentInnerLeft">
+  </div>
+
+  	<div class="contentInnerRight">
+
+    </div>
+
+
+  </div>
+	 <div class="contentInnerLeft">	 </div>
+    <div class="contentInnerRight">
+    </div>
+
+  <div class="bottomContent">
+  </div>
+
+
+  </div>
+
+
+</div>
+    <img src="/assets/bgFormContentBtm.png" style="margin:0px 0px 0px 210px;"/>
+
+
+<div class="clrbth"></div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+	function showListing(id)
+	{
+		$.ajax
+		  ({
+		    type: "GET",
+		    url: "/listings/"+id,
+		    success: function (data){
+		    	$("#result_data").html(data);
+		    }
+		});
+
+	}
+</script>

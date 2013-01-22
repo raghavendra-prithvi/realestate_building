@@ -1,0 +1,113 @@
+<p id="notice"><%= notice %></p>
+  <div class="infoAction">
+
+  <div class="contentInnerLeft">
+      <div class="homeImageHolder">
+        <img src="/assets/home.png"/>
+        <img src="/assets/pagination.png" style="margin:10px 0px;"/>
+      </div>
+  </div>
+
+  	<div class="contentInnerRight">
+
+      <input type="button" class="btnStyle rename" value="Rename"/>
+      <input type="button" class="btnStyle modify" value="Modify"/>
+      <input type="button" class="btnStyle delete" value="Delete"/>
+      <input type="button" class="btnStyle addEvent" value="Add Event"/>
+    </div>
+
+
+  </div>
+	 <div class="contentInnerLeft">
+	 	      <div class="info">
+        <div class="left">Listing Type:</div>
+        <div class="right"><%= @listing.listing_type %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Price</div>
+        <div class="right"><%= @listing.price %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Loan Payment</div>
+        <div class="right"><%= @listing.laonpayment %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Bedroom</div>
+        <div class="right"><%= @listing.bedrooms %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Bathrooms</div>
+        <div class="right"><%= @listing.bathrooms %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Square Footage</div>
+        <div class="right"><%= @listing.squarefootage %></div>
+      </div>
+      <div class="info">
+        <div class="left">$/sqft</div>
+        <div class="right"><%= @listing.costpersqft %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Type</div>
+        <div class="right"><%= @listing.adjustment_type %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Year Built</div>
+        <div class="right"><%= @listing.yearbuilt %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Lot Size</div>
+        <div class="right"><%= @listing.lotsize %></div>
+      </div>
+
+      <div class="info">
+        <div class="left">Days on Tapski</div>
+        <div class="right"><%= @listing.daysontapski %></div>
+      </div>
+      <div class="info">
+        <div class="left">Neighborhood</div>
+        <div class="right"><%= @listing.neighbourhood %></div>
+      </div>
+      <div class="info">
+        <div class="left">MLS#</div>
+        <div class="right"><%= @listing.mls %></div>
+      </div>
+      <div class="info">
+        <div class="left">Status</div>
+        <div class="right"><% if @listing.status == true%>
+								Active
+  							<% else %>
+								InActive
+						  <% end %></div>
+      </div>
+
+
+
+	 </div>
+    <div class="contentInnerRight">
+      <div><input type="checkbox" id="activeChk"> <label for="activeChk">Active</label></div>
+      <div><input type="checkbox" id="reportChk"> <label for="reportChk">Report this Weekly</label></div>
+      <div><input type="checkbox" id="tapsChk"> <label for="tapsChk">Use this listing to search Wanted Taps</label></div>
+    </div>
+
+  <div class="bottomContent">
+    <div> Link to: <input type="text" /> </div>
+     <div>Attach Docs: <input type="file" /></div>
+  </div>
+
+
+
+
+
+
+
+<%= link_to 'Modify', edit_listing_path(@listing) %>
+<%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' } %>

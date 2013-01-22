@@ -1,0 +1,641 @@
+body{font:normal 12px Arial, Helvetica, sans-serif;}
+.header .logo{width:218px; height:71px; padding-left:23px; float:left; }
+.header ul{float:right; margin-top:30px; padding-right:30px;}
+.header ul li{padding:0 0 0 20px; display:inline;}
+.header ul li a, .header ul li a:visited{color:#fff; text-decoration:none;}
+.header ul li a:hover{color:#cecece;}
+.header ul li img{margin:0px 5px 0 0;}
+.header .nav ul{float:right; margin-top:0; padding-right:10px;}
+.header .nav ul li{float:left; padding:0; margin-right:2px;}
+.header .nav ul li a, .header .nav ul li a:visited{text-transform:uppercase; color:#fff; text-decoration:none; line-height:40px; padding:0 25px; display:block;}
+.header .nav ul li a:hover, .header .nav ul li.active{background:#3b9cd3;}
+.content .top-section{width:980px; overflow:hidden; height:380px;}
+.content .top-section .left-block{width:400px; position:relative; background:url(/assets/shade_box_c.jpg) left top repeat-x #fff;  height:341px; margin-right:10px; float:left;}
+.content .top-section .left-block .cont-heading{width:380px; float:left;}
+.content .top-section .left-block .cont-heading h3{font:normal 26px Arial, Helvetica, sans-serif; color:#1c78ac; padding:25px 0 20px 25px;}
+.content .top-section .left-block .cont-heading p{font:normal 14px Arial, Helvetica, sans-serif; color:#6b6b6b; padding:0px 0 20px 25px; line-height:20px;}
+.content .top-section .right-block{width:570px; position:relative; background:url(/assets/shade_box_c.jpg) left top repeat-x #fff;  height:341px;  float:left; display:inline-block;}
+.left-bg{background:url(/assets/shade_box_l.jpg) left top no-repeat; left:0; top:0px; width:10px; height:341px; float:left;}
+.right-bg{background:url(/assets/shade_box_r.jpg) left top no-repeat; right:0; top:0px; width:10px; height:341px; float:right;}
+.content .top-section .right-block .theme-img{float:left; margin: 30px 0 0 35px;}
+.content .btom-section{width:980px; overflow:hidden; height:203px;}
+.content .btom-section .gray-bg-left{width:10px; float:left; background:url(/assets/gray_bg_left.jpg) left top no-repeat; height:203px;}
+.content .btom-section .gray-bg-right{width:10px; float:left; background:url(/assets/gray_bg_right.jpg) left top no-repeat; height:203px;}
+.content .btom-section .gray-bg-center{float:left; background:url(/assets/gray_bg_center.jpg) left top repeat-x; width:960px; height:203px;}
+.content .btom-section .gray-bg-center .left-section{display:block; width:311px; height:129px; float:left; margin:38px 38px 0 28px; background:url(/assets/post_listing.jpg) left top no-repeat; cursor:pointer;}
+.content .btom-section .gray-bg-center .left-section:hover{display:block; background:url(/assets/post_listing_h.jpg) left top no-repeat;}
+.content .btom-section .gray-bg-center .center-section{width:276px; height:129px; float:left; margin:38px 0 0 0;}
+.content .btom-section .gray-bg-center .right-section{width:266px; height:111px; float:left; margin:38px 0 0 0; background:url(/assets/home_form_bg.jpg) left top no-repeat; padding:18px 0 0 10px;}
+.content .btom-section .gray-bg-center .right-section .form-bg{width:227px; height:75px; background:url(/assets/form_bg.jpg) left top no-repeat; padding:20px 0 0 20px;}
+.content .btom-section .gray-bg-center .right-section .form-bg .radio-text{color:#1c78ac; font:bold 16px Arial, Helvetica, sans-serif; padding-right:10px;}
+.pad-right{padding-right:15px!important;}
+.content .btom-section .gray-bg-center .right-section .form-bg .text-box{width:140px; height:22px; background:#f5f5f5; line-height:22px; padding:0 2px; border:1px solid #d1d1d1; margin-bottom:10px; font:normal 12px Arial, Helvetica, sans-serif; color:#a2a2a2;}
+
+.innerLeft{background:url(/assets/bgLeft.png) left top no-repeat;width:190px;float:left;padding:10px 5px;}
+.innerRight{width:750px;float:left;padding:10px 5px;}
+.pageHeading{width:280px;float:left;}
+.uname{width:425px;float:right;text-align:right;margin:0px 5px;}
+.pageHeading h1{padding:0px; margin:0px; font:bold 16px arial; color:#1C78AC;}
+.uimage{width:40px;float:right;}
+.username{width:200px;float:right;}
+.clrbth{clear:both;}
+
+.contentInner{
+	width:100%;
+	float:left;
+	margin:10px 0px 10px 0px;
+
+}
+.contentInnerLeft{
+	width:60%;
+	float:left;
+	margin:10px;
+}
+
+.contentInnerRight{
+	width:35%;
+	float:left;
+}
+
+.homeImageHolder{
+	width:370px;
+	height:270px;
+	overflow:hidden;
+}
+.info{
+	width:100%;
+	float:left;
+	font:normal 12px arial;
+}
+.info .left{
+	width:30%;
+	float:left;
+	text-align:right;
+	margin:3px 5px;
+}
+.info .right{
+	width:45%;
+	float:left;
+	margin:3px 5px;
+}
+
+.btnStyle{
+	width:211px;
+	height:48px;
+	font:bold 12px arial;
+	color:#fff;
+	border:0px solid #fff;
+}
+
+.rename{
+	background:url(/assets/rename.png)
+}
+.modify{
+	background:url(/assets/modify.png);
+}
+.delete{
+	background:url(/assets/delete.png);
+}
+.addEvent{
+	background:url(/assets/addEvent.png);
+}
+
+.bottomContent{
+	width:100%;
+	float:left;
+	font:normal 12px arial;
+}
+
+.bottomContent input[type='text']{
+	width:500px;
+	border:1px solid #969798;
+}
+
+.leftNav li{
+	width:93%;
+	border-bottom:1px solid #4E5152;
+	line-height:30px;
+	padding:0px 0px 0px 10px;
+}
+
+.leftNav a{
+	text-decoration:none;
+	color:#000;
+	font:normal 11px arial;
+}
+.leftNav a:hover{
+	font:bold 11px arial;
+}
+.optOne{
+	width:50%;
+	float:left;
+	margin:5px 0px;
+}
+
+.optTwo{
+	width:50%;
+	float:right;
+	margin:5px 0px;
+}
+
+.innerRight{
+	background:url(/assets/bgFormContent.png);
+	margin:0px 0px 0px 10px;
+	width:730px;
+	padding:0px 15px;
+}
+
+#tabs{
+	background:url(/assets/bgFormContent.png);
+	width:753px;
+	float:right;
+}
+.tabRightText{
+	width:100px;
+	float:right;
+}
+
+.tabCol1Small{
+	width:15%;
+	float:left;
+	text-align:right;
+	margin:2px 5px;
+}
+
+.tabCol2Small{
+	width:30%;
+	float:left;
+
+	margin:2px 5px;
+}
+
+.tabCol3Small{
+	width:5%;
+	float:left;
+
+	margin:2px 5px;
+}
+
+.tabCol4Small{
+	width:30%;
+	float:left;
+
+	margin:2px 5px;
+}
+
+#tabs-1 select{width:200px;}
+
+.formfield{width:95%;margin:0px auto;clear:both;}
+
+.btnHolders{
+	width:700px;
+	margin:5px auto;
+	text-align:right;
+}
+
+.renameFormBtn{
+	background:url(/assets/renameFormBtn.png);
+	width:116px;
+	height:32px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	border:0px solid #000;
+	color:#fff;
+}
+
+.modifyFormBtn{
+	background:url(/assets/editformbtn.png);
+	width:116px;
+	height:32px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	border:0px solid #000;
+	color:#fff;
+}
+
+.deleteFormBtn{
+	background:url(/assets/deleteformBtn.png);
+	width:116px;
+	height:32px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	border:0px solid #000;
+	color:#fff;
+}
+
+.continueFormBtn{
+	background:url(/assets/continueBtn.png);
+	width:116px;
+	height:32px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	border:0px solid #000;
+	color:#fff;
+}
+
+.oneCol #tabs{
+	width:970px;
+	background:url(/assets/bgsinglecol.png);
+}
+
+.oneCol .colmid{
+	width:70%;
+	margin:5px 50px;
+}
+
+.lblText,.objHolder{
+	width:100%;
+}
+
+.lblTextSmall{
+	width:20%;
+	float:left;
+
+}
+.objHolderSmall{
+	width:75%;
+	float:left;
+}
+
+input[type=text],textarea,select{
+	border:1px solid #D1D1D1;
+	background-color:#F5F5F5;
+}
+
+input[type=text].xlarge{
+	width:300px;
+}
+
+input[type=text].large{
+	width:200px;
+}
+input[type=text].mid{
+	width:100px;
+}
+
+input[type=text].small{
+	width:50px;
+}
+
+.colText{
+	width:100px;
+	text-align:right;
+	float:left;
+	margin:5px 5px;
+}
+
+.colObj{
+	width:300px;
+	float:left;
+	margin:5px 5px;
+}
+
+.colOneSmallForm{
+	width:100px;
+	text-align:right;
+	float:left;
+	margin:5px 5px;
+}
+
+.colOneVerySmallForm{
+	width:50px;
+	text-align:right;
+	float:left;
+	margin:5px 5px;
+}
+
+.colOneObjHolder{
+	width:300px;
+	text-align:right;
+	float:left;
+	margin:5px 5px;
+}
+
+.formListingOptCol{
+	width:50px;
+	float:left;
+	margin:0px 5px;
+}
+
+.optHeading{
+	width:400px;
+	float:left;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	margin:0px 0px 10px 0px;
+}
+
+.optText{
+	width:400px;
+	float:left;
+	font:normal 12px Arial, Helvetica, sans-serif;
+	margin:5px 0px 0px 60px;
+}
+
+.optTextarea{
+	width:350px;
+	float:left;
+	font:normal 12px Arial, Helvetica, sans-serif;
+	margin:5px 0px 0px 5px;
+}
+.optTextarea{
+	width:350px;
+	float:left;
+	margin:5px 0px 5px 5px;
+	border:1px solid #D1D1D1;
+	background-color:#F5F5F5;
+	padding:5px;
+}
+
+.formListingOptColUImage{
+	width:50px;
+	float:left;
+	margin:5px 0px 0px 50px;
+	text-align:right;
+
+}
+
+.btnLeftHolder{
+	float:left;
+	width:200px;
+	margin:10px 0px;
+
+}
+
+.btnRightHolder{
+	float:right;
+	width:200px;
+	margin:10px 0px;
+}
+
+.backFormBtn{
+	background:url(/assets/backBtn.png);
+	width:116px;
+	height:32px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	border:0px solid #000;
+	color:#fff;
+}
+
+.continueFormBtnLarge{
+	background:url(/assets/cont.png);
+	width:200px;
+	height:32px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	border:0px solid #000;
+	color:#fff;
+}
+
+.leftColUname{
+	width:120px;
+	float:left;
+	font:bold 12px Arial, Helvetica, sans-serif;
+}
+
+.contactInfo{
+	width:180px;
+	float:left;
+	font:normal 12px Arial, Helvetica, sans-serif;
+	margin:5px 0px;
+}
+
+.sendMessage{
+	background:url(/assets/messageBtn.png);
+	width:180px;
+	height:30px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	border:0px solid #000;
+	color:#FFFFFF;
+}
+
+.viewListing{
+	background:url(/assets/viewlisting.png);
+	width:180px;
+	height:30px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	border:0px solid #000;
+	margin:5px 0px 0px 0px;
+	color:#FFFFFF;
+}
+
+
+.leftColBtnHolder{
+	width:180px;
+	margin:5px auto;
+}
+
+.contentUImage{
+	width:50px;
+	text-align:center;
+	margin:5px 0px;
+	float:left;
+}
+
+.contentDiv{
+	width:400px;
+	border:1px solid #D1D1D1;
+	background-color:#F5F5F5;
+	height:50px;
+	float:left;
+}
+
+.sectionHeading{
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	width:190px;
+
+}
+
+.labelLeft{
+	width:85px;
+	float:left;
+	font:normal 11px Arial, Helvetica, sans-serif;
+}
+
+.labelMid{
+	width:15px;
+	float:left;
+	font:normal 11px Arial, Helvetica, sans-serif;
+}
+.labelRight{
+	width:85px;
+	float:right;
+	font:normal 11px Arial, Helvetica, sans-serif;
+}
+
+.filterHeading{
+	width:180px;
+	border:1px solid #000;
+	padding:5px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	text-align:center;
+	background-color:#333333;
+	color:#fff;
+}
+
+.leftColFullContent{
+	text-align:center;
+	font:normal 11px Arial, Helvetica, sans-serif;
+	width:190px;
+	margin:5px 0px;
+}
+
+.tpMargin{
+	margin:5px 0px;
+}
+
+.leftColLabelLeft{
+	width:80px;
+	float:left;
+	font:normal 11px Arial, Helvetica, sans-serif;
+	margin:3px 0px;
+}
+
+.leftColObjectRight{
+	width:110px;
+	float:right;
+	margin:3px 0px;
+
+}
+
+.btnBg{
+	background:url(/assets/smallBtnBg.png);
+	width:77px;
+	border:0px solid #000;
+	font:normal 11px Arial, Helvetica, sans-serif;
+	text-align:center;
+	height:27px;
+	color:#fff;
+}
+
+.linkTextLeftCol{
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+.iconHolder{
+	width:25px;
+	float:left;
+	margin:5px 0px;
+}
+
+.iconText{
+	width:140px;
+	float:left;
+	margin:10px 0px 5px 5px;
+}
+
+.oneColRight .contentUImage,.oneColRight .contentDiv{
+	margin:5px 5px;
+}
+
+.rightColChkBox{
+	width:100%;
+	text-align:right;
+}
+
+.contactAgentHolder{
+	width:200px;
+	margin:20px auto;
+	padding:0px;
+	text-align:center;
+	border:1px solid #ccc;
+	height:100px;
+}
+
+.descDiv{
+	width:500px;
+	margin:10px;
+	padding:0px;
+	text-align:center;
+	border:1px solid #ccc;
+	height:100px;
+}
+
+.oncolInner{
+	width:95%;
+	margin:0px auto;
+
+}
+
+.rowEven td,.rowOdd td{
+	padding:2px;
+}
+.rowEven{
+	background-color:#CCCCCC;
+	color:#000;
+	height:25px;
+}
+
+.rowHeading{
+	background-color:#666;
+	color:#000;
+	height:25px;
+}
+
+.rowOdd{
+	background-color:#fff;
+	color:#000;
+	height:25px;
+}
+
+.contentDesc{
+	width:90%;
+	margin:10px auto;
+}
+
+.contentDescLeft{
+	width:49%;
+	float:left;
+}
+
+.contentDescRight{
+	width:49%;
+	float:right;
+}
+
+.mapBox{
+	width:95%;
+	margin:10px auto;
+	height:100px;
+	border:1px solid #ccc;
+}
+
+.fullLength{
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	width:950px;
+	background:url(/assets/bgsinglecol.png);
+	margin:0px;
+}
+
+.listMyProperty{
+	width:45%;
+	float:left;
+	margin:10px;
+	border:1px solid #ccc;
+
+}
+
+.findProperty{
+	width:45%;
+	float:right;
+	margin:10px;
+	border:1px solid #ccc;
+	height:226px;
+
+}
+.listMyProperty h2, .findProperty h2{
+	font:bold 14px Arial, Helvetica, sans-serif;
+	padding:0px;
+	margin:0px;
+	text-decoration:underline;
+}
+
+.listMyProperty .info{
+	margin:10px 10px;
+}
+
+.findProperty label{
+width:100px;
+float:left;
+}
+
+.findProperty .info{
+	margin:10px;
+}

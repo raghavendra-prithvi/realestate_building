@@ -1,0 +1,101 @@
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended to check this file into your version control system.
+
+ActiveRecord::Schema.define(:version => 20130121105333) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "listing_id"
+    t.text     "description"
+    t.string   "file_name"
+    t.string   "file_path"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "identities", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "listings", :force => true do |t|
+    t.string   "listing_type"
+    t.integer  "price"
+    t.float    "laonpayment"
+    t.integer  "bedrooms"
+    t.integer  "bathrooms"
+    t.integer  "squarefootage"
+    t.float    "costpersqft"
+    t.string   "adjustment_type"
+    t.integer  "yearbuilt"
+    t.integer  "lotsize"
+    t.integer  "daysontapski"
+    t.string   "neighbourhood"
+    t.string   "mls"
+    t.boolean  "status"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "listing_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "search", :force => true do |t|
+    t.string  "type"
+    t.integer "pricerange"
+    t.integer "beds"
+    t.integer "bath"
+    t.integer "keywords"
+    t.integer "zip"
+    t.string  "propertytype"
+    t.integer "tapratings"
+    t.boolean "wanted"
+    t.string  "email"
+    t.integer "agent_id"
+  end
+
+  create_table "tap_question_answers", :force => true do |t|
+    t.integer "listing_id"
+    t.integer "question_id"
+    t.string  "answer_text"
+    t.string  "description"
+  end
+
+  create_table "tap_score_details", :force => true do |t|
+    t.float   "tap_score"
+    t.string  "features"
+    t.boolean "must_sell"
+  end
+
+  create_table "tap_score_questions", :force => true do |t|
+    t.string "question_text"
+    t.string "answer_type"
+  end
+
+  create_table "user_details", :force => true do |t|
+    t.integer  "picture_id"
+    t.boolean  "profile_public"
+    t.string   "full_name"
+    t.text     "full_address"
+    t.integer  "phone"
+    t.string   "email"
+    t.string   "updated_by"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+end

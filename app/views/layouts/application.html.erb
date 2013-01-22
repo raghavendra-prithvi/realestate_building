@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tapski</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "structure.css", "style.css" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!--================Container=================-->
+<div class="container">
+<!--==============Header=============-->
+<div class="header">
+<div class="logo"><a href="#"><img src="/assets/Tapski_logo.png" alt="Tapski" title="Tapski" width="218" height="71" /></a></div>
+<ul>
+<li><a href="#" title="Contact"><span id="icons"><img src="/assets/contact_icon.jpg" alt="" /></span>Contact</a></li>
+<li><a href="#" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Signout</a></li>
+</ul>
+<!--==============Nav=============-->
+<div class="nav">
+<ul>
+<li ><a href="#" title="Agents">Home</a></li>
+<li><a href="#" title="Home Searches">Create Listing</a></li>
+<li class="active"><a href="#" title="About Us">My Listing</a></li>
+<li><a href="#" title="About Us">Saved Searches</a></li>
+</ul>
+</div>
+<!--==============Nav End=============-->
+</div>
+<!--==============Header End=============-->
+<!--==============Content=============-->
+<div class="content">
+<!--=============Top Section=============-->
+
+<%= yield %>
+
+<!--==============Content End=============-->
+<!--==============Footer=============-->
+<div class="footer">&copy;2012 allright reserved.</div>
+</body>
+</html>

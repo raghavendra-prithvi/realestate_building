@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  price: 1
+  laonpayment: 1.5
+  bedrooms: 1
+  bathrooms: 1
+  squarefootage: 1
+  costpersqft: 1.5
+  type: 
+  yearbuilt: 1
+  lotsize: 1
+  daysontapski: 1
+  neighbourhood: MyString
+  mls#: MyString
+  status: false
+
+two:
+  price: 1
+  laonpayment: 1.5
+  bedrooms: 1
+  bathrooms: 1
+  squarefootage: 1
+  costpersqft: 1.5
+  type: 
+  yearbuilt: 1
+  lotsize: 1
+  daysontapski: 1
+  neighbourhood: MyString
+  mls#: MyString
+  status: false
