@@ -1,73 +1,236 @@
-<%= form_for(@listing) do |f| %>
-  <% if @listing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+<div class="innerPageContent oneCol">
+	<%= form_for(@listing) do |f| %>
+	<% if @listing.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
 
-      <ul>
-      <% @listing.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	      <ul>
+	      <% @listing.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+  	<% end %>
+	<div id="tabs">
+		<ul>
+		<li><a href="#tabs-1">Create Listing</a></li>
+		<li><a href="#tabs-2">Feature Listing</a></li>
+		<li><a href="#tabs-3">Post</a></li>
+		</ul>
+		<div id="tabs-1">
+			<div class="pageHeading"><h1>Create Listing</h1></div>
+			<div class="clrbth"></div>
+			<div class="colmid">
+				<div class="lblText">
+					<label>
+						Description
+					</label>
+				</div>
+				<div class="objHolder">
+					<%= f.text_area :description,{:rows=>"5",:cols=>"50"} %>
+				</div>
+			</div>
+			<div class="colmid">
+				<label>
+				Tap Description
+				</label><br/>
+				 <%= f.text_area :tap_description,{:rows=>"2", :cols=>"50"} %>
+			</div>
+			<div class="colmid">
+				<%= f.text_field :adjustment_type,{:placeholder => "Select Residential Type"} %>
+			</div>
+			<div class="colmid">
+				<label>This property is for:</label>
+				<%= f.select :listing_type, [ ['Buy', 'Buy'],['Rent', 'Rent'] ]%>
+				<!-- <input type="radio"/> Rent
+				<input type="radio"/> Sale -->
+			</div>
+			<div class="colmid">
+				<div class="lblTextSmall"><label>Address:</label></div>
+				<div class="clrbth"></div>
+				<div class="objHolderSmall">
+				<%= f.text_field :address_line1,{:class=>"large",:placeholder => "Address Line1"} %>
+				<%= f.text_field :city,{:class=>"mid",:placeholder => "City"} %>
+			</div>
+			</div>
+			<div class="clrbth"></div>
+			<div class="colmid objHolder">
+				<%= f.text_field :address_line2,{:class=>"large",:placeholder => "Address Line2"} %>
+				<%= f.text_field :state,{:class=>"small",:placeholder => "State"} %>
+				<%= f.text_field :zip,{:class=>"small",:placeholder => "Zip Code"} %>
+			</div>
+			<div class="colmid">
+				<div class="colText"><label>Price Range</label></div>
+				<div class="colObj"><%= f.number_field :price, {:class => "large"} %><!-- <input type="text" class="large"/> --></div>
+			</div>
+			<div class="clrbth"></div>
+			<div class="colmid">
+				<div class="colText"><label>Beds</label></div>
+				<div class="colObj"> <%= f.select :bedrooms, [ [0, 'NoPreferrence'],[1, 1],[2,2],[3,3],[4,4] ] %>
+					<!-- <select><option>No Preference</option></select> --></div>
+			</div>
+			<div class="clrbth"></div>
+			<div class="colmid">
+				<div class="colText"><label>Baths</label></div>
+				<div class="colObj"><%= f.select :bathrooms, [ [0, 'NoPreferrence'],[1, 1],[2,2],[3,3],[4,4] ] %></div>
+			</div>
+			<div class="clrbth"></div>
 
-  <div class="field">
-    <%= f.label :listing_type %><br />
-	<%= f.select :listing_type, [ ['Buy', 'Buy'],['Rent', 'Rent'] ]%>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :laonpayment %><br />
-    <%= f.text_field :laonpayment %>
-  </div>
-  <div class="field">
-    <%= f.label :bedrooms %><br />
-    <%= f.number_field :bedrooms %>
-  </div>
-  <div class="field">
-    <%= f.label :bathrooms %><br />
-    <%= f.number_field :bathrooms %>
-  </div>
-  <div class="field">
-    <%= f.label :squarefootage %><br />
-    <%= f.number_field :squarefootage %>
-  </div>
-  <div class="field">
-    <%= f.label :costpersqft %><br />
-    <%= f.text_field :costpersqft %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :adjustment_type %>
-  </div>
-  <div class="field">
-    <%= f.label :yearbuilt %><br />
-    <%= f.number_field :yearbuilt %>
-  </div>
-  <div class="field">
-    <%= f.label :lotsize %><br />
-    <%= f.number_field :lotsize %>
-  </div>
-  <div class="field">
-    <%= f.label :daysontapski %><br />
-    <%= f.number_field :daysontapski %>
-  </div>
-  <div class="field">
-    <%= f.label :neighbourhood %><br />
-    <%= f.text_field :neighbourhood %>
-  </div>
-  <div class="field">
-    <%= f.label :mls %><br />
-    <%= f.text_field :mls %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.check_box :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+			<div class="colmid">
+				<div class="colText"><label>Loan Payment</label></div>
+				<div class="colObj"><%= f.text_field :laonpayment %></div>
+			</div>
+			<div class="clrbth"></div>
+
+
+			<div class="colmid">
+				<div class="colText"><%= f.label :squarefootage %></div>
+				<div class="colObj"><%= f.number_field :squarefootage %></div>
+			</div>
+			<div class="clrbth"></div>
+
+
+			<div class="colmid">
+				<div class="colText"><%= f.label :lotsize %></div>
+				<div class="colObj"><%= f.number_field :lotsize %></div>
+			</div>
+			<div class="clrbth"></div>
+
+
+			<div class="colmid">
+				<div class="colText"><%= f.label :costpersqft %></div>
+				<div class="colObj"><%= f.number_field :costpersqft %></div>
+			</div>
+			<div class="clrbth"></div>
+
+    		<div class="colmid">
+				<div class="colText"><%= f.label :yearbuilt %></div>
+				<div class="colObj"><%= f.number_field :yearbuilt %></div>
+			</div>
+			<div class="clrbth"></div>
+
+
+			<div class="colmid">
+				<div class="colText"><%= f.label :neighbourhood %></div>
+				<div class="colObj"><%= f.text_field :neighbourhood %></div>
+			</div>
+			<div class="clrbth"></div>
+
+			<div class="colmid">
+				<div class="colText"><%= f.label :daysontapski %></div>
+				<div class="colObj"><%= f.text_field :daysontapski %></div>
+			</div>
+			<div class="clrbth"></div>
+
+    		<div class="colmid">
+				<div class="colText"><%= f.label :mls %></div>
+				<div class="colObj"><%= f.text_field :mls %></div>
+			</div>
+			<div class="clrbth"></div>
+
+    		<div class="colmid">
+				<div class="colText"><%= f.label :status %></div>
+				<div class="colObj"><%= f.check_box :status %></div>
+			</div>
+			<div class="clrbth"></div>
+
+			<div class="colmid">
+				<div class="colText"><label>Attach Photos</label></div>
+				<div class="colObj"><input type="file"/></div>
+			</div>
+
+			<div class="btnHolders">
+				<%= f.submit %>
+				<input type="button" class="continueFormBtn" value="Continue"/>
+			</div>
+		</div>
+			<div id="tabs-2">
+			<div class="pageHeading"><h1>Feature Listing</h1></div>
+			<div class="clrbth"></div>
+
+			<div class="colmid">
+			<div class="colOneSmallForm"><label>Normal Listing</label></div>
+			<div class="colOneVerySmallForm"><img src="images/user.png"/></div>
+			<div class="colOneObjHolder"><textarea rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="clrbth"></div>
+
+			<div class="colmid">
+				<div class="formListingOptCol"><input type="checkbox"/></div>
+				<div class="optHeading">Generate Your TapScore:$0.99</div>
+				<div class="clrbth"></div>
+				<div class="optText">For a small fee of $0.99, generate your tapscore to include more details about your listing and let potential buyers instantly know how your listing is rated. Your listing will also get more real estate in the feed.</div>
+				<div class="clrbth"></div>
+				<div class="formListingOptColUImage"><img src="images/user.png"/></div>
+				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79<br/><img src="images/home.png" width="200px"/></div>
+
+				<div class="clrbth"></div>
+
+				<div class="formListingOptCol"><input type="checkbox"/></div>
+				<div class="optHeading">Mark as Featured: $0.99</div>
+				<div class="clrbth"></div>
+
+				<div class="formListingOptColUImage"><img src="images/user.png"/></div>
+				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79</div>
+				<div class="clrbth"></div>
+
+				<div class="formListingOptCol"><input type="checkbox"/></div>
+				<div class="optHeading">Mark as Must Sell: $0.99</div>
+				<div class="clrbth"></div>
+
+				<div class="formListingOptColUImage"><img src="images/user.png"/></div>
+				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79</div>
+				<div class="clrbth"></div>
+
+				<div class="btnLeftHolder">
+					<input type="button" class="backFormBtn" value="Back"/>
+				</div>
+				<div class="btnRightHolder">
+					<input type="button" class="continueFormBtnLarge" value="Skip and Continue"/>
+				</div>
+				</div>
+
+			</div>
+
+
+			<div id="tabs-3">
+				<div class="pageHeading"><h1>Preview Tap Listing</h1></div>
+				<div class="clrbth"></div>
+				<p>This is how your Tap Listing will appear in the user feed.</p>
+				<div class="colmid">
+				<div class="colOneSmallForm" style="width:200px;"><label>TapScore Listing</label></div>
+				<div class="colOneVerySmallForm"><img src="/assets/user.png"/></div>
+				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79<br/><img src="images/home.png" width="200px"/></div>
+				</div>
+
+			</div>
+
+			<div class="clrbth"></div>
+			<div class="clrbth"></div>
+		</div>
+
+
+
+	</div>
+	<% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$(function() {
+$( "#tabs" ).tabs();
+});
+</script>
