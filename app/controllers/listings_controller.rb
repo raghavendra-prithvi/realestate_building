@@ -44,11 +44,12 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(params[:listing])
+    @listings = Listing.all
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.json { render json: @listing, status: :created, location: @listing }
+        format.html { redirect_to '/mylistings', notice: 'Listing was successfully created.' }
+        format.json { render json: @listings, status: :created, location: @listing }
       else
         format.html { render action: "new" }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
