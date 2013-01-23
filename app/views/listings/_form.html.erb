@@ -141,8 +141,7 @@
 			</div>
 
 			<div class="btnHolders">
-				<%= f.submit %>
-				<input type="button" class="continueFormBtn" value="Continue"/>
+				<input type="button" class="continueFormBtn" value="Continue" id="tab1_continue"/>
 			</div>
 		</div>
 			<div id="tabs-2">
@@ -184,10 +183,10 @@
 				<div class="clrbth"></div>
 
 				<div class="btnLeftHolder">
-					<input type="button" class="backFormBtn" value="Back"/>
+					<input type="button" class="backFormBtn" value="Back" id="tab2_back"/>
 				</div>
 				<div class="btnRightHolder">
-					<input type="button" class="continueFormBtnLarge" value="Skip and Continue"/>
+					<input type="button" class="continueFormBtnLarge" value="Skip and Continue" id="tab2_continue"/>
 				</div>
 				</div>
 
@@ -203,7 +202,9 @@
 				<div class="colOneVerySmallForm"><img src="/assets/user.png"/></div>
 				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79<br/><img src="images/home.png" width="200px"/></div>
 				</div>
-
+				<div class="btnRightHolder">
+					<input type="submit" class="continueFormBtnLarge" value="Post" id="post"/>
+				</div>
 			</div>
 
 			<div class="clrbth"></div>
@@ -232,5 +233,18 @@
 <script>
 $(function() {
 $( "#tabs" ).tabs();
+});
+
+$(document).ready(function(){
+
+	$("#tab1_continue").click(function(){
+		$("#ui-id-2").click();
+	});
+	$("#tab2_back").click(function(){
+		$("#ui-id-1").click();
+	});
+	$("#tab2_continue").click(function(){
+		$("#ui-id-3").click();
+	});
 });
 </script>
