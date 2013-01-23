@@ -21,8 +21,8 @@
 <div class="nav">
 <ul>
 <li ><a href="#" title="Agents">Home</a></li>
-<li><a href="#" title="Home Searches">Create Listing</a></li>
-<li class="active"><a href="#" title="About Us">My Listing</a></li>
+<li><a href="/listings/new" id="new_listing" title="Home Searches">Create Listing</a></li>
+<li><a href="/mylistings" id="my_listings" title="About Us">My Listing</a></li>
 <li><a href="#" title="About Us">Saved Searches</a></li>
 </ul>
 </div>
@@ -39,4 +39,13 @@
 <!--==============Footer=============-->
 <div class="footer">&copy;2012 allright reserved.</div>
 </body>
+
+<script>
+$('document').ready(function(){
+	$("#new_listing").click(function(){
+			//$(".active").removeClass("active");
+			$("#new_listing").parent().addClass("active");
+	})
+});
+</script>
 </html>
