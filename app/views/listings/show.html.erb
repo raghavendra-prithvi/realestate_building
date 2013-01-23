@@ -11,8 +11,10 @@
   	<div class="contentInnerRight">
 
       <input type="button" class="btnStyle rename" value="Rename"/>
-      <input type="button" class="btnStyle modify" value="Modify"/>
-      <input type="button" class="btnStyle delete" value="Delete"/>
+
+	<!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
+      <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btnStyle modify" value="Modify"/> </a>
+     <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href=<%=@listing%> > <input type="button" class="btnStyle delete" value="Delete"/></a>
       <input type="button" class="btnStyle addEvent" value="Add Event"/>
     </div>
 
@@ -105,9 +107,3 @@
 
 
 
-
-
-
-
-<%= link_to 'Modify', edit_listing_path(@listing) %>
-<%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' } %>
