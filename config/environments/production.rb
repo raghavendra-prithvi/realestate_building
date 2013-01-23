@@ -16,7 +16,7 @@ Tapski::Application.configure do
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
-  config.assets.precompile += %w( structure.css,style.css,jquery.css )
+  config.assets.precompile += %w( structure.css,style.css,jquery-ui-1.10.0.custom.js,jquery.css )
 
   # Generate digests for assets URLs
   config.assets.digest = true
