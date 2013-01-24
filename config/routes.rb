@@ -2,8 +2,15 @@ Tapski::Application.routes.draw do
   resources :listings
 
   root :to => "listings#index"
-
+  resources :identities
   match '/mylistings', :to => "listings#index"
+  resources :users
+  match "/login", :to => "sessions#new"
+  match "/signout" => "sessions#destroy", :as => :signout
+  match '/auth/:provider/callback',  to: 'sessions#create'
+  match "/auth/failure", to: "sessions#failure"
+  match '/auth/:provider/register',  to: 'users#create'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

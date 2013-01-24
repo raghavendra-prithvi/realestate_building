@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <!--================Container=================-->
 <div class="container">
 <!--==============Header=============-->
@@ -15,7 +16,7 @@
 <div class="logo"><a href="#"><img src="/assets/Tapski_logo.png" alt="Tapski" title="Tapski" width="218" height="71" /></a></div>
 <ul>
 <li><a href="#" title="Contact"><span id="icons"><img src="/assets/contact_icon.jpg" alt="" /></span>Contact</a></li>
-<li><a href="#" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Signout</a></li>
+<li><% if !session[:user_id].nil? %><a href="/signout" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Signout</a><% else %> <a href="/login" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Sigin</a> <% end %></li>
 </ul>
 <!--==============Nav=============-->
 <div class="nav">
