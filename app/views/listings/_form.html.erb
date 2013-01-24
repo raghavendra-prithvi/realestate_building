@@ -41,7 +41,7 @@
 			</div>
 			<div class="colmid">
 				<label>This property is for:</label>
-				<%= f.select :listing_type, [ ['Buy', 'Buy'],['Rent', 'Rent'] ]%>
+				<%= f.select :listing_type, [ ['Sale', 'Sale'],['Rental', 'Rental'] ]%>
 				<!-- <input type="radio"/> Rent
 				<input type="radio"/> Sale -->
 			</div>
@@ -60,7 +60,7 @@
 				<%= f.text_field :zip,{:class=>"small",:placeholder => "Zip Code"} %>
 			</div>
 			<div class="colmid">
-				<div class="colText"><label>Price Range</label></div>
+				<div class="colText"><label>Price</label></div>
 				<div class="colObj"><%= f.number_field :price, {:class => "large"} %><!-- <input type="text" class="large"/> --></div>
 			</div>
 			<div class="clrbth"></div>
@@ -85,27 +85,21 @@
 
 
 			<div class="colmid">
-				<div class="colText"><%= f.label :squarefootage %></div>
+				<div class="colText"><label>Sq. Footage</label></div>
 				<div class="colObj"><%= f.number_field :squarefootage %></div>
 			</div>
 			<div class="clrbth"></div>
 
 
 			<div class="colmid">
-				<div class="colText"><%= f.label :lotsize %></div>
+				<div class="colText"><label>Lot Size</label></div>
 				<div class="colObj"><%= f.number_field :lotsize %></div>
 			</div>
 			<div class="clrbth"></div>
 
 
-			<div class="colmid">
-				<div class="colText"><%= f.label :costpersqft %></div>
-				<div class="colObj"><%= f.number_field :costpersqft %></div>
-			</div>
-			<div class="clrbth"></div>
-
     		<div class="colmid">
-				<div class="colText"><%= f.label :yearbuilt %></div>
+				<div class="colText"><label>Year Built</label></div>
 				<div class="colObj"><%= f.number_field :yearbuilt %></div>
 			</div>
 			<div class="clrbth"></div>
@@ -124,13 +118,13 @@
 			<div class="clrbth"></div>
 
     		<div class="colmid">
-				<div class="colText"><%= f.label :mls %></div>
+				<div class="colText">MLS #</div>
 				<div class="colObj"><%= f.text_field :mls %></div>
 			</div>
 			<div class="clrbth"></div>
 
     		<div class="colmid">
-				<div class="colText"><%= f.label :status %></div>
+				<div class="colText">Active</div>
 				<div class="colObj"><%= f.check_box :status %></div>
 			</div>
 			<div class="clrbth"></div>

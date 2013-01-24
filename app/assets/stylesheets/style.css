@@ -255,7 +255,7 @@ body{font:normal 12px Arial, Helvetica, sans-serif;}
 
 input[type=text],textarea,select{
 	border:1px solid #D1D1D1;
-	background-color:#F5F5F5;
+	/*background-color:#F5F5F5; */
 }
 
 input[type=text].xlarge{
