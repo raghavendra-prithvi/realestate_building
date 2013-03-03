@@ -23,24 +23,27 @@
 <div class="btom-section">
 <div class="gray-bg-left"></div>
 <div class="gray-bg-center">
-<a href="/listings/new">
-<div class="left-section" title="Post a Listing">&nbsp;</div></a>
+<div class="left-section" title="Post a Listing">&nbsp;</div>
 <div class="center-section"><img src="/assets/search_home.jpg" alt="" width="276" height="129" /></div>
 <div class="right-section">
 <div class="form-bg">
-  <%= form_tag "/auth/identity/callback" do %>
-		<label>Email
-		<%= text_field_tag :auth_key %>
-		<br/>
-		<label>
-		Password
-		<%= password_field_tag :password %>
-		<br/>
-		<%= submit_tag "Login" %>
-	<% end %>
-	<br/>
-	<%= link_to 'New User Sign up', new_identity_path %>
-
+  <form id="form1" name="search_form" method="post" action="/homesearch">
+    <p>
+      <label>
+        <input type="radio" name="buy_rent" value="Rent" id="RadioGroup1_0" checked='checked' />
+        <span class="radio-text">Rent</span></label>
+        <input name="amount" type="text" class="text-box" placeholder="Maximam Rent" />
+      </label>
+      <br />
+      <label>
+        <input type="radio" name="buy_rent" value="Buy" id="RadioGroup1_1" />
+        <span class="radio-text pad-right">Buy</span></label>
+        <input name="amount" type="text" class="text-box" placeholder="Maximum Cost" />
+      </label>
+      <br />
+    </p>
+    <input type="submit" value="start finding" />
+  </form>
   </div>
 </div>
 </div>
@@ -48,6 +51,8 @@
 </div>
 
 
-
-
-
+<script>
+$('document').ready(function(){
+			$("#home").parent().addClass("active");
+});
+</script>

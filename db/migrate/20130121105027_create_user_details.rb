@@ -8,7 +8,6 @@ class CreateUserDetails < ActiveRecord::Migration
       t.integer :phone
       t.string :email
       t.string :updated_by
-
       t.timestamps
     end
   end

@@ -1,0 +1,136 @@
+<div class="innerPageContent">
+<div class="innerLeft">
+	<div class="sectionHeading">
+		User Name
+	</div>
+	<div class="labelLeft">Taps</div>
+	<div class="labelRight">Following</div>
+	<div class="labelLeft">56</div>
+	<div class="labelRight">15</div>
+	  <div class="clrbth"></div>
+<form action="/my_search_listing" method="post">
+	<div class="filterHeading">Filter Listing</div>
+	<div class="leftColFullContent">
+		<% if params[:buy_rent] == 'buy'%>
+		<input type="radio" name="buy_rent" value="rent"/> Rent
+		<input type="radio" name="buy_rent" value="buy" checked="true"/> Buy
+		<% else %>
+			<input type="radio" name="buy_rent" value="rent" checked="true"/> Rent
+			<input type="radio" name="buy_rent" value="buy" /> Buy
+		<% end %>
+	</div>
+
+	<div class="leftColFullContent">
+	Price Range
+	</div>
+
+	<div class="labelLeft">
+		<%=select_tag :max_amount, options_for_select([ ['No Min',0],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000] ]) %>
+	</div>
+	<div class="labelMid">to</div>
+	<div class="labelRight">
+		<%=select_tag :max_amount, options_for_select([ ['No Max',0],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000] ]) %>
+	</div>
+	<div class="clrbth tpMargin">&nbsp;</div>
+	<div class="labelLeft">Beds</div>
+	<div class="labelRight">Baths</div>
+
+	<div class="labelLeft">
+		<%=select_tag :bedrooms, options_for_select([ ['NoPref',0],[1, 1],[2,2],[3,3],[4,4] ]) %>
+		<!-- <select><option>No Pref</option></select> -->
+	</div>
+
+	<div class="labelRight">
+	<!-- <select><option>No Pref</option></select> -->
+		<%=select_tag :bathrooms, options_for_select([ ['NoPref',0],[1, 1],[2,2],[3,3],[4,4] ]) %>
+	</div>
+
+	<div class="clrbth"></div>
+
+	<div class="leftColLabelLeft">Keyword</div>
+	<div class="leftColObjectRight"><input type="text" class="mid" name='search'/></div>
+
+	<div class="clrbth"></div>
+
+	<div class="leftColLabelLeft">Zip</div>
+	<div class="leftColObjectRight"><input type="text" class="mid" name="zip" /></div>
+
+	<div class="clrbth"></div>
+
+	<div class="leftColLabelLeft">Only show from last</div>
+	<div class="leftColObjectRight">
+	<%=select_tag :bathrooms, options_for_select([['7 Days', '7d'],['15 Days', '15d'],['1 Month','1m'],['3 Month','3m'],['1 Year','1y'],['All Active','active']]) %>
+		<!-- <select><option></option></select> -->
+	</div>
+
+	<div class="clrbth"></div>
+
+	<div class="leftColFullContent">
+	<input type="button" class="btnBg" value="Save" id="save_search" />
+	<input type="submit" class="btnBg" value="Search" id="search" />
+	</div>
+</form>
+	<div class="leftColFullContent">
+	<input type="checkbox" />
+	Get email alerts
+	</div>
+
+	<div class="linkTextLeftCol">
+	<div class="iconHolder"><img src="/assets/messaging.png"/></div>
+	<div class="iconText">Messaging(2)</div>
+	<div class="clrbth"></div>
+	<div class="iconHolder"><img src="/assets/events.png"/></div>
+	<div class="iconText">Events</div>
+	<div class="clrbth"></div>
+	<div class="iconHolder"><img src="/assets/groups.png"/></div>
+	<div class="iconText">Groups</div>
+	<div class="clrbth"></div>
+	</div>
+
+
+</div>
+<img src="/assets/topInnerForm.png" style="margin:0px 0px 0px 10px;"/>
+<div class="innerRight oneColRight">
+
+
+
+  <div class="pageHeading"><h1>My Listing</h1></div>
+  <div class="clrbth"></div>
+    <% @listings.each do |l| %>
+	  	<div class="contentUImage"><img src="/assets/user.png"/></div>
+		<div class="contentDiv">Listing <%= l.id%>
+			<br/>
+			<%=l.listing_type%>
+			<br/>
+			<a href="#" id=<%=l.id%> onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
+		</div>
+	<div class="clrbth"></div>
+	<% end %>
+
+	<div class="rightColChkBox"><input type="checkbox"/> View Listings Only</div>
+
+
+</div>
+    <img src="/assets/bgFormContentBtm.png" style="margin:0px 0px 0px 210px;"/>
+
+
+<div class="clrbth"></div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+	function showListing(id)
+	{
+		$.ajax
+		  ({
+		    type: "GET",
+		    url: "/listings/"+id,
+		    success: function (data){
+		    	$("#result_data").html(data);
+		    }
+		});
+
+	}
+</script>

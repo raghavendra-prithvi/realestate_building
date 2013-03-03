@@ -2,7 +2,9 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @user = User.find(session[:user_id])
+    @listings = @user.listings
+    #@listings = Listing.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,5 +85,25 @@ class ListingsController < ApplicationController
       format.html { redirect_to listings_url }
       format.json { head :no_content }
     end
+  end
+
+
+  def home_search
+    puts params.inspect
+    @listings = Listing.where(:listing_type => params[:buy_rent]).where("price <= ?",params[:amount])
+    puts "*********************"
+    puts @listings.inspect
+  end
+
+  def my_search_listing
+    puts "****************"
+    puts params.inspect
+    @search = Listing.search do
+       params[:search]
+    end
+    @lists_key = @search.results
+
+    @listings = Listing.where(:listing_type => params[:buy_rent]).where("price <= ?",params[:max_amount]).where("price >=",params[:min_amount])
+    render :text => @lists_key.to_s
   end
 end

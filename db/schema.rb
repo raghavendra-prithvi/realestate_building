@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124135754) do
+ActiveRecord::Schema.define(:version => 20130224145651) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "listing_id"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20130124135754) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
+    t.integer  "user_id"
+    t.string   "name"
   end
 
   create_table "pictures", :force => true do |t|
@@ -104,6 +106,13 @@ ActiveRecord::Schema.define(:version => 20130124135754) do
     t.string   "updated_by"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "uid"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.integer  "zip"
   end
 
   create_table "users", :force => true do |t|

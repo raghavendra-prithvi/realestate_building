@@ -1,15 +1,23 @@
 Tapski::Application.routes.draw do
+  root :to => "home#index"
+
+
   resources :listings
 
-  root :to => "listings#index"
+  #root :to => "listings#index"
   resources :identities
   match '/mylistings', :to => "listings#index"
+  match '/profile', :to => "users#profile"
   resources :users
+  match "/save_profile", :to => "users#save_profile"
   match "/login", :to => "sessions#new"
   match "/signout" => "sessions#destroy", :as => :signout
   match '/auth/:provider/callback',  to: 'sessions#create'
   match "/auth/failure", to: "sessions#failure"
   match '/auth/:provider/register',  to: 'users#create'
+  match '/edit' =>  'users#edit_profile'
+  match '/homesearch' => 'listings#home_search'
+  match '/my_search_listing' => 'listings#my_search_listing'
 
 
   # The priority is based upon order of creation:

@@ -13,20 +13,34 @@
 <div class="container">
 <!--==============Header=============-->
 <div class="header">
-<div class="logo"><a href="#"><img src="/assets/Tapski_logo.png" alt="Tapski" title="Tapski" width="218" height="71" /></a></div>
+<div class="logo"><a href="/"><img src="/assets/Tapski_logo.png" alt="Tapski" title="Tapski" width="218" height="71" /></a></div>
 <ul>
 <li><a href="#" title="Contact"><span id="icons"><img src="/assets/contact_icon.jpg" alt="" /></span>Contact</a></li>
-<li><% if !session[:user_id].nil? %><a href="/signout" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Signout</a><% else %> <a href="/login" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Sigin</a> <% end %></li>
+<% if !session[:user_id].nil? %>
+<li><a href="/profile" title="Profile"><span id="icons"><img src="/assets/contact_icon.jpg" alt="" /></span>Profile</a></li>
+<li>
+		<a href="/signout" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Signout</a>
+</li>
+<% else %>
+	<li>
+		<a href="/login" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Sigin</a>
+	</li>
+<% end %>
+
 </ul>
 <!--==============Nav=============-->
+
 <div class="nav">
+<% if current_user%>
 <ul>
-<li ><a href="#" title="Agents">Home</a></li>
+<li ><a href="/" title="Agents" id="home">Home</a></li>
 <li><a href="/listings/new" id="new_listing" title="Home Searches">Create Listing</a></li>
 <li><a href="/mylistings" id="my_listings" title="About Us">My Listing</a></li>
 <li><a href="#" title="About Us">Saved Searches</a></li>
 </ul>
+<% end %>
 </div>
+
 <!--==============Nav End=============-->
 </div>
 <!--==============Header End=============-->

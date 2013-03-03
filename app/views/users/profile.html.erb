@@ -1,0 +1,40 @@
+<p>
+  <b>Email:</b>
+  <%= @ud.email %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @ud.first_name %>
+  <nbsp/>
+  <%= @ud.last_name %>
+</p>
+<p>
+  <b>Picture_id:</b>
+  <%= @ud.picture_id %>
+</p>
+<p>
+  <b>Is My Profile_public?</b>
+  <%if @ud.profile_public? %>
+  	<input type="checkbox" checked="checked" disabled="true" />
+  <% else %>
+  	<input type="checkbox" disabled="true" />
+  <% end %>
+</p>
+<p>
+  <b>Address:</b>
+  <div>
+  	<%= @ud.address1 %>
+  	<br/>
+  	<%= @ud.address2 %>
+  	<br/>
+  	<%= @ud.city %>
+  	<br/>
+  	<%= @ud.zip %>
+  </div>
+</p>
+<p>
+  <b>phone:</b>
+  <%= @ud.phone %>
+</p>
+
+<a href="/edit"> Edit</a>

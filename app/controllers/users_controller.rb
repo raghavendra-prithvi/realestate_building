@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
   def new
-	@user = User.new
-	if current_user.present?
-		redirect_to petitions_path
-	end
+  	@user = User.new
+  	if current_user.present?
+  		redirect_to petitions_path
+  	end
   end
 
   def destroy
@@ -14,24 +14,13 @@ class UsersController < ApplicationController
 
 
   def remove
-	#@votedfor = Vote.where(:user_id=>params[:current_user]).where(:vote1=>params[:petition])
-	#@votedfor = Vote.where(current_user=>params[:user_id])
-	@votedfor = current_user.vote
-	@vote1 = @votedfor.vote1
-	@vote2 = @votedfor.vote2
-	@vote3 = @votedfor.vote3
-	@petitionnum = params[:order_param]
-	@petition = Petition.find(params[:order_param])
-	@rating = @petition.rating
-	#if @vote1 == params[:zing]
-		#@deleting = @vote1
-	#@votedfor.vote1.destroy
-	#redirect_to(delete_path) and return if params[:cancel]
-	#@petition = Petition.find.where( :id => @vote.vote1 )
-	#@petitionvotes = @petition.rating
-	#downvote @petitionvotes
-
-
+  	@votedfor = current_user.vote
+  	@vote1 = @votedfor.vote1
+  	@vote2 = @votedfor.vote2
+  	@vote3 = @votedfor.vote3
+  	@petitionnum = params[:order_param]
+  	@petition = Petition.find(params[:order_param])
+  	@rating = @petition.rating
   end
 
 
@@ -73,17 +62,40 @@ class UsersController < ApplicationController
 	@user = current_user
   end
 
+  def profile
+    @user = User.find(session[:user_id])
+    session[:uid] = @user.uid
+    @ud =   UserDetail.find_by_uid(@user.uid)
+    if @ud.blank?
+      @ud = UserDetail.new
+      @ud.email = @user.email
+      @ud.uid = @user.uid
+      @ud.save
+    end
+  end
 
+  def edit_profile
+        @ud =   UserDetail.find_by_uid(session[:uid])
+        @ud.save
+  end
 
-  	def add
+  def save_profile
+    @ud = UserDetail.find_by_uid(session[:uid])
+    @ud.first_name = params[:first_name]
+    @ud.last_name = params[:last_name]
+    @ud.address1 = params[:address1]
+    @ud.address2 = params[:address2]
+    @ud.email = params[:email]
+    @ud.city = params[:city]
+    @ud.zip = params[:zip]
+    @ud.profile_public = params[:profile_public]
+    @ud.phone = params[:phone]
+    @ud.save
+    redirect_to "/profile"
+  end
+
+      def add
 		current_user.itempairs.create( :item_id => params[:item_id], :number => params[:number], :itemname => params[:itemname], :pic => params[:pic], :itemcost => params[:itemcost] )
 		redirect_to items_path
 	end
-
-
-
-
-
-
-
 end
