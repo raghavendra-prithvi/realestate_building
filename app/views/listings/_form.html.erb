@@ -40,6 +40,12 @@
 				<%= f.text_field :adjustment_type,{:placeholder => "Select Residential Type"} %>
 			</div>
 			<div class="colmid">
+				<label>Name:</label>
+				<%= f.text_field :name %>
+				<!-- <input type="radio"/> Rent
+				<input type="radio"/> Sale -->
+			</div>
+			<div class="colmid">
 				<label>This property is for:</label>
 				<%= f.select :listing_type, [ ['Sale', 'Sale'],['Rental', 'Rental'] ]%>
 				<!-- <input type="radio"/> Rent
