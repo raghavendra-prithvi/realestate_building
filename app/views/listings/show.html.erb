@@ -1,109 +1,141 @@
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 <p id="notice"><%= notice %></p>
-  <div class="infoAction">
+<div class="infoAction">
 
   <div class="contentInnerLeft">
-      <div class="homeImageHolder">
-        <img src="/assets/home.png"/>
-        <img src="/assets/pagination.png" style="margin:10px 0px;"/>
-      </div>
+    <div class="homeImageHolder">
+      <% @pictures.each do |p| %>
+        <%= image_tag url_for(:action => 'show_image', :id => p.id), :size => "300x200" %>
+      <% end %>
+      <!-- <img src="/assets/home.png"/>
+      <img src="/assets/pagination.png" style="margin:10px 0px;"/> -->
+    </div>
   </div>
 
-  	<div class="contentInnerRight">
-
+  <div class="contentInnerRight">
+    <div id="editButtonsDiv">
       <input type="button" class="btnStyle rename" value="Rename"/>
-
-	<!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
+      <!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
       <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btnStyle modify" value="Modify"/> </a>
-     <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href=<%=@listing%> > <input type="button" class="btnStyle delete" value="Delete"/></a>
+      <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href=<%=@listing%> > <input type="button" class="btnStyle delete" value="Delete"/></a>
       <input type="button" class="btnStyle addEvent" value="Add Event"/>
     </div>
-
-
-  </div>
-	 <div class="contentInnerLeft">
-	 	      <div class="info">
-        <div class="left">Listing Type:</div>
-        <div class="right"><%= @listing.listing_type %></div>
+    <div id="ContactLink" style="display:none" >
+      <input type="button" class="btnStyle addEvent" value="Contact" onclick="getContactDetails(this.id); return false;"  id=<%=@listing.id%> />
+      <div class="selector">
+        <div id="divInDialog"></div>
       </div>
-
-      <div class="info">
-        <div class="left">Price</div>
-        <div class="right"><%= @listing.price %></div>
-      </div>
-
-      <div class="info">
-        <div class="left">Loan Payment</div>
-        <div class="right"><%= @listing.laonpayment %></div>
-      </div>
-
-      <div class="info">
-        <div class="left">Bedroom</div>
-        <div class="right"><%= @listing.bedrooms %></div>
-      </div>
-
-      <div class="info">
-        <div class="left">Bathrooms</div>
-        <div class="right"><%= @listing.bathrooms %></div>
-      </div>
-
-      <div class="info">
-        <div class="left">Square Footage</div>
-        <div class="right"><%= @listing.squarefootage %></div>
-      </div>
-      <div class="info">
-        <div class="left">$/sqft</div>
-        <div class="right"><%= @listing.costpersqft %></div>
-      </div>
-
-      <div class="info">
-        <div class="left">Type</div>
-        <div class="right"><%= @listing.adjustment_type %></div>
-      </div>
-
-      <div class="info">
-        <div class="left">Year Built</div>
-        <div class="right"><%= @listing.yearbuilt %></div>
-      </div>
-
-      <div class="info">
-        <div class="left">Lot Size</div>
-        <div class="right"><%= @listing.lotsize %></div>
-      </div>
-
-      <div class="info">
-        <div class="left">Days on Tapski</div>
-        <div class="right"><%= @listing.daysontapski %></div>
-      </div>
-      <div class="info">
-        <div class="left">Neighborhood</div>
-        <div class="right"><%= @listing.neighbourhood %></div>
-      </div>
-      <div class="info">
-        <div class="left">MLS#</div>
-        <div class="right"><%= @listing.mls %></div>
-      </div>
-      <div class="info">
-        <div class="left">Status</div>
-        <div class="right"><% if @listing.status == true%>
-								Active
-  							<% else %>
-								InActive
-						  <% end %></div>
-      </div>
-
-
-
-	 </div>
-    <div class="contentInnerRight">
-      <div><input type="checkbox" id="activeChk"> <label for="activeChk">Active</label></div>
-      <div><input type="checkbox" id="reportChk"> <label for="reportChk">Report this Weekly</label></div>
-      <div><input type="checkbox" id="tapsChk"> <label for="tapsChk">Use this listing to search Wanted Taps</label></div>
     </div>
+  </div>
 
-  <div class="bottomContent">
-    <div> Link to: <input type="text" /> </div>
-     <div>Attach Docs: <input type="file" /></div>
+
+</div>
+<div class="contentInnerLeft">
+  <div class="info">
+    <div class="left">Listing Type:</div>
+    <div class="right"><%= @listing.listing_type %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Price</div>
+    <div class="right"><%= @listing.price %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Loan Payment</div>
+    <div class="right"><%= @listing.laonpayment %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Bedroom</div>
+    <div class="right"><%= @listing.bedrooms %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Bathrooms</div>
+    <div class="right"><%= @listing.bathrooms %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Square Footage</div>
+    <div class="right"><%= @listing.squarefootage %></div>
+  </div>
+  <div class="info">
+    <div class="left">$/sqft</div>
+    <div class="right"><%= @listing.costpersqft %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Type</div>
+    <div class="right"><%= @listing.adjustment_type %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Year Built</div>
+    <div class="right"><%= @listing.yearbuilt %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Lot Size</div>
+    <div class="right"><%= @listing.lotsize %></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Days on Tapski</div>
+    <div class="right"><%= @listing.daysontapski %></div>
+  </div>
+  <div class="info">
+    <div class="left">Neighborhood</div>
+    <div class="right"><%= @listing.neighbourhood %></div>
+  </div>
+  <div class="info">
+    <div class="left">MLS#</div>
+    <div class="right"><%= @listing.mls %></div>
+  </div>
+  <div class="info">
+    <div class="left">Status</div>
+    <div class="right"><% if @listing.status == true%>
+        Active
+      <% else %>
+        InActive
+      <% end %></div>
   </div>
 
 
 
+</div>
+<div class="contentInnerRight">
+  <div><input type="checkbox" id="activeChk"> <label for="activeChk">Active</label></div>
+  <div><input type="checkbox" id="reportChk"> <label for="reportChk">Report this Weekly</label></div>
+  <div><input type="checkbox" id="tapsChk"> <label for="tapsChk">Use this listing to search Wanted Taps</label></div>
+</div>
+
+<div class="bottomContent">
+  <div> Link to: <input type="text" /> </div>
+  <div>Attach Docs: <input type="file" /></div>
+</div>
+
+
+
+<script type="text/javascript">
+  function getContactDetails(listing_id){
+    $( ".selector" ).dialog({
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      },
+      position : 'top',
+      title: "Contact Details",
+      open: function(event, ui) {
+        $('#divInDialog').load('/get_listing_contact?listing_id='+listing_id, function() {
+          //alert('Load was performed.');
+        });
+      }
+    });
+  };
+</script>

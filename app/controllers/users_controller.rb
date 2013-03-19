@@ -26,7 +26,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+
     if @user.save
+      @ud = UserDetail.new
+      @ud.uid = @user.id
+      @ud.email = @user.email
+      @ud.save
       flash[:success] = "Thanks for Registering! An e-mail has been sent to you to confirm your account"
       redirect_to petitions_path
 	  UserMailer.registration_confirmation(@user).deliver

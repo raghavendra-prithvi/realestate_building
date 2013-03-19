@@ -19,6 +19,10 @@ Tapski::Application.routes.draw do
   match '/homesearch' => 'listings#home_search'
   match '/my_search_listing' => 'listings#my_search_listing'
 
+  match '/get_listing_contact' => 'listings#get_contact'
+  match '/show_image' => 'listings#show_image'
+  match '/add_images' => 'listings#add_images'
+  match '/upload_image' => 'listings#upload_image', :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

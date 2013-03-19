@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+
+ input[type='button']{
+     cursor:pointer;
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224145651) do
+ActiveRecord::Schema.define(:version => 20130318144839) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "listing_id"
@@ -60,8 +60,12 @@ ActiveRecord::Schema.define(:version => 20130224145651) do
 
   create_table "pictures", :force => true do |t|
     t.integer  "listing_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.binary   "data"
   end
 
   create_table "search", :force => true do |t|

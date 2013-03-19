@@ -1,22 +1,63 @@
-<!-- <table>
+
+
+
+
+
+
+<div class="innerPageContent">
+
+  <div class="innerLeft">
+    <ul class="leftNav">
+      <% @listings.each do |l| %>
+
+        <a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
+
+      <% end %>
+
+    </ul>
+
+    <div class="optOne">
+      <select>
+        <option>For Sale</option>
+        <option>For Rent</option>
+        <option>Both</option>
+      </select>
+    </div>
+    <div class="optTwo">
+      <select>
+        <option>Active</option>
+        <option>Inactive</option>
+        <option>Both</option>
+      </select>
+    </div>
+  </div>
+  <img src="/assets/topInnerForm.png" style="margin:0px 0px 0px 10px;"/>
+  <div class="innerRight">
+
+    <div class="pageHeading"><h1>My Listing</h1></div>
+    <div class="uname" ><div class="uimage"><img src="/assets/user.png"  /></div><div class="username">Welcome! <%= session[:user_name]%></div></div>
+
+    <div class="clrbth"></div>
+
+    <div class="contentInner" id="result_data">
+
+ <!-- <table>
   <tr>
-  	<th>Listing Type</th>
+  	<th>Type</th>
     <th>Price</th>
     <th>Laonpayment</th>
     <th>Bedrooms</th>
     <th>Bathrooms</th>
-    <th>Squarefootage</th>
-    <th>Costpersqft</th>
+    <th>Squareft</th>
+    <th>Cost/sq</th>
     <th>Type</th>
-    <th>Yearbuilt</th>
+    <th>Year</th>
     <th>Lotsize</th>
     <th>Daysontapski</th>
     <th>Neighbourhood</th>
     <th>Mls#</th>
     <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    
   </tr>
 
 <% @listings.each do |listing| %>
@@ -40,98 +81,56 @@
     <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
-</table>
--->
+</table> -->
+
+      <div class="infoAction">
+
+        <div class="contentInnerLeft">
+        </div>
+
+        <div class="contentInnerRight">
+
+        </div>
 
 
+      </div>
+      <div class="contentInnerLeft">	 </div>
+      <div class="contentInnerRight">
+      </div>
+
+      <div class="bottomContent">
+      </div>
 
 
+    </div>
 
-<div class="innerPageContent">
 
-<div class="innerLeft">
-<ul class="leftNav">
-  <% @listings.each do |l| %>
+  </div>
+  <img src="/assets/bgFormContentBtm.png" style="margin:0px 0px 0px 210px;"/>
 
-  		<a href="#" id=<%=l.id%> onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
-
-  <% end %>
-
-</ul>
-
-<div class="optOne">
-  <select>
-    <option>For Sale</option>
-    <option>For Rent</option>
-    <option>Both</option>
-  </select>
-</div>
-<div class="optTwo">
- <select>
-    <option>Active</option>
-    <option>Inactive</option>
-    <option>Both</option>
-  </select>
-</div>
-</div>
-<img src="/assets/topInnerForm.png" style="margin:0px 0px 0px 10px;"/>
-<div class="innerRight">
-
-  <div class="pageHeading"><h1>My Listing</h1></div>
-  <div class="uname" ><div class="uimage"><img src="/assets/user.png"  /></div><div class="username">Welcome! <%= session[:user_name]%></div></div>
 
   <div class="clrbth"></div>
-
-  <div class="contentInner" id="result_data">
-
-	  <div class="infoAction">
-
-  <div class="contentInnerLeft">
-  </div>
-
-  	<div class="contentInnerRight">
-
-    </div>
-
-
-  </div>
-	 <div class="contentInnerLeft">	 </div>
-    <div class="contentInnerRight">
-    </div>
-
-  <div class="bottomContent">
-  </div>
-
-
-  </div>
-
-
-</div>
-    <img src="/assets/bgFormContentBtm.png" style="margin:0px 0px 0px 210px;"/>
-
-
-<div class="clrbth"></div>
 
 </div>
 </div>
 
 <script type="text/javascript">
-	$('document').ready(function(){
-				$("#my_listings").parent().addClass("active");
-			 if ($("#1")){
-			 	$("#1").click();
-			 }
-	});
-	function showListing(id)
-	{
-		$.ajax
-		  ({
-		    type: "GET",
-		    url: "/listings/"+id,
-		    success: function (data){
-		    	$("#result_data").html(data);
-		    }
-		});
+  $('document').ready(function(){
+    $("#my_listings").parent().addClass("active");
+    if ($(".mylistings")){
+      $(".mylistings")[0].click();
+    }
+  });
+  function showListing(id)
+  {
+    $.ajax
+    ({
+      type: "GET",
+      url: "/listings/"+id,
+      success: function (data){
+        $("#result_data").html(data);
+      }
+    });
 
-	}
+  }
 </script>
