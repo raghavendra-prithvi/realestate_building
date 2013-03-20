@@ -1,6 +1,9 @@
 <h3>Upload Images</h3>
 <div id="ImageList">
-
+  <%@pictures.each do |p|%>
+  <span style="padding:2px"><%= image_tag url_for(:action => 'show_image', :id => p.id), :size => "180x160" %></span>
+  
+  <% end %>
 
 </div>
 
@@ -36,10 +39,8 @@
 
                         //Ajax events
                         success: completeHandler = function(data) {
-                        if(data == '1'){
-                          $('.imageForm')[0].reset();
+                          $('#ImageList').append('<span style="padding:2px"><img width="180" height="160" src="/show_image?id='+data+'" alt="Show_image?id='+data+'" ></span>')
                           alert("success");
-                        }
                       },
                         /*error: errorHandler = function() {
                             alert("error");

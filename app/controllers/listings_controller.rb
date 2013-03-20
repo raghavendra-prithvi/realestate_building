@@ -164,11 +164,12 @@ query = "Select * from LISTINGS where "
   end
 
   def add_images
+
+      @pictures = Listing.where(:id => params[:listing_id]).first.pictures
      render :html => "add_images", :layout => false
   end
 
   def upload_image
-    puts params
     uploadimages = Picture.new
     uploadimages.upload_file_name = params[:image_file].original_filename
     uploadimages.upload_content_type = params[:image_file].content_type
@@ -176,7 +177,7 @@ query = "Select * from LISTINGS where "
     uploadimages.data = params[:image_file].read
     uploadimages.listing_id = params[:listing_id]
     uploadimages.save!
-    render :text => 1
+    render :text => uploadimages.id
     #puts "saved"
   end
 end

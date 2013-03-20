@@ -11,7 +11,7 @@
 	      </ul>
 	    </div>
   	<% end %>
-  <input type="text" id="hiddenListingId" value=<%=@listing.id%>  />
+  <input type="hidden" id="hiddenListingId" value=<%=@listing.id%>  />
 	<div id="tabs">
 		<ul>
 		<li><a href="#tabs-1">Create Listing</a></li>
@@ -140,16 +140,18 @@
 			<div class="colmid">
                           <% unless @listing.pictures.blank? %>
                                 <% @listing.pictures.each do |p| %>
-                                    <%= image_tag url_for(:action => 'show_image', :id => p.id), :size => "300x200" %>
+                                    <%= image_tag url_for(:action => 'show_image', :id => p.id), :size => "100x100" %>
                                   <% end %>
                           <% end %>
-				<div class="colText"><label>Attach Photos</label></div>
-                                <div class="colObj"><input type="file" name="image_file" value = "Select a file" />
+                          </div>
+				<div class="colText">
+                                  <!--<label>Attach Photos</label></div>
+                                <div class="colObj"><input type="file" name="image_file" value = "Select a file" />-->
                                   
-                                  <input type="button" onclick="jQuery('#dialog').load('/add_images').dialog('open');"  value="Upload Image" />
-                                </div>
+                                  <input type="button" onclick="jQuery('#dialog').load('/add_images?listing_id=<%=@listing.id%>').dialog('open');"  value="Upload Image" />
+                                </div> 
 
-			</div>
+			
 
 			<div class="btnHolders">
 				<input type="button" class="continueFormBtn" value="Continue" id="tab1_continue"/>
@@ -255,6 +257,8 @@ $(document).ready(function(){
         autoOpen: false,
         x:100,
         y:100,
+        position:'top',
+        width: 600,
         //height: 100,
         modal: true
        }
