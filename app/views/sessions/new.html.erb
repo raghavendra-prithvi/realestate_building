@@ -27,26 +27,30 @@
 <div class="left-section" title="Post a Listing">&nbsp;</div></a>
 <div class="center-section"><img src="/assets/search_home.jpg" alt="" width="276" height="129" /></div>
 <div class="right-section">
-<div class="form-bg">
-  <%= form_tag "/auth/identity/callback" do %>
-		<label>Email
-		<%= text_field_tag :auth_key %>
-		<br/>
-		<label>
-		Password
-		<%= password_field_tag :password %>
-		<br/>
-		<%= submit_tag "Login" %>
-	<% end %>
-	<br/>
-	<%= link_to 'New User Sign up', new_identity_path %>
 
-  </div>
 </div>
 </div>
 <div class="gray-bg-right"></div>
 </div>
 
+<script>
+  $('document').ready(function(){
+    $("#formSignInId")
+      .dialog(
+       {
+        bgiframe: true,
+        autoOpen: false,
+        x:100,
+        y:100,
+        position:'top',
+        width: 320,
+        //height: 100,
+        modal: true
+       }
+      );
+    $("#formSignInId").dialog('open');
+  });
+</script>
 
 
 

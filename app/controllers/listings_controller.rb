@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   # GET /listingssession
   # GET /listings.json
+  before_filter :require_login
   def index
     @user = User.find(session[:user_id])
     puts @user.inspect

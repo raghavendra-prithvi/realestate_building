@@ -17,6 +17,7 @@ body{font:normal 12px Arial, Helvetica, sans-serif;}
 .content .top-section .right-block{width:570px; position:relative; background:url(/assets/shade_box_c.jpg) left top repeat-x #fff;  height:341px;  float:left; display:inline-block;}
 .left-bg{background:url(/assets/shade_box_l.jpg) left top no-repeat; left:0; top:0px; width:10px; height:341px; float:left;}
 .right-bg{background:url(/assets/shade_box_r.jpg) left top no-repeat; right:0; top:0px; width:10px; height:341px; float:right;}
+.right-no-bg{right:0; top:0px; width:10px; height:341px; float:right;}
 .content .top-section .right-block .theme-img{float:left; margin: 30px 0 0 35px;}
 .content .btom-section{width:980px; overflow:hidden; height:203px;}
 .content .btom-section .gray-bg-left{width:10px; float:left; background:url(/assets/gray_bg_left.jpg) left top no-repeat; height:203px;}
@@ -59,7 +60,7 @@ body{font:normal 12px Arial, Helvetica, sans-serif;}
 
 .homeImageHolder{
 	width:370px;
-	height:270px;
+	height:200px;
 	overflow:hidden;
 }
 .info{

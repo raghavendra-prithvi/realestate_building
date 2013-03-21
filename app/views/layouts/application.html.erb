@@ -25,7 +25,7 @@
 </li>
 <% else %>
 	<li>
-		<a href="/login" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Sign In</a>
+		<a href="#" title="SignIn" id="signIn" onclick="$('#formSignInId').dialog('open');"><img src="/assets/signout_icon.jpg" alt="" />Sign In</a>
 	</li>
 <% end %>
 
@@ -55,6 +55,26 @@
 <!--==============Content End=============-->
 <!--==============Footer=============-->
 <div class="footer">&copy;2012 allright reserved.</div>
+<div class="form-bg" id="formSignInId"">
+     <div id="signInDiv">
+  <%= form_tag "/auth/identity/callback" do %>
+		<table>
+                  <tr><td>Email</td>
+		<td><%= text_field_tag :auth_key %></td></tr>
+		<tr><td>
+		Password</td><td>
+		<%= password_field_tag :password %></td></tr>
+                <tr>
+                  <td>
+                  <%= submit_tag "Login" %></td>
+                </tr>
+                </table>
+	<% end %>
+	<br/>
+	<%= link_to 'New User Sign up', new_identity_path %>
+        </div>
+   
+  </div>
 </body>
 
 <script>
@@ -62,7 +82,22 @@ $('document').ready(function(){
 	$("#new_listing").click(function(){
 			//$(".active").removeClass("active");
 			$("#new_listing").parent().addClass("active");
-	})
+
+	});
+        $("#formSignInId")
+      .dialog(
+       {
+        bgiframe: true,
+        autoOpen: false,
+        x:100,
+        y:100,
+        position:'top',
+        width: 320,
+        title : "Sign In",
+        //height: 100,
+        modal: true
+       }
+      );
 });
 </script>
 </html>
