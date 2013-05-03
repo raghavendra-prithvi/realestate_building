@@ -1,0 +1,55 @@
+<div class="innerPageContent">
+  <%= render partial: "left_side" %>
+  <img src="/assets/topInnerForm.png" style="margin:0px 0px 0px 10px;">
+  <div class="innerRight">
+    <div class="pageHeading">
+      <h1>Edit searches</h1>
+    </div>
+    <div class="contentInner">
+      <%= form_for @search, :url => mysearch_path(@search) do |f| %>
+        <div class="form-row">
+          <%= f.label "Keyword" %>
+          <%= f.text_field :keywords %>
+        </div>
+        <div class="form-row">
+          <%= f.label "Listing Type" %>
+          <%= f.radio_button :buy_rent, "Rental" %> 
+          <%=  f.label "Rent" %> 
+          <%= f.radio_button :buy_rent, "Sale" %>
+          <%=  f.label "Buy" %> 
+        </div>
+        <div class="form-row">
+          <%= f.label "Min Amount" %>
+          <%= f.select :min_amount, options_for_select([["No Min", ""], 500, 1000, 5000, 10000, 50000], @search.min_amount) %>
+        </div>
+        <div class="form-row">
+          <%= f.label "Max Amount" %>
+          <%= f.select :max_amount, options_for_select([["No Min", ""], 500, 1000, 5000, 10000, 50000], @search.max_amount) %>
+        </div>
+        <div class="form-row">
+          <%= f.label "Beds" %>
+          <%= f.select :beds, options_for_select([["No Pref", ""], 1, 2, 3, 4], @search.beds) %>
+        </div>
+        <div class="form-row">
+          <%= f.label "Bath" %>
+          <%= f.select :bath, options_for_select([["No Pref", ""], 1, 2, 3, 4], @search.bath) %>
+        </div>
+        <div class="form-row">
+          <%= f.label "Zip" %>
+          <%= f.text_field :zip %>
+        </div>
+        <div class="form-row">
+          <%= f.label "Show From Last" %>
+          <%= f.select :days_before, options_for_select([["No Min", ""], "7 days", "15 days", "1 month", "3 months", "1 year"],
+          @search.days_before) %>
+        </div>
+        <div class="form-row">
+          <%= f.submit "Save", :class => "submit" %> 
+          <%= link_to "Cancel", mysearches_path, :class => "cancel" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <img src="/assets/bgFormContentBtm.png" style="margin:0px 0px 0px 210px;">
+  <div class="clrbth"></div>
+</div>

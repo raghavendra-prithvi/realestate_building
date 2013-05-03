@@ -31,6 +31,8 @@ Tapski::Application.routes.draw do
   match '/reply_message' => 'users#reply_message'
   match '/send_message' => 'users#send_message'
   match '/delete_message' => 'users#delete_message'
+  
+  resources :mysearches
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
