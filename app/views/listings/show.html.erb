@@ -35,7 +35,8 @@
       <input type="button" class="btnStyle rename" value="Rename"/>
       <!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
       <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btnStyle modify" value="Modify"/> </a>
-      <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href=<%=@listing%> > <input type="button" class="btnStyle delete" value="Delete"/></a>
+      <%= link_to (button_tag "Delete", :class => "btnStyle delete", :type => "input"),
+        listing_path(@listing), :method => :delete, :confirm => "Are you sure?", :rel => "nofollow" %>
       <input type="button" class="btnStyle addEvent" value="Add Event"/>
     </div>
     <div id="ContactLink" style="display:none" >
