@@ -2,7 +2,11 @@ Tapski::Application.routes.draw do
   root :to => "home#index"
 
 
-  resources :listings
+  resources :listings do
+    member do
+      post 'rename'
+    end
+  end
 
   #root :to => "listings#index"
   resources :identities

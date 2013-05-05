@@ -199,4 +199,10 @@ class ListingsController < ApplicationController
     render :text => uploadimages.id
     #puts "saved"
   end
+
+  def rename
+    @listing = Listing.find(params[:id])
+    @listing.update_attribute('name', params["listing-name"])
+    redirect_to mylistings_path
+  end
 end
