@@ -117,55 +117,22 @@ class ListingsController < ApplicationController
   end
 
   def my_search_listing
-   
-    @lists_key = []
-    if(!params[:key_search].nil? && params[:key_search] != '')
-#      puts "inside param keyword"
-#      puts params[:key_search]
-#      @search = Listing.search do
-#         params[:key_search]
-#      end
-#      @lists_key = @search.results
-#      puts @lists_key.inspect
-#      puts "**********"
-      @lists_key = Listing.search(params[:key_search])
-    end
-    query = "Select * from LISTINGS where "
-
-    unless params[:buy_rent].blank?
-      query = query + "listing_type= '" + params[:buy_rent] + "'"
+    @key_search_listings = Listing.search(params[:key_search]) if params[:key_search].present?
+    query = []
+    query << "listing_type = '#{params[:buy_rent]}'" if params[:buy_rent].present?
+    query << "price >= #{params[:min_amount]}" if params[:min_amount].present?
+    query << "price <= #{params[:max_amount]}" if params[:max_amount].present?
+    query << "bedrooms = #{params[:bedrooms]}" if params[:bedrooms].present?
+    query << "bathrooms = #{params[:bathrooms]}" if params[:bathrooms].present?
+    query << "zipcode = #{params[:zip]}" if params[:zip].present?
+    if params[:days_before] == "active" 
+      query << "status = true"
+    else
+      query << "created_at >= '#{params[:days_before].to_i.days.ago}'"
     end
 
-    unless params[:max_amount].blank?
-      query = query + " AND price <= " + params[:max_amount]
-    end
-
-    unless params[:min_amount].blank?
-      query = query + " AND price >= " + params[:min_amount]
-    end
-
-    unless params[:bedrooms].blank?
-      query = query + " AND bedrooms = " + params[:bedrooms]
-    end
-
-    unless params[:bathrooms].blank?
-      query = query + " AND bathrooms = " + params[:bathrooms]
-    end
-
-    unless params[:zip].blank?
-      query = query + " AND zip like " + params[:zip]
-    end
-
-    unless params[:days_before].blank?
-      #query = query + " AND created_at >= " + (Time.now - params[:days_before].to_i.days).strftime('%d-%m-%Y').to_s
-    end
-
-    puts "sql query #{query}"
-    @listings = Listing.find_by_sql(query) #where(:listing_type => params[:buy_rent]).where("price <= ?",params[:max_amount]).where("price >=",params[:min_amount])
-    
-    puts @listings.inspect
-    #    render :text => @lists_key.to_s
-    render :html => "my_search_listing", :layout => false
+    @listings = Listing.where(query.join(" AND "))
+    render :layout => false
   end
 
 
