@@ -535,13 +535,13 @@ $(document).ready(function(){
     var edit_lng = $("#longitude").val();
     var edit_lat = $("#lattitude").val();    
     var marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(edit_lat, edit_lng),
+                            position: new google.maps.LatLng(edit_lng,edit_lat),
                             map: map
                         });
     if((edit_lng.length > 0) || (edit_lat.length > 0))
     {
       marker.setMap(map);
-      map.setCenter(new google.maps.LatLng(edit_lat, edit_lng));
+      map.setCenter(new google.maps.LatLng(edit_lng,edit_lat));
     }
   });
 </script>

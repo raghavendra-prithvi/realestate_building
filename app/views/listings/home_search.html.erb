@@ -144,6 +144,9 @@
 
 
 <script type="text/javascript">
+
+	
+  
 	function showListing(id)
   {
     $.ajax
@@ -182,8 +185,34 @@
     });
 
   });
-
+	
+	function getContactDetails(listing_id){
+		if($(".selector").closest('.ui-dialog').is(':visible')) { 
+			return false;
+		}
+			$( ".selector" ).dialog({
+			  show: {
+				effect: "blind",
+				duration: 1000
+			  },
+			  hide: {
+				effect: "explode",
+				duration: 1000
+			  },
+			  position : 'top',
+			  title: "Contact Details",
+			  open: function(event, ui) {
+				/*$('#divInDialog').load('/get_listing_contact?listing_id='+listing_id, function() {
+				  //alert('Load was performed.');
+				  return false;
+				});*/
+			  }
+			});
+		
+  };
   $(document).ready(function(){
+  
+	
     $("#save_search").click(function() {
 
        if($("#key_search").val() == "" && $("#min_amount").val() == "" && $("#max_amount").val() == "" && $("#bedrooms").val() == "" && $("#bathrooms").val() == "" && $("#zip").val() == ""){

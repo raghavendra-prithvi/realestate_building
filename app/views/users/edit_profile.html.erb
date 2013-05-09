@@ -1,5 +1,5 @@
 <div class="innerPageContent oneCol">
-	<form action="/save_profile">
+	<form action="/save_profile" enctype="multipart/form-data" accept-charset="UTF-8" method="post">
 	<div class="pageHeading"><h1>Edit <%=@ud.first_name%>  Profile </h1></div>
 	<div class="clrbth"></div>
 		<div class="colmid">
@@ -37,11 +37,7 @@
 			<label>Attach Photo</label>
 			</div>
 		   <div class="colObj">
-			 <% if @ud.id.nil? %>
-				<input type="file" name="image_file" value = "Select a file" />
-			 <% else %>
-			  <input type="button" onclick="jQuery('#dialog').load('/add_images?user_id=<%=@ud.id%>').dialog('open');"  value="Upload Image" />
-			 <% end %>
+			 <input type="file" name="image_file" value = "Select a file" />			
 		   </div>
 		   </div>
 		   <div class="clrbth"></div>
@@ -67,7 +63,7 @@
 		<div class="clrbth"></div>				
 		<div class="colmid">
 			<div class="colText"></div>
-			<div class="colObj"><input type = "submit" name="submit"/></div>
+			<div class="colObj"><input type = "submit" name="submit" value="Submit"/></div>
 		</div>
 		<div class="clrbth"></div>
 	</form>

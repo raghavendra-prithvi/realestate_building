@@ -44,13 +44,7 @@ class UsersController < ApplicationController
   def edit
   	@user = User.find(params[:id])
 	@status = @user.confirmed
-	if !params[:image_file].nil?
-      @uploadimages = Picture.new
-      @uploadimages.upload_file_name = params[:image_file].original_filename
-      @uploadimages.upload_content_type = params[:image_file].content_type
-      @uploadimages.upload_file_size = params[:image_file].size
-      @uploadimages.data = params[:image_file].read
-    end
+	
 		if @status == "false"
 			session[:user_id] = @user.id
 			confirm @user
@@ -102,6 +96,16 @@ class UsersController < ApplicationController
     @ud.zip = params[:zip]
     @ud.profile_public = params[:profile_public]
     @ud.phone = params[:phone]
+	if !params[:image_file].nil?
+      @uploadimages = Picture.new
+      @uploadimages.upload_file_name = params[:image_file].original_filename
+      @uploadimages.upload_content_type = params[:image_file].content_type
+      @uploadimages.upload_file_size = params[:image_file].size
+      @uploadimages.data = params[:image_file].read
+	  @uploadimages.save
+	  @ud.picture_id = @uploadimages.id
+    end
+	
     @ud.save
     redirect_to "/profile"
   end

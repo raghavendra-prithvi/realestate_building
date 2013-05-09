@@ -149,25 +149,6 @@
 
 <% @arq = @ajxRqst %>
 <script type="text/javascript">
-  function getContactDetails(listing_id){
-    $( ".selector" ).dialog({
-      show: {
-        effect: "blind",
-        duration: 1000
-      },
-      hide: {
-        effect: "explode",
-        duration: 1000
-      },
-      position : 'top',
-      title: "Contact Details",
-      open: function(event, ui) {
-        $('#divInDialog').load('/get_listing_contact?listing_id='+listing_id, function() {
-          //alert('Load was performed.');
-        });
-      }
-    });
-  };
   $(document).ready(function(){
      var ajaxRequest = <%=  @arq %>;
      if(ajaxRequest == true)

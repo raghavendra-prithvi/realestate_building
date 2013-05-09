@@ -1,4 +1,5 @@
 <div id="detailsDiv">
+<% if @ud.profile_public%>
 <p>
   <b>Email:</b>
   <%= @ud.email %>
@@ -30,6 +31,10 @@
   <b>phone:</b>
   <%= @ud.phone %>
 </p>
+<% else %>
+<h2> User is not allowing to share his details. You can drop him a message if you want.</h2>
+<br/>
+<% end %>
 <a href="#" onclick="messageSending_form()"> Send Message</a>
 </div>
 <div id="sendingForm" style="display:none" >

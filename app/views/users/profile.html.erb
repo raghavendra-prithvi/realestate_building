@@ -13,15 +13,16 @@
 		</div>
 		<div class="clrbth"></div>
 		<div class="colmid">
-			<div class="colText">Picture_id:</div>
-			<div class="colObj">  <%= @ud.picture_id %> </div>
+			<% if !@ud.picture_id.nil? %>
+			<div class="colText">Picture </div>
+			<div class="colObj">  
+			
+				<%= image_tag url_for(:action => 'show_image', :id => @ud.picture_id, :controller => 'listings'), :size => "300x200" %> 
+			</div>
+			<% end %>
+			
 		</div>
-		<div class="clrbth"></div>
-		<div class="colmid">
-			<div class="colText">Picture_id:</div>
-			<div class="colObj">  <%= @ud.picture_id %> </div>
-		</div>
-		<div class="clrbth"></div>
+		<div class="clrbth"></div>		
 		<div class="colmid">
 			<div class="colText">Is My Profile_public?</div>
 			<div class="colObj">  <%if @ud.profile_public? %>
