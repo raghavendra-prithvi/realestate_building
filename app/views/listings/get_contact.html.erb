@@ -11,8 +11,8 @@
   <%= @ud.last_name %>
 </p>
 <p>
-  <b>Picture_id:</b>
-  <%#= @ud.picture_id %>
+  <b>Picture:</b>
+  <%= image_tag url_for(:action => 'show_image', :id => @ud.picture_id, :controller => 'listings'), :size => "100x100" %>
   
 </p>
 <p>
