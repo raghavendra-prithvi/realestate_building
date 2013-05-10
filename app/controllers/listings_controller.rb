@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   # GET /listingssession
   # GET /listings.json
-  before_filter :require_login, :except => ['show','home_search','my_search_listing','get_contact']
+  before_filter :require_login, :except => ['show','home_search','my_search_listing','get_contact','show_image']
   def index
     @user = User.find(session[:user_id])
     puts @user.inspect
@@ -132,7 +132,7 @@ class ListingsController < ApplicationController
     query << "bedrooms = #{params[:bedrooms]}" if params[:bedrooms].present?
     query << "bathrooms = #{params[:bathrooms]}" if params[:bathrooms].present?
     query << "zipcode = #{params[:zip]}" if params[:zip].present?
-    query << "status = true"
+    #query << "status = true"
     if params[:days_before] == "active"
       #query << "status = true"
     else

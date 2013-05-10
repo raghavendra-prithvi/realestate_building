@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+	before_filter :require_login, :only => ['messages','reply_message','send_message','delete_message']
   def new
   	@user = User.new
   	if current_user.present?

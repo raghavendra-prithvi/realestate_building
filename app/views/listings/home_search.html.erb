@@ -189,9 +189,16 @@
   });
 	
 	function getContactDetails(listing_id){
-		if($(".selector").closest('.ui-dialog').is(':visible')) { 
+		var user = '<%= session[:user_id]%>';
+		if(user.length == 0){
+			alert("Please Login to Contact the owner of listing");
+			$("#signIn").click();
 			return false;
+			//window.location.href = "/login";
 		}
+		/*if($(".selector").closest('.ui-dialog').is(':visible')) { 
+			return false;
+		}*/
 			$( ".selector" ).dialog({
 			  show: {
 				effect: "blind",
