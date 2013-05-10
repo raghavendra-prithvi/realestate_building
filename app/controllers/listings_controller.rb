@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   # GET /listingssession
   # GET /listings.json
-  before_filter :require_login
+  before_filter :require_login, :except => ['show','home_search','my_search_listing','get_contact']
   def index
     @user = User.find(session[:user_id])
     puts @user.inspect

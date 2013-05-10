@@ -3,9 +3,11 @@
   <form action="/my_search_listing" method="post" id="my_search_form">
 	<div class="sectionHeading">
           Welcome
-		<% @ud = User.find(session[:user_id]) %>
+		  <% if !session[:user_id].nil?%>
+			<% @ud = User.find(session[:user_id]) %>
                 <%= @ud.name %>
-          <%#*User Name%>
+			<% end %>
+        
 	</div>
     <br/>
         <div class="leftColLabelLeft">Keyword Search</div>
