@@ -38,24 +38,24 @@
 	</div>
 
 	<div class="labelLeft">
-		<%=select_tag :min_amount, options_for_select([ ['No Min',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000] ]) %>
+		<%=select_tag :min_amount, options_for_select([ ['No Min',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000] ]), {:style => "width:80px"} %>
 	</div>
 	<div class="labelMid">to</div>
 	<div class="labelRight">
-		<%=select_tag :max_amount, options_for_select([ ['No Max',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000],[100000,100000],[1000000,1000000],[5000000,5000000] ]) %>
+		<%=select_tag :max_amount, options_for_select([ ['No Max',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000],[100000,100000],[1000000,1000000],[5000000,5000000] ]), {:style => "width:80px"} %>
 	</div>
 	<div class="clrbth tpMargin">&nbsp;</div>
 	<div class="labelLeft">Beds</div>
 	<div class="labelRight">Baths</div>
 
 	<div class="labelLeft">
-		<%=select_tag :bedrooms, options_for_select([ ['NoPref',''],[1, 1],[2,2],[3,3],[4,4] ]) %>
+		<%=select_tag :bedrooms, options_for_select([ ['NoPref',''],[1, 1],[2,2],[3,3],[4,4] ]), {:style => "width:80px"} %>
 		<!-- <select><option>No Pref</option></select> -->
 	</div>
 
 	<div class="labelRight">
 	<!-- <select><option>No Pref</option></select> -->
-		<%=select_tag :bathrooms, options_for_select([ ['NoPref',''],[1, 1],[2,2],[3,3],[4,4] ]) %>
+		<%=select_tag :bathrooms, options_for_select([ ['NoPref',''],[1, 1],[2,2],[3,3],[4,4] ]), {:style => "width:80px"} %>
 	</div>
 
 	<div class="clrbth"></div>
@@ -67,7 +67,7 @@
 
 	<div class="leftColLabelLeft">Only show from last</div>
 	<div class="leftColObjectRight">
-	<%=select_tag :days_before, options_for_select([['7 Days', 7],['15 Days', 15],['1 Month',30],['3 Month',90],['1 Year',365],['All Active','active']]) %>
+	<%=select_tag :days_before, options_for_select([['7 Days', 7],['15 Days', 15],['1 Month',30],['3 Month',90],['1 Year',365],['All Active','active']]), {:style => "width:80px"} %>
 		<!-- <select><option></option></select> -->
 	</div>
 
@@ -103,11 +103,35 @@
 
 
 
-  <div class="pageHeading"><h1>My Search Listings</h1></div>
+  <div class="pageHeading"></div>
   <div class="clrbth" id="home_results"></div>
     <div id="listingPanel">
+	<div class="container">
+	<h3> Recently Added Listings </h3>
+	<div class="row">
+  <% @i = 0 %>
+  <% @recent_listings.each do |listing| %>
+		<% @i = @i+1 %>
+	  <div class="span3">
+			<h3>
+		  <%= listing.name %></h3><br/>
+		  <h4><%= listing.listing_type %></h4><br/>
+		  <%= listing.tap_description %>
+		  <br/>
+		  <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
+		  <%=link_to 'Explore', listing%>
+	  </div>
+	  <% if @i%3 == 0 %>
+		</div>
+		<br/>
+		<div class="row">
+	  <% end%>
+	<% end %>
+  </div>
+	
     <% @listings.each do |l| %>
 	  	<div class="contentUImage"><img src="/assets/user.png"/></div>
+		
 		<div class="contentDiv" style="height:auto"><%= l.name %>
 			<br/>
 			<%=l.listing_type%>
@@ -120,6 +144,7 @@
 	<div class="clrbth"></div>
 	<% end %>
      </div>
+	 </div>
         <a href="#" id="ListingBack" onclick="$('#listingPanel').show();$(this).hide();$('#result_data').html('');" style="display:none">Back</a>
         <div id="result_data">
           

@@ -115,6 +115,7 @@ class ListingsController < ApplicationController
 
   def home_search
     puts params.inspect
+	@recent_listings = Listing.find(:all, :order => "id desc", :limit => 5)
     @listings = Listing.where(:listing_type => params[:buy_rent], :status => true)
     puts "*********************"
     puts @listings.inspect
@@ -132,9 +133,9 @@ class ListingsController < ApplicationController
     query << "bedrooms = #{params[:bedrooms]}" if params[:bedrooms].present?
     query << "bathrooms = #{params[:bathrooms]}" if params[:bathrooms].present?
     query << "zip = #{params[:zip]}" if params[:zip].present?
-    query << "status = true"
+    #query << "status = true"
     if params[:days_before] == "active"
-      #query << "status = true"
+      query << "status = true"
     else
       query << "created_at >= '#{params[:days_before].to_i.days.ago}'"
     end

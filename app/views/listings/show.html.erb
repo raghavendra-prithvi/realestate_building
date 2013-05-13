@@ -37,15 +37,16 @@
 
   <div class="contentInnerRight">
     <div id="editButtonsDiv">
-      <input type="button" class="btnStyle rename" value="Rename"/>
+      <input type="button" class="btn-rename" value="Rename"/>
       <!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
-      <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btnStyle modify" value="Modify"/> </a>
-      <%= link_to (button_tag "Delete", :class => "btnStyle delete", :type => "input"),
+      <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btn-modify" value="Modify"/> </a>
+      <%= link_to (button_tag "Delete", :class => "btn-delete", :type => "input"),
         listing_path(@listing), :method => :delete, :confirm => "Are you sure?", :rel => "nofollow" %>
-      <input type="button" class="btnStyle addEvent" value="Add Event"/>
+	  
+      <input type="button" class="btn-event" value="Add Event"/>
     </div>
     <div id="ContactLink" style="display:none" >
-      <input type="button" class="btnStyle addEvent" value="Contact" onclick="getContactDetails(this.id); return false;"  id=<%=@listing.id%> />
+      <input type="button" class="btn-contact" value="Contact" onclick="getContactDetails(this.id); return false;"  id=<%=@listing.id%> />
       <div class="selector">
         <div id="divInDialog"></div>
       </div>
