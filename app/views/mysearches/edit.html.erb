@@ -20,11 +20,11 @@
         </div>
         <div class="form-row">
           <%= f.label "Min Amount" %>
-          <%= f.select :min_amount, options_for_select([["No Min", ""], 500, 1000, 5000, 10000, 50000], @search.min_amount) %>
+          <%= f.select :min_amount, options_for_select([ ['No Min',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000] ], @search.min_amount) %>
         </div>
         <div class="form-row">
           <%= f.label "Max Amount" %>
-          <%= f.select :max_amount, options_for_select([["No Min", ""], 500, 1000, 5000, 10000, 50000], @search.max_amount) %>
+          <%= f.select :max_amount, options_for_select([ ['No Max',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000],[100000,100000],[1000000,1000000],[5000000,5000000] ], @search.max_amount) %>
         </div>
         <div class="form-row">
           <%= f.label "Beds" %>
@@ -40,7 +40,7 @@
         </div>
         <div class="form-row">
           <%= f.label "Show From Last" %>
-          <%= f.select :days_before, options_for_select([["No Min", ""], "7 days", "15 days", "1 month", "3 months", "1 year"],
+          <%= f.select :days_before, options_for_select([['7 Days', 7],['15 Days', 15],['1 Month',30],['3 Month',90],['1 Year',365],['All Active','active']],
           @search.days_before) %>
         </div>
         <div class="form-row">
@@ -50,6 +50,6 @@
       <% end %>
     </div>
   </div>
-  <img src="/assets/bgFormContentBtm.png" style="margin:0px 0px 0px 210px;">
+  <img src="/assets/bgFormContentBtm.png" style="margin:0px 0px 0px 210px;"/>
   <div class="clrbth"></div>
 </div>

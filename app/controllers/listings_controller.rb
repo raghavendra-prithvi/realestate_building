@@ -128,8 +128,33 @@ class ListingsController < ApplicationController
       @user = User.find(session[:user_id])
       @favs = @user.votes.up.collect { |obj| obj.votable_id }
       @favourite_listings = Listing.find(@favs)
+      @searches = @user.searches
+      @my_saved_listings = []
+      @searches.each do |srch|
+        query = []
+        query << "listing_type = '#{srch.buy_rent}'" if srch.buy_rent.present?
+        query << "price >= #{srch.min_amount}" if srch.min_amount.present?
+        query << "price <= #{srch.max_amount}" if srch.max_amount.present?
+        query << "bedrooms = #{srch.beds}" if srch.beds.present?
+        query << "bathrooms = #{srch.bath}" if srch.bath.present?
+        query << "zip = #{srch.zip}" if srch.zip.present?
+        #query << "status = true"
+        puts srch.days_before.to_s + "days"
+        if srch.days_before == "active"
+          query << "status = true"
+        else
+          query << "created_at >= '#{srch.days_before.to_i.days.ago}'"
+        end
+        puts "Query:" + query.join("AND").to_s
+         
+           lists1 = Listing.where(query.join(" AND "))
+           @my_saved_listings = @my_saved_listings + lists1
+           puts @my_saved_listings.inspect
+      end
+      @my_saved_listings = @my_saved_listings.uniq
     end
-    
+
+
     @listings = Listing.where(:listing_type => params[:buy_rent], :status => true)
     puts "*********************"
     puts @listings.inspect
@@ -155,6 +180,9 @@ class ListingsController < ApplicationController
     end
 
     @listings = Listing.where(query.join(" AND "))
+    if params[:key_search].present?       
+        @listings  = @listings & @key_search_listings       
+    end
     render :layout => false
   end
 

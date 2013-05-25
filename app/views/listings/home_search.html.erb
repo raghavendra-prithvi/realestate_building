@@ -107,6 +107,29 @@
   <div class="clrbth" id="home_results"></div>
     <div id="listingPanel">
 	<div class="container">
+         <% if !@my_saved_listings.nil? %>
+          <h3 style="color:#024D72"> Suggested Listings for You </h3>
+          <div class="row">
+              <% @i = 0 %>
+              <% @my_saved_listings.each do |listing| %>
+                      <% @i = @i+1 %>
+                <div class="span3" style="background-color: #A36D34;">
+                              <h3>
+                        <%= listing.name %></h3><br/>
+                        <h4><%= listing.listing_type %></h4><br/>
+                        <%= listing.tap_description[0..100] %>
+                        <br/>
+                        <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
+                        <%=link_to 'Explore', listing%>
+                </div>
+                <% if @i%3 == 0 %>
+                      </div>
+                      <br/>
+                      <div class="row">
+                <% end%>
+              <% end %>
+              </div>
+         <% end %>
 	<h3 style="color:#024D72"> Recently Added Listings </h3>
 	<div class="row">
   <% @i = 0 %>

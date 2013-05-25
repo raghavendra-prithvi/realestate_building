@@ -28,29 +28,4 @@
 	<% end %>
   </div>
 <% end %>
-<% if @key_search_listings.present? %>
-  <h1> KEY Search Results </h1>
-  <div class="row">
-  <% @i = 0 %>
-  <% @key_search_listings.each do |listing| %>
-	
-    <!-- <div class="contentDiv" style="height:auto" > -->
-		<% @i = @i+1 %>
-	  <div class="span3">
-	  <!-- <div class="contentUImage"><img src="/assets/user.png"/></div> -->
-		  <%= listing.name %><br/>
-		  <%= listing.listing_type %><br/>
-		  <%= listing.tap_description[0..100] %>
-		  <br/>
-		  <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
-		  <%=link_to 'Explore', listing%>
-	  </div>
-	  <% if @i%3 == 0 %>
-		</div>
-		<div class="row">
-	  <% end%>
-    <!-- </div> 
-    <div class="clrbth"></div> -->
-  <% end %>
-<% end %>
 </div>
