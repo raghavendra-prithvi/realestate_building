@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/tapski/!svn/ver/6/trunk/db
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/tapski/!svn/ver/7/trunk/db/schema.rb
+END
+test.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/tapski/!svn/ver/4/trunk/db/test.sqlite3
+END
+development.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tapski/!svn/ver/4/trunk/db/development.sqlite3
+END
+seeds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/tapski/!svn/ver/4/trunk/db/seeds.rb
+END

@@ -1,0 +1,111 @@
+<h1>Recieved Messages </h1>
+<% if !@messages.empty? %>
+  <div id="listingPanelNew" >
+    <% @messages.each do |l| %>
+                
+	  	<div class="contentUImage">
+                  <% if !l.message_read? %>
+                    <%= image_tag '/assets/star.jpeg', :size => "30x30" %>
+                  <% else %>
+                    <%= image_tag '/assets/read-star.png', :size => "30x30" %>
+                  <% end %>
+                    </div>
+		<div class="contentDiv" style="height:auto !important;background-color: rgb(203,212,191);border: 1px solid #000000;">
+                    From:
+                      <%= l.sender.name %>
+                        <span style="float:right">
+                          <a href="#" id=<%=l.id%>  onclick="delete_message(this.id)"><%=image_tag '/assets/delete1.png', :size => "10x10"%></a>
+                        </span>
+                      <br/>
+                      Subject:<%=l.subject %>
+			<br/>
+                        Body:
+			<%=l.body%>
+			<br/>
+			<span style="float:right">
+                          <input type="button" value="respond" id=<%=l.id%>  onclick="reply_message(this.id)"></input>
+                        </span>
+                        <div class="clrbth"></div>
+		</div>
+	<div class="clrbth"></div>
+        <%  Message.read_message(l.id, @user) %>
+        <br/>
+	<% end %>
+
+     </div>
+<% end %>
+
+
+<hr/>
+<h1>Sent Messages </h1>
+<% if !@sent_messages.empty? %>
+  <div id="listingPanelNew" >
+    <% @sent_messages.each do |l| %>
+
+	  	<div class="contentUImage">
+                    </div>
+		<div class="contentDiv" style="height:auto !important;background-color: rgb(203,212,191);border: 1px solid #000000;">
+                    From:
+                      <%= l.sender.name %>
+                    <span style="float:right">
+                          <a href="#" id=<%=l.id%>  onclick="delete_message(this.id)"><%=image_tag '/assets/delete1.png', :size => "10x10"%></a>
+                        </span>
+                      <br/>
+                      Subject:<%=l.subject %>
+			<br/>
+                        Body:
+			<%=l.body%>
+			<br/>
+                        <div class="clrbth"></div>
+		</div>
+	<div class="clrbth"></div>
+        <br/>
+	<% end %>
+
+     </div>
+<% end %>
+
+<div id="replyForm" style="display:none" >
+  <form action="/reply_message" name="reply_messsage_form" method="post">
+    <%=hidden_field_tag :mesg_id,'',{:id =>"message_id"} %>
+    Subject:<%=text_field_tag :subject %>
+    <br/>
+    Message:<%=text_area :body,'',:rows =>3,:cols=>50 %>
+    <div style="float:right">
+      <%=submit_tag :Reply %>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+
+  function reply_message(m_id){
+    $('#message_id').val(m_id);
+
+    $( "#replyForm" ).dialog({
+            height : 180,
+            width: 500,
+            y :100,
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "explode",
+              duration: 1000
+            },
+            position : 'top',
+            title: "Reply Message"
+          });
+  }
+  function delete_message(m_id){
+    $.ajax
+    ({
+      type: "GET",
+      url: "/delete_message?id="+m_id,
+      success: function (data){
+        window.location.reload();
+      }
+    });
+  }
+</script>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/tapski/!svn/ver/5/trunk/app/models
+END
+user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/tapski/!svn/ver/7/trunk/app/models/user.rb
+END
+user_detail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/tapski/!svn/ver/4/trunk/app/models/user_detail.rb
+END
+.gitkeep
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/tapski/!svn/ver/4/trunk/app/models/.gitkeep
+END
+search.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tapski/!svn/ver/5/trunk/app/models/search.rb
+END
+identity.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tapski/!svn/ver/4/trunk/app/models/identity.rb
+END
+listing.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tapski/!svn/ver/7/trunk/app/models/listing.rb
+END
+picture.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tapski/!svn/ver/4/trunk/app/models/picture.rb
+END

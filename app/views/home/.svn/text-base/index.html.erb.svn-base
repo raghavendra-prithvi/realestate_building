@@ -1,0 +1,61 @@
+<div class="top-section">
+<!--Left Block-->
+<div class="left-block">
+<div class="left-bg"></div>
+<div class="cont-heading">
+<h3>Tapski connects buyers and sellers with top local real<br />
+  estate agents bringing a<br />
+  social aspect to the entire experience.</h3>
+<p>Receive listings of your choice from thousands of listings posted by qualified real estate agents,  get caught up on the latest real estate advice and<br />
+  much more</p>
+</div>
+<div class="right-bg"></div>
+</div>
+<!--Right Block-->
+<div class="right-block">
+<div class="left-bg"></div>
+  <div class="theme-img"><img src="/assets/taoski_theme_img.jpg" alt="" width="484" height="313" /></div>
+  <div class="right-bg"></div>
+</div>
+</div>
+<!--=============Top Section End=============-->
+<!--=============Btom Section=============-->
+<div class="btom-section">
+<div class="gray-bg-left"></div>
+<div class="gray-bg-center">
+<div class="left-section" title="Post a Listing">&nbsp;</div>
+<div class="center-section"><img src="/assets/search_home.jpg" alt="" width="276" height="129" /></div>
+<div class="right-section">
+<div class="form-bg">
+  <form id="form1" name="search_form" method="post" action="/homesearch" style="padding:-10px 0 0 0">
+    <p style="margin:-10px 0 0 0;">
+      <label>
+        <input type="radio" name="buy_rent" value="Rental" id="RadioGroup1_0" checked='checked' />
+        <span class="radio-text">Rent</span></label>
+        <!-- <input name="amount" type="text" class="text-box" placeholder="Maximam Rent" /> -->
+        <input type="radio" name="buy_rent" value="Sale" id="RadioGroup1_1" />
+        <span class="radio-text pad-right">Buy</span></label>
+      </label>
+      <br />
+      <br />
+      <label>
+        <input name="amount" type="text" class="text-box" placeholder="Maximum Cost" style="width:122px;margin-top:2px;" />
+      </label>
+      <span style="float:right;padding-right:5px;">
+      <input type="submit" value="start finding" /></span>
+    </p>
+    
+  </form>
+  </div>
+</div>
+</div>
+<div class="gray-bg-right"></div>
+</div>
+
+
+<script>
+$('document').ready(function(){
+			$("#home").parent().addClass("active");
+                        
+});
+</script>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/tapski/!svn/ver/6/trunk
+END
+Gemfile.lock
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/tapski/!svn/ver/4/trunk/Gemfile.lock
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/tapski/!svn/ver/4/trunk/Rakefile
+END
+README.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/tapski/!svn/ver/4/trunk/README.rdoc
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/tapski/!svn/ver/4/trunk/.project
+END
+Gemfile
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/tapski/!svn/ver/7/trunk/Gemfile
+END
+.loadpath
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/tapski/!svn/ver/4/trunk/.loadpath
+END
+config.ru
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/tapski/!svn/ver/4/trunk/config.ru
+END

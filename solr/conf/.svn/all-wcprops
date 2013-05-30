@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/tapski/!svn/ver/4/trunk/solr/conf
+END
+schema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tapski/!svn/ver/4/trunk/solr/conf/schema.xml
+END
+protwords.txt
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tapski/!svn/ver/4/trunk/solr/conf/protwords.txt
+END
+stopwords.txt
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tapski/!svn/ver/4/trunk/solr/conf/stopwords.txt
+END
+elevate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tapski/!svn/ver/4/trunk/solr/conf/elevate.xml
+END
+solrconfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/tapski/!svn/ver/4/trunk/solr/conf/solrconfig.xml
+END
+mapping-ISOLatin1Accent.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/tapski/!svn/ver/4/trunk/solr/conf/mapping-ISOLatin1Accent.txt
+END
+scripts.conf
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tapski/!svn/ver/4/trunk/solr/conf/scripts.conf
+END
+admin-extra.html
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tapski/!svn/ver/4/trunk/solr/conf/admin-extra.html
+END
+synonyms.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tapski/!svn/ver/4/trunk/solr/conf/synonyms.txt
+END
+spellings.txt
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tapski/!svn/ver/4/trunk/solr/conf/spellings.txt
+END

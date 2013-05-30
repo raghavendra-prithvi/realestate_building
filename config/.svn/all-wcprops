@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/tapski/!svn/ver/6/trunk/config
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/tapski/!svn/ver/7/trunk/config/routes.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/tapski/!svn/ver/4/trunk/config/database.yml
+END
+application.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tapski/!svn/ver/4/trunk/config/application.rb
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/tapski/!svn/ver/4/trunk/config/boot.rb
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tapski/!svn/ver/4/trunk/config/environment.rb
+END
+sunspot.yml
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/tapski/!svn/ver/4/trunk/config/sunspot.yml
+END

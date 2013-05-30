@@ -1,0 +1,57 @@
+<div class="top-section">
+<!--Left Block-->
+<div class="left-block">
+<div class="left-bg"></div>
+<div class="cont-heading">
+<h3>Tapski connects buyers and sellers with top local real<br />
+  estate agents bringing a<br />
+  social aspect to the entire experience.</h3>
+<p>Receive listings of your choice from thousands of listings posted by qualified real estate agents,  get caught up on the latest real estate advice and<br />
+  much more</p>
+</div>
+<div class="right-bg"></div>
+</div>
+<!--Right Block-->
+<div class="right-block">
+<div class="left-bg"></div>
+<div class="theme-img"><img src="/assets/taoski_theme_img.jpg" alt="" width="484" height="313" /></div>
+<div class="right-bg"></div>
+</div>
+</div>
+<!--=============Top Section End=============-->
+<!--=============Btom Section=============-->
+<div class="btom-section">
+<div class="gray-bg-left"></div>
+<div class="gray-bg-center">
+<a href="/listings/new">
+<div class="left-section" title="Post a Listing">&nbsp;</div></a>
+<div class="center-section"><img src="/assets/search_home.jpg" alt="" width="276" height="129" /></div>
+<div class="right-section">
+
+</div>
+</div>
+<div class="gray-bg-right"></div>
+</div>
+
+<script>
+  $('document').ready(function(){
+    $("#formSignInId")
+      .dialog(
+       {
+        bgiframe: true,
+        autoOpen: false,
+        x:100,
+        y:100,
+        position:'top',
+        width: 320,
+        //height: 100,
+        modal: true
+       }
+      );
+    $("#formSignInId").dialog('open');
+  });
+</script>
+
+
+
+

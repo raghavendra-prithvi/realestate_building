@@ -1,0 +1,46 @@
+10
+
+dir
+6
+http://home.telaeris.com/svn/tapski/trunk/app
+http://home.telaeris.com/svn/tapski
+
+
+
+2013-04-01T18:27:22.315429Z
+6
+tapski_dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5a92e958-66c2-3c41-bd3e-43f0f6770ef2
+
+assets
+dir
+
+helpers
+dir
+
+models
+dir
+
+controllers
+dir
+
+mailers
+dir
+
+views
+dir
+

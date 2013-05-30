@@ -1,0 +1,30 @@
+<form action="/save_profile">
+
+Firstname :
+<input type = "text" name="first_name" value=<%=@ud.first_name%>  ></input> </br>
+Lastname :
+<input type = "text" name="last_name" value=<%=@ud.last_name%>  ></input> </br>
+
+Address :
+<br/>
+Address1:<input type = "text" name="address1" value=<%= @ud.address1 %> ></input> </br>
+Address2:<input type = "text" name="address2" value=<%= @ud.address2 %> ></input> </br>
+City:<input type = "text" name="city" value=<%= @ud.city %> ></input> </br>
+ZIP:<input type = "text" name="zip" value=<%= @ud.zip %> ></input> </br>
+ProfileType:
+<%if @ud.profile_public?%>
+<input type = "checkbox" name="profile_public" checked="checked" /> </br>
+<% else %>
+<input type = "checkbox" name="profile_public" /> </br>
+
+<% end %>
+Email :
+<input type = "text" name="email" value=<%=@ud.email%> > </input> </br>
+
+Phone:
+<input type = "text" name="phone" value=<%=@ud.phone%> ></input> </br>
+
+Submit:
+<input type = "submit" name="submit"/> </br>
+
+</form>

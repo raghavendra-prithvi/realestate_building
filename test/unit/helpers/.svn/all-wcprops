@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/tapski/!svn/ver/4/trunk/test/unit/helpers
+END
+identities_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tapski/!svn/ver/4/trunk/test/unit/helpers/identities_helper_test.rb
+END
+sessions_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tapski/!svn/ver/4/trunk/test/unit/helpers/sessions_helper_test.rb
+END
+home_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/tapski/!svn/ver/4/trunk/test/unit/helpers/home_helper_test.rb
+END
+listings_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tapski/!svn/ver/4/trunk/test/unit/helpers/listings_helper_test.rb
+END

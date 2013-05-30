@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/tapski/!svn/ver/6/trunk/app/views/home
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tapski/!svn/ver/4/trunk/app/views/home/index.html.erb
+END
+get_search_details.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tapski/!svn/ver/5/trunk/app/views/home/get_search_details.html.erb
+END
+search_with_criteria.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tapski/!svn/ver/6/trunk/app/views/home/search_with_criteria.html.erb
+END
+mysearches.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/tapski/!svn/ver/6/trunk/app/views/home/mysearches.html.erb
+END

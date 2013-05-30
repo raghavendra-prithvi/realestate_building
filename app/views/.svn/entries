@@ -1,0 +1,46 @@
+10
+
+dir
+6
+http://home.telaeris.com/svn/tapski/trunk/app/views
+http://home.telaeris.com/svn/tapski
+
+
+
+2013-04-01T18:27:22.315429Z
+6
+tapski_dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5a92e958-66c2-3c41-bd3e-43f0f6770ef2
+
+layouts
+dir
+
+identities
+dir
+
+users
+dir
+
+sessions
+dir
+
+home
+dir
+
+listings
+dir
+
