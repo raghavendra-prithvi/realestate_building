@@ -10,7 +10,7 @@
     <ul class="leftNav">
       <% @listings.each do |l| %>
 
-        <a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
+        <a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li><%=l.name%></li></a>
 
       <% end %>
 

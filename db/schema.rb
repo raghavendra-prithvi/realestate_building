@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527163937) do
+ActiveRecord::Schema.define(:version => 20130531152236) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "listing_id"
@@ -80,6 +80,10 @@ ActiveRecord::Schema.define(:version => 20130527163937) do
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
     t.binary   "data"
+  end
+
+  create_table "residential_types", :force => true do |t|
+    t.string "name"
   end
 
   create_table "search", :force => true do |t|

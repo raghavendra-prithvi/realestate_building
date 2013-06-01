@@ -50,6 +50,8 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
+    puts params[:listing]
+    params[:listing][:tap_description] = params[:listing][:description].to_s + "-"+params[:listing][:bedrooms].to_s + "Beds-"+ params[:listing][:bathrooms].to_s + "Baths -" + params[:listing][:squarefootage].to_s + "sq.ft"
     @listing = Listing.new(params[:listing])
     @listing.user_id = current_user.id
     if !params[:image_file].nil?

@@ -41,13 +41,15 @@
 				</div>
 			</div>
 			<div class="colmid">
-				<label>
+				<!-- <label>
 				Tap Description
 				</label><br/>
-				 <%= f.text_area :tap_description,{:rows=>"2", :cols=>"50"} %>
+				 <%= f.text_area :tap_description,{:rows=>"2", :cols=>"50"} %> -->
 			</div>
 			<div class="colmid">
-				<%= f.text_field :adjustment_type,{:placeholder => "Select Residential Type"} %>
+                          <label>Residential Type:</label>
+                                <% @res_types = ResidentialType.all %>
+                                <%= f.select :adjustment_type, [["Select Residential Type", '']] +@res_types.map{ |c| [c.name, c.id] },{:placeholder => "Select Residential Type"}%>
 			</div>
 			<div class="colmid">
 				<label>Name:</label>
@@ -94,10 +96,10 @@
 			<div class="clrbth"></div>
 
 
-			<div class="colmid">
+			<!--<div class="colmid">
 				<div class="colText"><label>Loan Payment</label></div>
 				<div class="colObj"><%= f.text_field :laonpayment %></div>
-			</div>
+			</div> -->
 			<div class="clrbth"></div>
 
 
@@ -128,10 +130,10 @@
 			</div>
 			<div class="clrbth"></div>
 
-			<div class="colmid">
+			<!-- <div class="colmid">
 				<div class="colText"><%= f.label :daysontapski %></div>
 				<div class="colObj"><%= f.text_field :daysontapski %></div>
-			</div>
+			</div> -->
 			<div class="clrbth"></div>
 
     		<div class="colmid">
@@ -176,8 +178,8 @@
 
 			<div class="colmid">
 			<div class="colOneSmallForm"><label>Normal Listing</label></div>
-			<div class="colOneVerySmallForm"><img src="images/user.png"/></div>
-			<div class="colOneObjHolder"><textarea rows="3" cols="50"></textarea></div>
+			<div class="colOneVerySmallForm"><img src="/assets/user.png"/></div>
+			<div class="colOneObjHolder"><textarea rows="3" cols="50" readonly="true"></textarea></div>
 			</div>
 			<div class="clrbth"></div>
 
@@ -224,9 +226,74 @@
 				<div class="clrbth"></div>
 				<p>This is how your Tap Listing will appear in the user feed.</p>
 				<div class="colmid">
-				<div class="colOneSmallForm" style="width:200px;"><label>TapScore Listing</label></div>
+				<div class="colOneSmallForm" style="width:100px;"><label>TapScore Listing</label></div>
 				<div class="colOneVerySmallForm"><img src="/assets/user.png"/></div>
-				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79<br/><img src="images/home.png" width="200px"/></div>
+				<div class="optTextarea">
+                                  <div class="info">
+    <div class="left">Listing Type:</div>
+    <div class="right"><span id="listingType"></span></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Price</div>
+    <div class="right"><span id="price"></span></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Bedroom</div>
+    <div class="right"><span id="beds"></span></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Bathrooms</div>
+    <div class="right"><span id="baths"></span></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Square Footage</div>
+    <div class="right"><span id="sqft"></span></div>
+  </div>
+  <!--<div class="info">
+    <div class="left">$/sqft</div>
+    <div class="right"></div>
+  </div>-->
+
+  <div class="info">
+    <div class="left">Type</div>
+    <div class="right"><span id="residType"></span></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Year Built</div>
+    <div class="right"><span id="yearBuilt"></span></div>
+  </div>
+
+  <div class="info">
+    <div class="left">Lot Size</div>
+    <div class="right"><span id="lotSize"></span></div>
+  </div>
+<!--
+  <div class="info">
+    <div class="left">Days on Tapski</div>
+    <div class="right"><%= @listing.daysontapski %></div>
+  </div> -->
+  <div class="info">
+    <div class="left">Neighborhood</div>
+    <div class="right"><span id="neighbour"></span></div>
+  </div>
+  <div class="info">
+    <div class="left">MLS#</div>
+    <div class="right"><span id="mlsId"></span></div>
+  </div>
+  <div class="info">
+    <div class="left">Status</div>
+    <div class="right"><span id="status"></span></div>
+  </div>
+  <div class="info">
+    <div id ="map_canvas_preview" style="width:100%;height:200px;border-radius:10px;margin-top:20px;">
+    </div>
+</div>
+                                  </div>
 				</div>
 				<div class="btnRightHolder">
 					<input type="submit" class="continueFormBtnLarge" value="Post" id="post"/>
@@ -269,8 +336,32 @@ $(document).ready(function(){
 	$("#tab2_back").click(function(){
 		$("#ui-id-1").click();
 	});
-	$("#tab2_continue").click(function(){
+	$("#tab2_continue").click(function(){                
 		$("#ui-id-3").click();
+                $("#listingType").html($("#listing_listing_type").val());
+                $("#price").html($("#listing_price").val());
+                $("#beds").html($("#listing_bedrooms").val());
+                $("#baths").html($("#listing_bathrooms").val());
+                $("#sqft").html($("#listing_squarefootage").val());
+                $("#residType").html($("#listing_adjustment_type").val());
+                $("#yearBuilt").html($("#listing_yearbuilt").val());
+                $("#lotSize").html($("#listing_lotsize").val());
+                $("#neighbour").html($("#listing_neighbourhood").val());
+                $("#mlsId").html($("#listing_mls").val());
+                if($("#listing_lotsize").is("checked")){
+                  $("#lotSize").html("Active");
+                }else{
+                  $("#lotSize").html("Inactive");
+                }
+                var myOptions = {
+            zoom: 14,
+            center: new google.maps.LatLng( $("#lattitude").val(),$("#longitude").val()),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          directionsDisplay = new google.maps.DirectionsRenderer();
+          directionsDisplay.suppressMarkers = true;
+          map = new google.maps.Map(document.getElementById('map_canvas_preview'), myOptions);
+          directionsDisplay.setMap(map);
 	});
 });
 
@@ -377,7 +468,7 @@ $(document).ready(function(){
 
    
     var marker;
-
+    var  geocoder;
       function placeMarker(location) {
         if ( marker ) {
           marker.setPosition(location);
@@ -389,8 +480,33 @@ $(document).ready(function(){
         }
         $("#lattitude").val(location.jb);
         $("#longitude").val(location.kb);
+        getAddress(location);
       }
+       geocoder = new google.maps.Geocoder();
+      function getAddress(latLng) {
+        geocoder.geocode( {'latLng': latLng},
+          function(results, status) {
+            if(status == google.maps.GeocoderStatus.OK) {
+              if(results[0]) {
 
+                var str= results[0].formatted_address;
+                var n=str.split(",");
+                document.getElementById("listing_address_line1").value = n[0];
+                document.getElementById("listing_city").value = n[1];
+                var state = n[2].split(" ");
+                document.getElementById("listing_state").value = state[1];
+                document.getElementById("listing_zip").value = state[2];
+                //document.getElementById("listing_address_line1").value = n[4];
+              }
+              else {
+                document.getElementById("listing_address_line1").value = "No results";
+              }
+            }
+            else {
+              document.getElementById("listing_address_line1").value = status;
+            }
+          });
+    }
       google.maps.event.addListener(map, 'click', function(event) {
         placeMarker(event.latLng);
       });
