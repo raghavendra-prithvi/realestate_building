@@ -246,7 +246,7 @@ class ListingsController < ApplicationController
   end
 
   def upload_file
-    post = DataFile.save( params[:upload])
+    post = DataFile.save(params[:upload])
     render :text => "File has been uploaded successfully"
   end
 
