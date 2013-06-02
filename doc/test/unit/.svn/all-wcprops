@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/tapski/!svn/ver/4/trunk/test/unit
+END
+test_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/tapski/!svn/ver/4/trunk/test/unit/test_helper.rb
+END
+.gitkeep
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/tapski/!svn/ver/4/trunk/test/unit/.gitkeep
+END
+listing_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/tapski/!svn/ver/4/trunk/test/unit/listing_test.rb
+END

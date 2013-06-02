@@ -1,0 +1,44 @@
+<div id="tabs" style="min-height:300px;">
+    <ul class="nav nav-tabs" style="width:744px;">
+      <li><a href="#tabs-1">Results</a></li>
+    </ul>
+    <div id="tabs-1">
+      <h2 style="color:#006dcc;"> My Favorite Listings </h2>
+        <% if !@listings.empty? %>
+                    <div class="row">
+                      <% @i = 0 %>
+                      <% @listings.each do |listing| %>
+                                    <% @i = @i+1 %>
+                              <div class="span3" style="background-color: #EFE994;">
+                                            <h3 style="color:#24748c">
+                                      <%= listing.name %></h3><br/>
+                                      <h4><%= listing.listing_type %></h4><br/>
+                                      <%= listing.tap_description[0..100] %>
+                                      <br/>
+                                      <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
+                                      <%=link_to 'Explore', listing%>
+                              </div>
+                              <% if @i%3 == 0 %>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                              <% end%>
+                            <% end %>
+                    </div>
+                <% else %>
+                        <h3 style="color:#006dcc;"> No Listings found for this search </h3>
+                <% end %>
+    </div>
+ 
+</div>
+
+<script>
+ $(function() {
+  $("#tabs").tabs();
+  $("#rename_btn").click(function(){
+      $("#name_field").show();
+      $("#rename_change").show();
+      $(".display_field").hide();
+  });
+});
+</script>

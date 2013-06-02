@@ -1,4 +1,4 @@
-<h1>Recieved Messages </h1>
+<h1>Received Messages </h1>
 <% if !@messages.empty? %>
   <div id="listingPanelNew" >
     <% @messages.each do |l| %>

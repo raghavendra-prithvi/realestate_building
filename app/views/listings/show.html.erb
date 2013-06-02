@@ -41,8 +41,9 @@
       <input type="button" class="btn-rename" value="Rename"/>
       <!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
       <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btn-modify" value="Modify"/> </a>
-      <%= link_to (button_tag "Delete", :class => "btn-delete", :type => "input"),
-        listing_path(@listing), :method => :delete, :confirm => "Are you sure?", :rel => "nofollow" %>
+      <a href=<%=listing_path(@listing) %>   data-method="delete" data-confirm="Are you sure?" ><input type="button" class="btn-delete" value="Delete"/> </a>
+
+      <!-- <%= link_to (button_tag "Delete", :class => "btn-delete", :type => "input"),        listing_path(@listing), :method => :delete, :confirm => "Are you sure?", :rel => "nofollow" %> -->
 	  
       <input type="button" class="btn-event" value="Add Event"/>
     </div>
@@ -164,18 +165,23 @@
 </div>
 
 <div class="contentInnerRight" id="rightCheck">
-  <div><input type="checkbox" id="activeChk"> <label for="activeChk">Active</label></div>
-  <div><input type="checkbox" id="reportChk"> <label for="reportChk">Report this Weekly</label></div>
-  <div><input type="checkbox" id="tapsChk"> <label for="tapsChk">Use this listing to search Wanted Taps</label></div>
+  <div><input type="checkbox" id="activeChk" /> <label for="activeChk" >Active</label></div>
+  <div><input type="checkbox" id="reportChk" /> <label for="reportChk">Report this Weekly</label></div>
+  <div><input type="checkbox" id="tapsChk" /> <label for="tapsChk">Use this listing to search Wanted Taps</label></div>
 </div>
 
   <%=hidden_field_tag :long, @listing.long, {:id=>"longitude"}%>
   <%=hidden_field_tag :lat, @listing.lat, {:id=>"lattitude"}%>
-<!-- <div class="bottomContent" id="downLinkAttach">
-  
-  <div> Link to: <input type="text" /> </div>
-  <div>Attach Docs: <input type="file" /></div>
-</div> -->
+<div class="bottomContent" id="downLinkAttach">
+  <h1>File Upload</h1>
+  <form action='/upload_file' enctype='multipart/form-data'>
+    <p><label for="upload_file">Select File</label> :
+    <%= file_field 'upload', 'datafile' %></p>
+    <%= submit_tag "Upload" %>
+  </form>
+  <%#*<div> Link to: <input type="text" /> </div>%>
+  <%#*<div>Attach Docs: <input type="file" /></div>%>
+</div>
 
 
 <% @arq = @ajxRqst %>

@@ -1,37 +1,116 @@
-
-<div class="contentInnerLeft">
-  <h1><% @search.name %> </h1>
-  <div class="info">
-    <div class="left">KeyWord:</div>
-    <div class="right"><%= @search.keywords %></div>
-  </div>
-  <div class="info">
-    <div class="left">Listing Type:</div>
-    <div class="right"><%= @search.buy_rent %></div>
-  </div>
-  <div class="info">
-    <div class="left">Min Amount</div>
-    <div class="right"><%= @search.min_amount %></div>
-  </div>
-
-  <div class="info">
-    <div class="left">Max Amount</div>
-    <div class="right"><%= @search.max_amount %></div>
-  </div>
-  <div class="info">
-    <div class="left">Beds</div>
-    <div class="right"><%= @search.beds %></div>
-  </div>
-  <div class="info">
-    <div class="left">Baths</div>
-    <div class="right"><%= @search.bath %></div>
-  </div>
-  <div class="info">
-    <div class="left">Zip</div>
-    <div class="right"><%= @search.zip %></div>
-  </div>
-  <div class="info">
-    <div class="left">Show From Last</div>
-    <div class="right"><%= @search.days_before %></div>
-  </div>
+<div id="tabs" style="min-height:300px;">
+    <ul class="nav nav-tabs" style="width:744px;">
+      <li><a href="#tabs-1">Search Criteria</a></li>
+      <li><a href="#tabs-2">Results</a></li>
+    </ul>
+    <div id="tabs-1">
+        <div class="contentInnerLeft tab-pane">
+          <h2 style="color:#006dcc;"> <%= @search.name %> </h2>
+          <br/>
+          <%= form_for @search, :url => mysearch_path(@search) do |f| %>
+              <div class="form-row" id="name_field" style="display:none;">
+                <%= f.label "Name" %>
+                <%= f.text_field :name %>
+              </div>
+              <div class="form-row display_field">
+                <%= f.label "Keyword" %>
+                <%= f.text_field :keywords %>
+              </div>
+              <div class="form-row display_field">
+                <%= f.label "Listing Type" %>
+                <%= f.radio_button :buy_rent, "Rental" %>
+                <%=  f.label "Rent" %>
+                <%= f.radio_button :buy_rent, "Sale" %>
+                <%=  f.label "Buy" %>
+              </div>
+              <div class="form-row display_field">
+                <%= f.label "Min Amount" %>
+                <%= f.select :min_amount, options_for_select([ ['No Min',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000] ], @search.min_amount) %>
+              </div>
+              <div class="form-row display_field">
+                <%= f.label "Max Amount" %>
+                <%= f.select :max_amount, options_for_select([ ['No Max',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000],[100000,100000],[1000000,1000000],[5000000,5000000] ], @search.max_amount) %>
+              </div>
+              <div class="form-row display_field">
+                <%= f.label "Beds" %>
+                <%= f.select :beds, options_for_select([["No Pref", ""], 1, 2, 3, 4], @search.beds) %>
+              </div>
+              <div class="form-row display_field">
+                <%= f.label "Bath" %>
+                <%= f.select :bath, options_for_select([["No Pref", ""], 1, 2, 3, 4], @search.bath) %>
+              </div>
+              <div class="form-row display_field">
+                <%= f.label "Zip" %>
+                <%= f.text_field :zip %>
+              </div>
+              <div class="form-row display_field">
+                <%= f.label "Show From Last" %>
+                <%= f.select :days_before, options_for_select([['7 Days', 7],['15 Days', 15],['1 Month',30],['3 Month',90],['1 Year',365],['All Active',0]],
+                @search.days_before) %>
+              </div>
+              <div class="form-row display_field">
+                <input type="checkbox" name="getEmailAlerts" />
+                Get email alerts when new results match this criteria
+              </div>
+              <div class="form-row display_field">
+                <%=link_to "Rename","#", :class => "submit btn-large", :id => "rename_btn"  %>
+                <%= f.submit "Modify", :class => "submit btn-large" %>
+                <%= link_to "Delete", mysearch_path(@search.id), :class => "cancel btn-large", :method => :delete, :confirm => "Are you sure want to delete?" %>
+              </div>
+              <div class="form-row" style="display:none" id="rename_change">
+                <%= f.submit "Change Name", :class => "submit btn-large" %>
+              </div>
+            <% end %>
+      </div>
+    </div>
+ <div id="tabs-2">      
+              <% if !@listings.empty? %>                  
+                    <div class="row">
+                      <% @i = 0 %>
+                      <% @listings.each do |listing| %>
+                                    <% @i = @i+1 %>
+                              <div class="span3" style="background-color: #EFE994;">
+                                            <h3>
+                                      <%= listing.name %></h3><br/>
+                                      <h4><%= listing.listing_type %></h4><br/>
+                                      <%= listing.tap_description[0..100] %>
+                                      <br/>
+                                      <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
+                                      <%=link_to 'Explore', listing%>
+                              </div>
+                              <% if @i%3 == 0 %>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                              <% end%>
+                            <% end %>
+                    </div>
+                <% else %>
+                        <h3 style="color:#006dcc;"> No Listings found for this search </h3>
+                <% end %>
+                    <% if(!params[:key_search].nil? && params[:key_search] != '') %>
+                      <h1> KEY Search Results </h1>
+                      <% @lists_key.each do |l| %>
+                                <div class="contentUImage"><img src="/assets/user.png"/></div>
+                                <div class="contentDiv">Listing <%= l.id%>
+                                        <br/>
+                                        <%=l.listing_type%>
+                                        <br/>
+                                        <a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
+                                </div>
+                        <div class="clrbth"></div>
+                        <% end %>
+                    <% end %>
+   </div>
 </div>
+
+<script>
+ $(function() {
+  $("#tabs").tabs();
+  $("#rename_btn").click(function(){
+      $("#name_field").show();
+      $("#rename_change").show();
+      $(".display_field").hide();
+  });
+});
+</script>

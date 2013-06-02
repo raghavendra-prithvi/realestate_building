@@ -24,6 +24,14 @@ class ListingsController < ApplicationController
     end
     @listing = Listing.find(params[:id])
     puts @listing.inspect
+
+    @favourite = false
+    if(!session[:user_id].nil?)
+      @user = User.find(session[:user_id])
+      if @listing.voted_on_by?(@user)
+        @favourite = true
+      end
+    end
     @pictures = @listing.pictures
 
     render :html => "show", :layout => @ajxRqst
@@ -115,6 +123,38 @@ class ListingsController < ApplicationController
 
   def home_search
     puts params.inspect
+    @recent_listings = Listing.find(:all, :order => "id desc", :limit => 5)
+    if(!session[:user_id].nil?)
+      @user = User.find(session[:user_id])
+      @favs = @user.votes.up.collect { |obj| obj.votable_id }
+      @favourite_listings = Listing.find(@favs)
+      @searches = @user.searches
+      @my_saved_listings = []
+      @searches.each do |srch|
+        query = []
+        query << "listing_type = '#{srch.buy_rent}'" if srch.buy_rent.present?
+        query << "price >= #{srch.min_amount}" if srch.min_amount.present?
+        query << "price <= #{srch.max_amount}" if srch.max_amount.present?
+        query << "bedrooms = #{srch.beds}" if srch.beds.present?
+        query << "bathrooms = #{srch.bath}" if srch.bath.present?
+        query << "zip = #{srch.zip}" if srch.zip.present?
+        #query << "status = true"
+        puts srch.days_before.to_s + "days"
+        if srch.days_before == "active"
+          query << "status = true"
+        else
+          query << "created_at >= '#{srch.days_before.to_i.days.ago}'"
+        end
+        puts "Query:" + query.join("AND").to_s
+         
+           lists1 = Listing.where(query.join(" AND "))
+           @my_saved_listings = @my_saved_listings + lists1
+           puts @my_saved_listings.inspect
+      end
+      @my_saved_listings = @my_saved_listings.uniq
+    end
+
+
     @listings = Listing.where(:listing_type => params[:buy_rent], :status => true)
     puts "*********************"
     puts @listings.inspect
@@ -132,14 +172,17 @@ class ListingsController < ApplicationController
     query << "bedrooms = #{params[:bedrooms]}" if params[:bedrooms].present?
     query << "bathrooms = #{params[:bathrooms]}" if params[:bathrooms].present?
     query << "zip = #{params[:zip]}" if params[:zip].present?
-    query << "status = true"
+    #query << "status = true"
     if params[:days_before] == "active"
-      #query << "status = true"
+      query << "status = true"
     else
       query << "created_at >= '#{params[:days_before].to_i.days.ago}'"
     end
 
     @listings = Listing.where(query.join(" AND "))
+    if params[:key_search].present?       
+        @listings  = @listings & @key_search_listings       
+    end
     render :layout => false
   end
 
@@ -180,4 +223,26 @@ class ListingsController < ApplicationController
     @listing.update_attribute('name', params["listing-name"])
     redirect_to mylistings_path
   end
+
+  def vote_up
+    @user = User.find(session[:user_id])
+    @listing = Listing.find(params[:lid])
+    @listing.liked_by @user
+    render :text => "Favourite Added"
+  end
+
+  def vote_remove
+    @user = User.find(session[:user_id])
+    @listing = Listing.find(params[:lid])
+    @listing.unvote :voter => @user
+    render :text => "Favourite Removed."
+  end
+
+  def vote_down
+    @user = User.find(session[:user_id])
+    @listing = Listing.find(params[:lid])
+    @listing.downvote_from @user
+    render :text => "disliked"
+  end
+
 end

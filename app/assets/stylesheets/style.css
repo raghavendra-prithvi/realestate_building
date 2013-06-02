@@ -755,3 +755,7 @@ float:left;
   color: #333;
   text-decoration: none;
 }
+
+.no-border-right{
+    border-right:none;
+}

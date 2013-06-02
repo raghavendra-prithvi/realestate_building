@@ -3,7 +3,7 @@
 <head>
   <title>Tapski</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag "structure.css", "style.css","jquery.css" %>
+  <%= stylesheet_link_tag "structure.css", "style.css","jquery.css","bootstrap" %>
   <%= javascript_include_tag "application", "jquery-ui-1.10.0.custom.js", "jquery-ui-1.10.2.custom.js" %>
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyARDa-zSGZaZpd_U05Qxu4tkqRHJg6Vieg&libraries=geometry,places&sensor=false" />
   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>

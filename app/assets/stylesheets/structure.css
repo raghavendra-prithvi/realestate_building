@@ -12,6 +12,6 @@ body{background:url(/assets/body_bg.jpg) left top repeat-x #fff;}
 .container{width:1000px !important; margin:0 auto; overflow:hidden;}
 .header{background:url(/assets/Logo_bg.jpg) left top repeat-x; width:1000px; height:115px;}
 .nav{width:1000px; height:40px; padding-top:4px; background:url(/assets/Nav_bg.jpg) left bottom repeat-x; clear:both;}
-.content{width:980px; background:#fff; padding:10px;}
+.content{width:980px; background:#fff; padding:10px; height: 100%;}
 .footer{width:1000px; text-align:center; padding:30px; color:#686868;}
 

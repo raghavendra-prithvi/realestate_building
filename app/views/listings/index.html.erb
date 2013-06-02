@@ -1,33 +1,26 @@
-
-
-
-
-
-
 <div class="innerPageContent">
+  <div class="innerLeft"  id="left-menu">
+    <div class="tabbable tabs-left" style="height:90%">
+      <ul class="nav nav-tabs" style="width:190px;background: none;">
+        <% @listings.each do |l| %>
+          <% cls = l.listing_type + l.status.to_s %>
+        <li style="border:1px solid #000;" class=<%=cls %> ><a href="#" id=<%=l.id%> class="mylistings active" onclick ="$('#left-menu').find('li').each(function(){$(this).removeClass('active no-border-right')});$(this).parent('li').addClass('active no-border-right');showListing(this.id)" ><%=l.name%></a></li>
+        <% end %>
 
-  <div class="innerLeft">
-    <ul class="leftNav">
-      <% @listings.each do |l| %>
-
-        <a href="#" id=<%=l.id%> class="mylistings active" onclick ="showListing(this.id)" ><li><%=l.name%></li></a>
-
-      <% end %>
-
-    </ul>
-
+      </ul>
+    </div>
     <div class="optOne">
-      <select>
-        <option>For Sale</option>
-        <option>For Rent</option>
-        <option>Both</option>
+      <select style="width:100px" id="listing_type_box">
+        <option val="both">Both</option>
+        <option val="sale">For Sale</option>
+        <option val="rent">For Rent</option>
       </select>
     </div>
     <div class="optTwo">
-      <select>
-        <option>Active</option>
-        <option>Inactive</option>
-        <option>Both</option>
+      <select style="width:100px" id="active_listing_box">
+        <option val="both">Both</option>
+        <option val="active">Active</option>
+        <option val="inactive">Inactive</option>
       </select>
     </div>
   </div>
@@ -41,47 +34,7 @@
 
     <div class="contentInner" id="result_data">
 
- <!-- <table>
-  <tr>
-  	<th>Type</th>
-    <th>Price</th>
-    <th>Laonpayment</th>
-    <th>Bedrooms</th>
-    <th>Bathrooms</th>
-    <th>Squareft</th>
-    <th>Cost/sq</th>
-    <th>Type</th>
-    <th>Year</th>
-    <th>Lotsize</th>
-    <th>Daysontapski</th>
-    <th>Neighbourhood</th>
-    <th>Mls#</th>
-    <th>Status</th>
-    
-  </tr>
 
-<% @listings.each do |listing| %>
-  <tr>
-  	<td><%= listing.listing_type %></td>
-    <td><%= listing.price %></td>
-    <td><%= listing.laonpayment %></td>
-    <td><%= listing.bedrooms %></td>
-    <td><%= listing.bathrooms %></td>
-    <td><%= listing.squarefootage %></td>
-    <td><%= listing.costpersqft %></td>
-    <td><%= listing.adjustment_type %></td>
-    <td><%= listing.yearbuilt %></td>
-    <td><%= listing.lotsize %></td>
-    <td><%= listing.daysontapski %></td>
-    <td><%= listing.neighbourhood %></td>
-    <td><%= listing.mls %></td>
-    <td><%= listing.status %></td>
-    <td><%= link_to 'Show', listing %></td>
-    <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-    <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table> -->
 
       <div class="infoAction">
 
@@ -112,12 +65,10 @@
   <div class="clrbth"></div>
 
 </div>
-</div>
-
 <div id="rename-dialog">
-  <form action="" method="post">
+  
   <%= form_tag :url => "", :method => :post do %>
-    Name <input type="text" name="listing-name">
+    Name <input type="text" name="listing-name" />
     <button type="submit" class="btn-listing-rename">Save</button>
   <% end %>
 </div>
@@ -125,8 +76,8 @@
 <script type="text/javascript">
   $('document').ready(function(){
     $("#my_listings").parent().addClass("active");
-    if ($(".mylistings")){
-      $(".mylistings")[0].click();
+    if ($(".mylistings").length > 0){
+      $(".mylistings")[0].click();      
     }
     $("#rename-dialog")
     .dialog(
@@ -141,7 +92,85 @@
       modal: true
      }
     );
+
+
+   $("#active_listing_box").change(function(){
+     filter_listings();
+   });
+   $("#listing_type_box").change(function(){
+     filter_listings();
+   });
+
   });
+
+  function filter_listings(){
+     $("#result_data").html('');
+     $("#page_heading").find('h1').html('');
+     if($("#listing_type_box").val() == "For Sale"){
+        if($("#active_listing_box").val() == 'Active'){
+            $(".Saletrue").show();
+            $(".Rentaltrue").hide();
+            $(".Salefalse").hide();
+            $(".Rentalfalse").hide();
+        }
+        if($("#active_listing_box").val() == 'Inactive'){
+            $(".Saletrue").hide();
+            $(".Rentaltrue").hide();
+            $(".Salefalse").show();
+            $(".Rentalfalse").hide();
+        }
+        if($("#active_listing_box").val() == 'Both'){
+            $(".Saletrue").show();
+            $(".Rentaltrue").hide();
+            $(".Salefalse").show();
+            $(".Rentalfalse").hide();
+        }
+     };
+     if($("#listing_type_box").val() == "For Rent"){
+          if($("#active_listing_box").val() == 'Active'){
+            $(".Saletrue").hide();
+            $(".Rentaltrue").show();
+            $(".Salefalse").hide();
+            $(".Rentalfalse").hide();
+          }
+          if($("#active_listing_box").val() == 'Inactive'){
+            $(".Saletrue").hide();
+            $(".Rentaltrue").hide();
+            $(".Salefalse").hide();
+            $(".Rentalfalse").show();
+          }
+          if($("#active_listing_box").val() == 'Both'){
+            $(".Saletrue").hide();
+            $(".Rentaltrue").show();
+            $(".Salefalse").hide();
+            $(".Rentalfalse").show();
+        }
+     }
+     if($("#listing_type_box").val() == "Both"){
+         if($("#active_listing_box").val() == 'Active'){
+            $(".Saletrue").show();
+            $(".Rentaltrue").show();
+            $(".Salefalse").hide();
+            $(".Rentalfalse").hide();
+          }
+          if($("#active_listing_box").val() == 'Inactive'){
+            $(".Saletrue").hide();
+            $(".Rentaltrue").hide();
+            $(".Salefalse").show();
+            $(".Rentalfalse").show();
+          }
+          if($("#active_listing_box").val() == 'Both'){
+            $(".Saletrue").show();
+            $(".Rentaltrue").show();
+            $(".Salefalse").show();
+            $(".Rentalfalse").show();
+          }
+            
+     }
+     if($(".mylistings:visible").length > 0)
+        $(".mylistings:visible")[0].click();
+  };
+
   function showListing(id)
   {
     var clicked = $("#"+id);
@@ -158,6 +187,7 @@
         });
         $(".mylistings.active").removeClass("active");
         clicked.addClass("active");
+        $("#page_heading").find('h1').html('');
       }
     });
   }

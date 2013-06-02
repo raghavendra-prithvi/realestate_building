@@ -26,10 +26,10 @@ tapski_dev
 
 5a92e958-66c2-3c41-bd3e-43f0f6770ef2
 
-test
+solr
 dir
 
-solr
+test
 dir
 
 app
@@ -234,14 +234,14 @@ dir
 
 Gemfile
 file
-9
+10
 
 
 
-2013-06-09T16:10:37.875000Z
-3a2b6a8711fca1bc118621452947c177
-2013-05-11T11:31:41.031062Z
-9
+2013-06-12T15:00:54.218750Z
+68e5a71089c8192b1f499f25b6fbd658
+2013-05-21T13:44:40.933593Z
+10
 tapski_dev
 
 
@@ -264,7 +264,7 @@ tapski_dev
 
 
 
-514
+549
 
 .loadpath
 file

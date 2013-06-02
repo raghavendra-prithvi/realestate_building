@@ -1,18 +1,25 @@
 <% if !@listings.empty? %>
   <div id="listingPanelNew">
-    <% @listings.each do |l| %>
-	  	<div class="contentUImage"><img src="/assets/user.png"/></div>
-		<div class="contentDiv"><%= listing.name %>
-      <br/>
-      <%= listing.listing_type%>
-      <br/>
-      <%= listing.tap_description %>
-      <br/>
-      <a href="#" id="<%= listing.id%>" class="mylistings" onclick ="showListing(this.id)" >Quick View</a>
-      <%=link_to 'Explore', listing%>
-      </div>
-	<div class="clrbth"></div>
-	<% end %>
+    <div class="row">
+      <% @i = 0 %>
+      <% @listings.each do |listing| %>
+                    <% @i = @i+1 %>
+              <div class="span3" style="background-color: #EFE994;">
+                            <h3>
+                      <%= listing.name %></h3><br/>
+                      <h4><%= listing.listing_type %></h4><br/>
+                      <%= listing.tap_description[0..100] %>
+                      <br/>
+                      <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
+                      <%=link_to 'Explore', listing%>
+              </div>
+              <% if @i%3 == 0 %>
+                    </div>
+                    <br/>
+                    <div class="row">
+              <% end%>
+            <% end %>
+    </div>
 
      </div>
 <% end %>

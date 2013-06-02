@@ -6,8 +6,8 @@ END
 listings_controller.rb
 K 25
 svn:wc:ra_dav:version-url
-V 67
-/svn/tapski/!svn/ver/9/trunk/app/controllers/listings_controller.rb
+V 68
+/svn/tapski/!svn/ver/11/trunk/app/controllers/listings_controller.rb
 END
 identities_controller.rb
 K 25
@@ -48,6 +48,6 @@ END
 home_controller.rb
 K 25
 svn:wc:ra_dav:version-url
-V 63
-/svn/tapski/!svn/ver/9/trunk/app/controllers/home_controller.rb
+V 64
+/svn/tapski/!svn/ver/10/trunk/app/controllers/home_controller.rb
 END

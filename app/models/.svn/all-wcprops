@@ -6,8 +6,8 @@ END
 user.rb
 K 25
 svn:wc:ra_dav:version-url
-V 47
-/svn/tapski/!svn/ver/7/trunk/app/models/user.rb
+V 48
+/svn/tapski/!svn/ver/10/trunk/app/models/user.rb
 END
 user_detail.rb
 K 25
@@ -48,8 +48,8 @@ END
 listing.rb
 K 25
 svn:wc:ra_dav:version-url
-V 50
-/svn/tapski/!svn/ver/8/trunk/app/models/listing.rb
+V 51
+/svn/tapski/!svn/ver/10/trunk/app/models/listing.rb
 END
 picture.rb
 K 25

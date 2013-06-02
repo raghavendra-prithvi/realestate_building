@@ -6,8 +6,8 @@ END
 routes.rb
 K 25
 svn:wc:ra_dav:version-url
-V 45
-/svn/tapski/!svn/ver/8/trunk/config/routes.rb
+V 46
+/svn/tapski/!svn/ver/10/trunk/config/routes.rb
 END
 database.yml
 K 25

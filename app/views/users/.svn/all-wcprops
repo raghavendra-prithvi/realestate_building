@@ -24,8 +24,8 @@ END
 messages.html.erb
 K 25
 svn:wc:ra_dav:version-url
-V 62
-/svn/tapski/!svn/ver/9/trunk/app/views/users/messages.html.erb
+V 63
+/svn/tapski/!svn/ver/10/trunk/app/views/users/messages.html.erb
 END
 new.html.erb
 K 25

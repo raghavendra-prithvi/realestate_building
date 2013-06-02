@@ -1,0 +1,181 @@
+<div class="innerPageContent">
+        <div class="innerLeft" id="left-menu">
+          <div class="tabbable tabs-left">
+              <ul class="nav nav-tabs" style="width:190px;background: none;height:90%;">
+                <% @searches.each do |l| %>
+                  <li style="border:1px solid #000;">
+                    <a href="#" id=<%=l.id%> class="mySearches" onclick ="$('#left-menu').find('li').each(function(){$(this).removeClass('active')});$(this).parent('li').addClass('active');showSearch(this.id)" >
+                       <%=l.name%></a>
+                  </li>
+                <% end %>
+                <li style="border:1px solid #000;">
+                    <a href="#" class="mySearches" onclick ="$('#left-menu').find('li').each(function(){$(this).removeClass('active')});$(this).parent('li').addClass('active');showFouriteSearch()" >
+                       <img src="/assets/thumbsup.png" width="20" /> Thumbs Up</a>
+                  </li>
+              </ul>
+          <!-- <% if !@searches.empty? %>
+            <div id="listingPanelNew">
+              <% @searches.each do |l| %>
+                <div class="contentDiv" style="width:150px; height: auto;">
+                  <ul class="no-list-style">
+                    <li><%=l.name%></li>
+                    <li><a href="#" id=<%=l.id%> class="mylistings" onclick ="showSearch(this.id)" >Display Search</a></li>
+                    <li><%= link_to "Edit Search", edit_mysearch_path(l) %></li>
+                    <li><a href="#" id=<%=l.id%> class="mylistings" onclick ="searchSave(this.id)">Search with this criteria</a></li>
+                  </ul>
+                </div>
+                <div class="clrbth"></div>
+                <br/>
+                <br/>
+              <% end %>
+            </div>
+          <% end %> -->
+        </div>
+        </div>
+        <div class="innerRight" style="margin: 0 0 0 18px;">
+          <div id="listingPanel">
+          </div>
+        </div>
+               
+
+</div>
+
+<style>
+  .content{ height: 100%}
+</style>
+<script>
+$(function() {
+$( "#tabs" ).tabs();
+//$( "#myTab").tabs();
+
+});
+    <%#*$('#myTab a').click(function (e) {%>
+        <%#*e.preventDefault();%>
+        <%#*$(this).tab('show');%>
+    <%#*});%>
+    $('document').ready(function(){
+      $("#saved_searches").parent().addClass("active");
+      if ($(".mySearches")){
+          $(".mySearches")[0].click();
+      }
+    });
+  function searchSave(id){
+    $.ajax
+    ({
+      type: "GET",
+      //data: id,
+      url: "/search_with_criteria?id="+id,
+      success: function (data){
+        $("#listingPanel").html("");
+        $('#listingPanel').html(data);
+        if (data == '' || data.length < 1) {
+              alert("No Results found for the given search criteria.");
+          }
+
+      }
+    });
+
+
+  }
+function showSearch(id)
+    {
+      
+      $.ajax
+    ({
+      type: "get",
+      //data: id,
+      url: '/get_search_details?id='+id,
+      success: function (data){
+        $("#listingPanel").html("");
+        $('#listingPanel').html(data);
+        if (data == '' || data.length < 1) {
+              alert("No Results found for the given search criteria.");
+          }
+
+      }
+    });
+    
+
+  }
+
+  function showFouriteSearch(){
+      $.ajax
+    ({
+      type: "get",
+      //data: id,
+      url: '/get_favourite_search_details',
+      success: function (data){
+        $("#listingPanel").html("");
+        $('#listingPanel').html(data);
+        if (data == '' || data.length < 1) {
+              alert("No Results found for the given search criteria.");
+          }
+
+      }
+    });
+  
+  }
+
+
+  $('#search').click(function(){
+    $.ajax
+    ({
+      type: "POST",
+      data: $("form").serialize(),
+      url: "/my_search_listing",
+      success: function (data){
+        $("#result_data").html("");
+        $('#listingPanel').html(data);
+        //$('#ListingBack').show();
+        if (data == '' || data.length < 1) {
+              alert("No Results found for the given search criteria.");
+          }
+
+      }
+    });
+
+  });
+
+  $(document).ready(function(){
+    $("#save_search").click(function() {
+
+       if($("#key_search").val() == "" && $("#min_amount").val() == "" && $("#max_amount").val() == "" && $("#bedrooms").val() == "" && $("#bathrooms").val() == "" && $("#zip").val() == ""){
+          alert("Please select the any of the values to save search");
+       }
+       else{
+         $( "#saveForm" ).dialog({
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "explode",
+              duration: 1000
+            },
+            position : 'top',
+            title: "Save Search Criteria"
+
+          });
+       }
+    });
+
+    $("#save_submit").click(function() {
+      var url = "/save_search?name="+$("#save_name").val(); // the script where you handle the form input.
+
+      $.ajax({
+             type: "POST",
+             url: url,
+             data: $("form").serialize(), // serializes the form's elements.
+             success: function(data)
+             {
+                 alert(data); // show response from the php script.
+             }
+           });
+
+        return false; // avoid to execute the actual submit of the form.
+     });
+
+  });
+
+
+</script>

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/tapski/!svn/ver/4/trunk/test/fixtures
+END
+.gitkeep
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tapski/!svn/ver/4/trunk/test/fixtures/.gitkeep
+END
+listings.yml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tapski/!svn/ver/4/trunk/test/fixtures/listings.yml
+END

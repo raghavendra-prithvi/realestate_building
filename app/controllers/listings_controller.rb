@@ -122,7 +122,7 @@ class ListingsController < ApplicationController
 
 
   def home_search
-    puts params.inspect
+    
     @recent_listings = Listing.find(:all, :order => "id desc", :limit => 5)
     if(!session[:user_id].nil?)
       @user = User.find(session[:user_id])
@@ -243,6 +243,11 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:lid])
     @listing.downvote_from @user
     render :text => "disliked"
+  end
+
+  def upload_file
+    post = DataFile.save( params[:upload])
+    render :text => "File has been uploaded successfully"
   end
 
 end

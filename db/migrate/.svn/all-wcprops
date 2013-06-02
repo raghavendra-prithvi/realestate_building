@@ -21,29 +21,29 @@ svn:wc:ra_dav:version-url
 V 76
 /svn/tapski/!svn/ver/4/trunk/db/migrate/20130121105333_create_attachments.rb
 END
-20130121104416_tap_score_questionare.rb
-K 25
-svn:wc:ra_dav:version-url
-V 79
-/svn/tapski/!svn/ver/4/trunk/db/migrate/20130121104416_tap_score_questionare.rb
-END
 20130527163937_add_lat_long_to_user.rb
 K 25
 svn:wc:ra_dav:version-url
 V 78
 /svn/tapski/!svn/ver/9/trunk/db/migrate/20130527163937_add_lat_long_to_user.rb
 END
-20130123093958_add_details_to_listings.rb
+20130121104416_tap_score_questionare.rb
 K 25
 svn:wc:ra_dav:version-url
-V 81
-/svn/tapski/!svn/ver/4/trunk/db/migrate/20130123093958_add_details_to_listings.rb
+V 79
+/svn/tapski/!svn/ver/4/trunk/db/migrate/20130121104416_tap_score_questionare.rb
 END
 20130121104320_search.rb
 K 25
 svn:wc:ra_dav:version-url
 V 64
 /svn/tapski/!svn/ver/4/trunk/db/migrate/20130121104320_search.rb
+END
+20130123093958_add_details_to_listings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tapski/!svn/ver/4/trunk/db/migrate/20130123093958_add_details_to_listings.rb
 END
 20130331184031_fix_column_name_type_for_search.rb
 K 25
@@ -86,6 +86,12 @@ K 25
 svn:wc:ra_dav:version-url
 V 78
 /svn/tapski/!svn/ver/4/trunk/db/migrate/20130121104551_tap_question_answers.rb
+END
+20130513105926_acts_as_votable_migration.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/tapski/!svn/ver/10/trunk/db/migrate/20130513105926_acts_as_votable_migration.rb
 END
 20130608152944_add_listing_details_to_message.rb
 K 25

@@ -5,6 +5,7 @@ Tapski::Application.routes.draw do
   resources :listings do
     member do
       post 'rename'
+      post 'upload_file'
     end
   end
 
@@ -28,6 +29,7 @@ Tapski::Application.routes.draw do
   match '/my_search_listing' => 'listings#my_search_listing'
 
   match '/get_listing_contact' => 'listings#get_contact'
+  match '/get_favourite_search_details' => 'home#get_favourite_search_details'
   match '/show_image' => 'listings#show_image'
   match '/add_images' => 'listings#add_images'
   match '/upload_image' => 'listings#upload_image', :via => :post

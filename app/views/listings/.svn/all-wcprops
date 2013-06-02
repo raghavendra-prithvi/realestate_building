@@ -36,14 +36,14 @@ END
 home_search.html.erb
 K 25
 svn:wc:ra_dav:version-url
-V 68
-/svn/tapski/!svn/ver/9/trunk/app/views/listings/home_search.html.erb
+V 69
+/svn/tapski/!svn/ver/10/trunk/app/views/listings/home_search.html.erb
 END
 show.html.erb
 K 25
 svn:wc:ra_dav:version-url
-V 61
-/svn/tapski/!svn/ver/8/trunk/app/views/listings/show.html.erb
+V 62
+/svn/tapski/!svn/ver/10/trunk/app/views/listings/show.html.erb
 END
 _form.html.erb
 K 25
@@ -54,6 +54,6 @@ END
 my_search_listing.html.erb
 K 25
 svn:wc:ra_dav:version-url
-V 74
-/svn/tapski/!svn/ver/8/trunk/app/views/listings/my_search_listing.html.erb
+V 75
+/svn/tapski/!svn/ver/11/trunk/app/views/listings/my_search_listing.html.erb
 END

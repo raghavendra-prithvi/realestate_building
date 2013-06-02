@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/tapski/!svn/ver/4/trunk/test/functional
+END
+listings_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tapski/!svn/ver/4/trunk/test/functional/listings_controller_test.rb
+END
+identities_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tapski/!svn/ver/4/trunk/test/functional/identities_controller_test.rb
+END
+.gitkeep
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/tapski/!svn/ver/4/trunk/test/functional/.gitkeep
+END
+sessions_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tapski/!svn/ver/4/trunk/test/functional/sessions_controller_test.rb
+END
+home_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/tapski/!svn/ver/4/trunk/test/functional/home_controller_test.rb
+END

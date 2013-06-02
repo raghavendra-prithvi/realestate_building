@@ -51,6 +51,12 @@ svn:wc:ra_dav:version-url
 V 62
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/viewlisting.png
 END
+search.png
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tapski/!svn/ver/10/trunk/app/assets/images/search.png
+END
 form_bg.jpg
 K 25
 svn:wc:ra_dav:version-url
@@ -87,11 +93,11 @@ svn:wc:ra_dav:version-url
 V 62
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/editformbtn.png
 END
-groups.png
+background-grey.jpg
 K 25
 svn:wc:ra_dav:version-url
-V 57
-/svn/tapski/!svn/ver/4/trunk/app/assets/images/groups.png
+V 66
+/svn/tapski/!svn/ver/9/trunk/app/assets/images/background-grey.jpg
 END
 home_form_bg.jpg
 K 25
@@ -99,11 +105,11 @@ svn:wc:ra_dav:version-url
 V 63
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/home_form_bg.jpg
 END
-background-grey.jpg
+groups.png
 K 25
 svn:wc:ra_dav:version-url
-V 66
-/svn/tapski/!svn/ver/9/trunk/app/assets/images/background-grey.jpg
+V 57
+/svn/tapski/!svn/ver/4/trunk/app/assets/images/groups.png
 END
 gray_bg_left.jpg
 K 25
@@ -158,6 +164,18 @@ K 25
 svn:wc:ra_dav:version-url
 V 64
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/deleteformBtn.png
+END
+block.png
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/tapski/!svn/ver/10/trunk/app/assets/images/block.png
+END
+star-default.png
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/tapski/!svn/ver/10/trunk/app/assets/images/star-default.png
 END
 signout_icon.jpg
 K 25

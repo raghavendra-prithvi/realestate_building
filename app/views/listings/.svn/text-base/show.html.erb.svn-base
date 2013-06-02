@@ -18,6 +18,7 @@
    });
 
 </script>
+<div class="pageHeading"><h1><%=@listing.name %></h1></div>
 <p id="notice"><%= notice %></p>
 <div class="infoAction">
   
@@ -37,15 +38,38 @@
 
   <div class="contentInnerRight">
     <div id="editButtonsDiv">
-      <input type="button" class="btnStyle rename" value="Rename"/>
+      <input type="button" class="btn-rename" value="Rename"/>
       <!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
-      <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btnStyle modify" value="Modify"/> </a>
-      <%= link_to (button_tag "Delete", :class => "btnStyle delete", :type => "input"),
+      <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btn-modify" value="Modify"/> </a>
+      <%= link_to (button_tag "Delete", :class => "btn-delete", :type => "input"),
         listing_path(@listing), :method => :delete, :confirm => "Are you sure?", :rel => "nofollow" %>
-      <input type="button" class="btnStyle addEvent" value="Add Event"/>
+	  
+      <input type="button" class="btn-event" value="Add Event"/>
     </div>
     <div id="ContactLink" style="display:none" >
-      <input type="button" class="btnStyle addEvent" value="Contact" onclick="getContactDetails(this.id); return false;"  id=<%=@listing.id%> />
+      <div>
+        
+        <% if @favourite %>
+          <a href="#" id="voteremove" onclick="voteremove()">
+            <image src="/assets/star.jpeg" width="50" height="50" />
+          </a>
+          <a href="#" id="voteup" onclick="voteup()"  style="display:none">
+            <image src="/assets/read-star.png" width="50" height="50" />
+          </a>
+        <% else %>
+          <a href="#" id="voteup" onclick="voteup()" >
+            <image src="/assets/read-star.png" width="50" height="50" />
+          </a>
+        <a href="#" id="voteremove" onclick="voteremove()" style="display:none">
+            <image src="/assets/star.jpeg" width="50" height="50" />
+          </a>
+        <% end %>
+        <a href="#" id="votedown" onclick="votedown()" >
+            <image src="/assets/block.png" width="50" height="50" />
+          </a>
+      </div>
+      <br/>
+      <input type="button" class="btn-contact" value="Contact" onclick="getContactDetails(this.id); return false;"  id=<%=@listing.id%> />
       <div class="selector">
         <div id="divInDialog"></div>
       </div>
@@ -55,6 +79,9 @@
 
 </div>
 <div class="contentInnerLeft">
+  <div class="well">
+    <%= @listing.description %>
+  </div>
   <div class="info">
     <div class="left">Listing Type:</div>
     <div class="right"><%= @listing.listing_type %></div>
@@ -79,7 +106,6 @@
     <div class="left">Bathrooms</div>
     <div class="right"><%= @listing.bathrooms %></div>
   </div>
-
   <div class="info">
     <div class="left">Square Footage</div>
     <div class="right"><%= @listing.squarefootage %></div>
@@ -154,6 +180,51 @@
 
 <% @arq = @ajxRqst %>
 <script type="text/javascript">
+
+  function voteup(){
+    var lid="<%=@listing.id%>"
+
+    $.ajax
+    ({
+      type: "post",
+      url: "/vote_listing?lid="+lid,
+      success: function (data){
+        $("#voteup").hide();
+        $("#voteremove").show();
+      }
+    });
+
+  }
+
+  function votedown(){
+    var lid="<%=@listing.id%>"
+
+    $.ajax
+    ({
+      type: "post",
+      url: "/votedown_listing?lid="+lid,
+      success: function (data){
+        //$("#voteup").hide();
+        //$("#voteremove").show();
+      }
+    });
+
+  }
+
+  function voteremove(){
+    var lid="<%=@listing.id%>";
+    $.ajax
+    ({
+      type: "post",
+      url: "/remove_vote_listing?lid="+lid,
+      success: function (data){
+        $("#voteup").show();
+        $("#voteremove").hide();
+      }
+    });
+
+  }
+
   $(document).ready(function(){
      var ajaxRequest = <%=  @arq %>;
      if(ajaxRequest == true)

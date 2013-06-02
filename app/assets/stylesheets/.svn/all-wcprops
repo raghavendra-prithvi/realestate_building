@@ -15,6 +15,12 @@ svn:wc:ra_dav:version-url
 V 70
 /svn/tapski/!svn/ver/4/trunk/app/assets/stylesheets/smartpaginator.css
 END
+bootstrap.css
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/tapski/!svn/ver/10/trunk/app/assets/stylesheets/bootstrap.css
+END
 jquery.css
 K 25
 svn:wc:ra_dav:version-url
@@ -30,14 +36,14 @@ END
 structure.css
 K 25
 svn:wc:ra_dav:version-url
-V 65
-/svn/tapski/!svn/ver/4/trunk/app/assets/stylesheets/structure.css
+V 66
+/svn/tapski/!svn/ver/10/trunk/app/assets/stylesheets/structure.css
 END
 style.css
 K 25
 svn:wc:ra_dav:version-url
-V 61
-/svn/tapski/!svn/ver/9/trunk/app/assets/stylesheets/style.css
+V 62
+/svn/tapski/!svn/ver/10/trunk/app/assets/stylesheets/style.css
 END
 home.css.scss
 K 25
