@@ -348,20 +348,29 @@ $(document).ready(function(){
                 $("#lotSize").html($("#listing_lotsize").val());
                 $("#neighbour").html($("#listing_neighbourhood").val());
                 $("#mlsId").html($("#listing_mls").val());
-                if($("#listing_lotsize").is("checked")){
-                  $("#lotSize").html("Active");
+                if($("#listing_status").is("checked")){
+                  $("#status").html("Active");
                 }else{
-                  $("#lotSize").html("Inactive");
+                  $("#status").html("Inactive");
                 }
-                var myOptions = {
+                var prev_lat = $("#lattitude").val();
+                var prev_lng = $("#longitude").val();
+
+          /*      var myOptions1 = {
             zoom: 14,
-            center: new google.maps.LatLng( $("#lattitude").val(),$("#longitude").val()),
+            center: new google.maps.LatLng(prev_lat,prev_lng),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           };
-          directionsDisplay = new google.maps.DirectionsRenderer();
-          directionsDisplay.suppressMarkers = true;
-          map = new google.maps.Map(document.getElementById('map_canvas_preview'), myOptions);
-          directionsDisplay.setMap(map);
+          //directionsDisplay = new google.maps.DirectionsRenderer();
+          //directionsDisplay.suppressMarkers = true;
+          var map1 = new google.maps.Map(document.getElementById('map_canvas_preview'), myOptions1);
+          //directionsDisplay.setMap(map1);
+          var marker1 = new google.maps.Marker({
+                            position: new google.maps.LatLng(prev_lat, prev_lng),
+                            map: map1
+                        });
+          marker1.setMap(map1);
+          map1.setCenter(new google.maps.LatLng(prev_lat, prev_lng));*/
 	});
 });
 
@@ -383,10 +392,12 @@ $(document).ready(function(){
             center: new google.maps.LatLng(lat, lng),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           };
-          directionsDisplay = new google.maps.DirectionsRenderer();
-          directionsDisplay.suppressMarkers = true;
+          //directionsDisplay = new google.maps.DirectionsRenderer();
+          //directionsDisplay.suppressMarkers = true;
           map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-          directionsDisplay.setMap(map);
+          //directionsDisplay.setMap(map);
+
+
           var len = parseInt('#{@length}');
           <%#*lats = #{@mkr["lat"]};%>
           <%#*lngs = #{@mkr["lng"]};%>
@@ -478,7 +489,8 @@ $(document).ready(function(){
             map: map
           });
         }
-        $("#lattitude").val(location.jb);
+        
+        $("#lattitude").val(location.lb);
         $("#longitude").val(location.kb);
         getAddress(location);
       }

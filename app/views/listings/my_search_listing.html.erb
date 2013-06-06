@@ -2,7 +2,7 @@
   <div id="listingPanelNew">
     <% @listings.each do |l| %>
 	  	<div class="contentUImage"><img src="/assets/user.png"/></div>
-		<div class="contentDiv">Listing <%= l.id%>
+		<div class="contentDiv"><%= l.name %>
 			<br/>
 			<%=l.listing_type%>
 			<br/>
@@ -17,7 +17,7 @@
       <h1> KEY Search Results </h1>
       <% @lists_key.each do |l| %>
 	  	<div class="contentUImage"><img src="/assets/user.png"/></div>
-		<div class="contentDiv">Listing <%= l.id%>
+		<div class="contentDiv"> <%= l.name %>
 			<br/>
 			<%=l.listing_type%>
 			<br/>

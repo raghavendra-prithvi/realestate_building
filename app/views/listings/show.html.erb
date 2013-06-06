@@ -4,6 +4,7 @@
 <%=stylesheet_link_tag 'smartpaginator'%>
 
 <% @length = @pictures.length %>
+<% @listing_name = @listing.name %>
 <script>
   var length = "<%= @length %>";
   $('#black').smartpaginator({ totalrecords: length,
@@ -11,11 +12,15 @@
                                         datacontainer: 'homeImageHolder',
                                         dataelement: 'div',
                                         theme: 'black' });
+  var lname = "<%= @listing_name %>";
+  $(document).ready(function(){
+     $("#page_heading").find('h1').html(lname);
+   });
 
 </script>
 <p id="notice"><%= notice %></p>
 <div class="infoAction">
-
+  
   <div class="contentInnerLeft">
     <div class="homeImageHolder" id="homeImageHolder">
       <% @pictures.each do |p| %>

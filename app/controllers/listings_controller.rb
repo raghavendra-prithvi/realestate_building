@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   def index
     @user = User.find(session[:user_id])
     puts @user.inspect
-    @listings = @user.listings
+    @listings = @user.listings.all(:order => 'created_at DESC')
     puts @listings
     #@listings = Listing.all
 
