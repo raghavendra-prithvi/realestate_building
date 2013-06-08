@@ -74,6 +74,7 @@
 <div id="replyForm" style="display:none" >
   <form action="/reply_message" name="reply_messsage_form" method="post">
     <%=hidden_field_tag :mesg_id,'',{:id =>"message_id"} %>
+    <%=hidden_field_tag :listing_id,'',{:id =>"org_listing_id"} %>
     Subject:<%=text_field_tag :subject %>
     <br/>
     Message:<%=text_area :body,'',:rows =>3,:cols=>50 %>

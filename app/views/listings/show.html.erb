@@ -106,7 +106,7 @@
 
   <div class="info">
     <div class="left">Days on Tapski</div>
-    <% diff_days = ((((Time.now - @listing.created_at).abs)/3600)/24).abs %>
+    <% diff_days = ((((Time.now - @listing.created_at).abs)/3600)/24).to_i %>
     <% if diff_days < 1  %>
       <% diff_days = "To Day" %>
     <% end %>
