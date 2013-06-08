@@ -115,7 +115,7 @@ class ListingsController < ApplicationController
 
   def home_search
     puts params.inspect
-    @listings = Listing.where(:listing_type => params[:buy_rent])
+    @listings = Listing.where(:listing_type => params[:buy_rent], :status => true)
     puts "*********************"
     puts @listings.inspect
     @listings = @listings.where("price <= ?",params[:amount].to_i) if params[:amount].present?
