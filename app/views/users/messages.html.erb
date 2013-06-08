@@ -22,6 +22,12 @@
                         Body:
 			<%=l.body%>
 			<br/>
+                        
+                        <% if !l.listing_id.nil? %>
+                          <% @listing = Listing.find(l.listing_id) %>
+                          Listing Details:
+                          <%= link_to @listing.name,@listing %>
+                        <% end %>
 			<span style="float:right">
                           <input type="button" value="respond" id=<%=l.id%>  onclick="reply_message(this.id)"></input>
                         </span>

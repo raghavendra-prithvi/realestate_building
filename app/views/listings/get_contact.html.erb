@@ -11,9 +11,10 @@
   <%= @ud.last_name %>
 </p>
 <p>
-  <b>Picture:</b>
-  <%= image_tag url_for(:action => 'show_image', :id => @ud.picture_id, :controller => 'listings'), :size => "100x100" %>
-  
+  <% if !@ud.picture_id.nil? %>
+    <b>Picture:</b>
+    <%= image_tag url_for(:action => 'show_image', :id => @ud.picture_id, :controller => 'listings'), :size => "100x100" %>
+  <% end %>
 </p>
 <p>
   <b>Address:</b>
@@ -42,11 +43,12 @@
     <%=hidden_field_tag :mesg_id,'',{:id =>"message_id"} %>
     Subject:<%=text_field_tag :subject %>
     <br/>
-    Message:<%=text_area :body,'',:rows =>3,:cols=>50 %>
+    Message:<%=text_area :body,'',:rows =>4,:cols=>35 %>
     <div style="float:right">
       <input type="button" value="Reply" id="replyBtn" />
     </div>
     <%=hidden_field_tag :listing_owner, @user.id,{:id=>"owner_id"} %>
+    <%=hidden_field_tag :listing_id, params[:listing_id],{:id=>"listing_id"} %>
   </form>
 </div>
 

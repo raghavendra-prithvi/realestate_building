@@ -140,7 +140,8 @@ class UsersController < ApplicationController
    @current_user = User.find(session[:user_id])
     @new_msg = Message.new()
     @new_msg.subject = params[:subject]
-    @new_msg.body = params[:body]
+    @new_msg.listing_id = params[:listing_id]
+   @new_msg.body = params[:body]
     @new_msg.sender = @current_user
     @new_msg.recipient = @lstng_owner
     @new_msg.save
