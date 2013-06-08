@@ -132,8 +132,9 @@ class ListingsController < ApplicationController
     query << "bedrooms = #{params[:bedrooms]}" if params[:bedrooms].present?
     query << "bathrooms = #{params[:bathrooms]}" if params[:bathrooms].present?
     query << "zipcode = #{params[:zip]}" if params[:zip].present?
-    if params[:days_before] == "active" 
-      query << "status = true"
+    query << "status = true"
+    if params[:days_before] == "active"
+      #query << "status = true"
     else
       query << "created_at >= '#{params[:days_before].to_i.days.ago}'"
     end
