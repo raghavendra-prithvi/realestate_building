@@ -2,11 +2,13 @@
 <div class="innerLeft">
   <form action="/my_search_listing" method="post" id="my_search_form">
 	<div class="sectionHeading">
+          Welcome
 		<% @ud = User.find(session[:user_id]) %>
                 <%= @ud.name %>
           <%#*User Name%>
 	</div>
-        <div class="leftColLabelLeft">Keyword</div>
+    <br/>
+        <div class="leftColLabelLeft">Keyword Search</div>
 	<div class="leftColObjectRight">
           <input type="text" class="mid" name='key_search' style="width:100px;height:30px;" />
         </div>
@@ -98,17 +100,20 @@
 
 
 
-  <div class="pageHeading"><h1>My Listing</h1></div>
+  <div class="pageHeading"><h1>My Search Listings</h1></div>
   <div class="clrbth" id="home_results"></div>
     <div id="listingPanel">
     <% @listings.each do |l| %>
 	  	<div class="contentUImage"><img src="/assets/user.png"/></div>
-		<div class="contentDiv">Listing <%= l.id%>
+		<div class="contentDiv" style="height:auto"><%= l.name %>
 			<br/>
 			<%=l.listing_type%>
 			<br/>
-			<a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
-		</div>
+                        <%=l.tap_description %>
+			<br/>
+			<a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Quick View</li></a>
+                        <%=link_to 'Explore', l %>
+                </div>
 	<div class="clrbth"></div>
 	<% end %>
      </div>
@@ -116,7 +121,7 @@
         <div id="result_data">
           
         </div>
-	<div class="rightColChkBox"><input type="checkbox"/> View Listings Only</div>
+	<!-- <div class="rightColChkBox"><input type="checkbox"/> View Listings Only</div> -->
 
 
 </div>
@@ -166,8 +171,9 @@
       url: "/my_search_listing",
       success: function (data){
         $("#result_data").html("");
+        $('#listingPanel').show();
         $('#listingPanel').html(data);
-        //$('#ListingBack').show();
+        $('#ListingBack').hide();
         if (data == '' || data.length < 1) {
               alert("No Results found for the given search criteria.");
           }

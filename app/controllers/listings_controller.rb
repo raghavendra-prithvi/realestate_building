@@ -18,11 +18,15 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @ajxRqst = false
+    if(!request.xhr?)
+      @ajxRqst = true
+    end
     @listing = Listing.find(params[:id])
     puts @listing.inspect
     @pictures = @listing.pictures
 
-    render :html => "show", :layout => false
+    render :html => "show", :layout => @ajxRqst
 
 #    respond_to do |format|
 #      #format.html { :layout => false }# show.html.erb
@@ -111,8 +115,11 @@ class ListingsController < ApplicationController
 
   def home_search
     puts params.inspect
-    @listings = Listing.where(:listing_type => params[:buy_rent]).where("price <= ?",params[:amount].to_i)
+    @listings = Listing.where(:listing_type => params[:buy_rent])
     puts "*********************"
+    puts @listings.inspect
+    @listings = @listings.where("price <= ?",params[:amount].to_i) if params[:amount].present?
+    puts "****************23*****"
     puts @listings.inspect
   end
 

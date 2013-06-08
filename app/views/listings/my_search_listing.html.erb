@@ -2,11 +2,14 @@
   <div id="listingPanelNew">
   <% @listings.each do |listing| %>
     <div class="contentUImage"><img src="/assets/user.png"/></div>
-    <div class="contentDiv"><%= listing.name %>
+    <div class="contentDiv" style="height:auto" ><%= listing.name %>
       <br/>
       <%= listing.listing_type%>
       <br/>
-      <a href="#" id="<%= listing.id%>" class="mylistings" onclick ="showListing(this.id)" >Listing<%= listing.id %></a>
+      <%= listing.tap_description %>
+      <br/>
+      <a href="#" id="<%= listing.id%>" class="mylistings" onclick ="showListing(this.id)" >Quick View</a>
+      <%=link_to 'Explore', listing%>
     </div>
     <div class="clrbth"></div>
 	<% end %>
@@ -16,10 +19,14 @@
   <h1> KEY Search Results </h1>
   <% @key_search_listings.each do |listing| %>
     <div class="contentUImage"><img src="/assets/user.png"/></div>
-    <div class="contentDiv">
+    <div class="contentDiv" style="height:auto" >
       <%= listing.name %><br/>
       <%= listing.listing_type %><br/>
-      <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Listing<%= listing.id %></a>
+      <%= listing.tap_description %>
+      <br/>
+      <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
+      <%=link_to 'Explore', listing%>
+
     </div>
     <div class="clrbth"></div>
   <% end %>

@@ -140,14 +140,14 @@
 
   <%=hidden_field_tag :long, @listing.long, {:id=>"longitude"}%>
   <%=hidden_field_tag :lat, @listing.lat, {:id=>"lattitude"}%>
-<div class="bottomContent" id="downLinkAttach">
+<!-- <div class="bottomContent" id="downLinkAttach">
   
   <div> Link to: <input type="text" /> </div>
   <div>Attach Docs: <input type="file" /></div>
-</div>
+</div> -->
 
 
-
+<% @arq = @ajxRqst %>
 <script type="text/javascript">
   function getContactDetails(listing_id){
     $( ".selector" ).dialog({
@@ -169,6 +169,13 @@
     });
   };
   $(document).ready(function(){
+     var ajaxRequest = <%=  @arq %>;
+     if(ajaxRequest == true)
+       {
+         $(".content").attr("style","height:760px");
+         $("#editButtonsDiv").hide();
+          $("#rightCheck").hide();
+       }
      var map;
       var lat;
       var lng;
@@ -185,8 +192,8 @@
           directionsDisplay = new google.maps.DirectionsRenderer();
           directionsDisplay.suppressMarkers = true;
           map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-          var edit_lng = $("#longitude").val();
-    var edit_lat = $("#lattitude").val();
+          var edit_lat= $("#longitude").val();
+    var edit_lng  = $("#lattitude").val();
     var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(edit_lat, edit_lng),
                             map: map
