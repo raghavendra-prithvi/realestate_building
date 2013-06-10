@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     session[:user_name] = user.name
     #render :text => "signed in"
-    redirect_to root_url, :notice  => "signed out"
+    redirect_to root_url, :notice  => "signed in"
   end
 
   def destroy

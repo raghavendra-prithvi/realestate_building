@@ -3,9 +3,11 @@
   <form action="/my_search_listing" method="post" id="my_search_form">
 	<div class="sectionHeading">
           Welcome
-		<% @ud = User.find(session[:user_id]) %>
+		  <% if !session[:user_id].nil?%>
+			<% @ud = User.find(session[:user_id]) %>
                 <%= @ud.name %>
-          <%#*User Name%>
+			<% end %>
+        
 	</div>
     <br/>
         <div class="leftColLabelLeft">Keyword Search</div>
@@ -187,9 +189,16 @@
   });
 	
 	function getContactDetails(listing_id){
-		if($(".selector").closest('.ui-dialog').is(':visible')) { 
+		var user = '<%= session[:user_id]%>';
+		if(user.length == 0){
+			alert("Please Login to Contact the owner of listing");
+			$("#signIn").click();
 			return false;
+			//window.location.href = "/login";
 		}
+		/*if($(".selector").closest('.ui-dialog').is(':visible')) { 
+			return false;
+		}*/
 			$( ".selector" ).dialog({
 			  show: {
 				effect: "blind",
