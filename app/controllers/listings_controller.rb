@@ -131,8 +131,8 @@ class ListingsController < ApplicationController
     query << "price <= #{params[:max_amount]}" if params[:max_amount].present?
     query << "bedrooms = #{params[:bedrooms]}" if params[:bedrooms].present?
     query << "bathrooms = #{params[:bathrooms]}" if params[:bathrooms].present?
-    query << "zipcode = #{params[:zip]}" if params[:zip].present?
-    #query << "status = true"
+    query << "zip = #{params[:zip]}" if params[:zip].present?
+    query << "status = true"
     if params[:days_before] == "active"
       #query << "status = true"
     else

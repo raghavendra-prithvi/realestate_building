@@ -2,12 +2,15 @@
   <div id="listingPanelNew">
     <% @listings.each do |l| %>
 	  	<div class="contentUImage"><img src="/assets/user.png"/></div>
-		<div class="contentDiv">Listing <%= l.id%>
-			<br/>
-			<%=l.listing_type%>
-			<br/>
-			<a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
-		</div>
+		<div class="contentDiv"><%= listing.name %>
+      <br/>
+      <%= listing.listing_type%>
+      <br/>
+      <%= listing.tap_description %>
+      <br/>
+      <a href="#" id="<%= listing.id%>" class="mylistings" onclick ="showListing(this.id)" >Quick View</a>
+      <%=link_to 'Explore', listing%>
+      </div>
 	<div class="clrbth"></div>
 	<% end %>
 

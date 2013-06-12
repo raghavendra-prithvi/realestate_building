@@ -45,7 +45,7 @@
     <br/>
     Message:<%=text_area :body,'',:rows =>4,:cols=>35 %>
     <div style="float:right">
-      <input type="button" value="Reply" id="replyBtn" />
+      <input type="button" value="Post Message" id="replyBtn" />
     </div>
     <%=hidden_field_tag :listing_owner, @user.id,{:id=>"owner_id"} %>
     <%=hidden_field_tag :listing_id, params[:listing_id],{:id=>"listing_id"} %>

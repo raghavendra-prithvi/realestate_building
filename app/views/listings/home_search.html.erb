@@ -12,7 +12,7 @@
     <br/>
         <div class="leftColLabelLeft">Keyword Search</div>
 	<div class="leftColObjectRight">
-          <input type="text" class="mid" name='key_search' style="width:100px;height:30px;" />
+          <input type="text" class="mid" id="key_search"  name='key_search' style="width:100px;height:30px;" />
         </div>
 
 	<div class="clrbth"></div>
@@ -73,10 +73,11 @@
 
 	<div class="clrbth"></div>
 
-	<div class="leftColFullContent">
-	<input type="button" class="btnBg" value="Save" id="save_search" />
-	<input type="button" class="btnBg" value="Search" id="search" />
-	</div>
+	<div class="leftColFullContent form-row">
+	<input type="button" class="submit"  style="width:55px" value="Save" id="save_search" />
+	<input type="button" class="submit"  style="width:55px" value="Search" id="search" />
+        <input type="button" class="cancel"  style="width:55px" value="Reset" id="reset" />
+        </div>
 </form>
 	<div class="leftColFullContent">
 	<input type="checkbox" />
@@ -259,6 +260,17 @@
 
         return false; // avoid to execute the actual submit of the form.
      });
+
+     $("#reset").click(function(){
+            $("#max_amount").val("0");
+            $("#min_amount").val("0");
+            $("#bedrooms").val("0");
+            $("#zip").val("");
+            $("#days_before").val("0");
+            $("#bathrooms").val("7");
+            $("#key_search").val("");
+
+           });
 
   });
 
