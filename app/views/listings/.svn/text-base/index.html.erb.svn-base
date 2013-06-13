@@ -10,7 +10,7 @@
     <ul class="leftNav">
       <% @listings.each do |l| %>
 
-        <a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
+        <a href="#" id=<%=l.id%> class="mylistings active" onclick ="showListing(this.id)" ><li><%=l.name%></li></a>
 
       <% end %>
 
@@ -34,7 +34,7 @@
   <img src="/assets/topInnerForm.png" style="margin:0px 0px 0px 10px;"/>
   <div class="innerRight">
 
-    <div class="pageHeading"><h1>My Listing</h1></div>
+    <div class="pageHeading" id="page_heading"><h1>My Listing</h1></div>
     <div class="uname" ><div class="uimage"><img src="/assets/user.png"  /></div><div class="username">Welcome! <%= session[:user_name]%></div></div>
 
     <div class="clrbth"></div>
@@ -114,23 +114,51 @@
 </div>
 </div>
 
+<div id="rename-dialog">
+  <form action="" method="post">
+  <%= form_tag :url => "", :method => :post do %>
+    Name <input type="text" name="listing-name">
+    <button type="submit" class="btn-listing-rename">Save</button>
+  <% end %>
+</div>
+
 <script type="text/javascript">
   $('document').ready(function(){
     $("#my_listings").parent().addClass("active");
     if ($(".mylistings")){
       $(".mylistings")[0].click();
     }
+    $("#rename-dialog")
+    .dialog(
+     {
+      bgiframe: true,
+      autoOpen: false,
+      x:100,
+      y:100,
+      position:'top',
+      width: 320,
+      //height: 100,
+      modal: true
+     }
+    );
   });
   function showListing(id)
   {
+    var clicked = $("#"+id);
     $.ajax
     ({
       type: "GET",
       url: "/listings/"+id,
       success: function (data){
         $("#result_data").html(data);
+        $("#rename-dialog form").attr('action', '/listings/'+ id +'/rename');
+        $(".btnStyle.rename").on('click', function() {
+          $("#rename-dialog").dialog('open');
+          $("#rename-dialog form > input").val($(".mylistings.active li").text());
+        });
+        $(".mylistings.active").removeClass("active");
+        clicked.addClass("active");
       }
     });
-
   }
 </script>

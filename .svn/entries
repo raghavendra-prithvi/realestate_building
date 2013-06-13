@@ -1,14 +1,14 @@
 10
 
 dir
-6
+7
 http://home.telaeris.com/svn/tapski/trunk
 http://home.telaeris.com/svn/tapski
 
 
 
-2013-04-01T18:27:22.315429Z
-6
+2013-04-29T19:42:20.784304Z
+7
 tapski_dev
 
 
@@ -26,10 +26,10 @@ tapski_dev
 
 5a92e958-66c2-3c41-bd3e-43f0f6770ef2
 
-solr
+test
 dir
 
-test
+solr
 dir
 
 app
@@ -185,14 +185,14 @@ dir
 
 Gemfile.lock
 file
+8
 
 
 
-
-2013-03-29T05:59:54.015625Z
-70b072189d54b8c8bb6252509e7abb26
-2013-03-30T17:12:17.301757Z
-4
+2013-06-06T15:33:03.718750Z
+99b04238ca0a11b3a34480ae3bf540bc
+2013-05-10T15:57:05.948054Z
+8
 tapski_dev
 
 
@@ -215,7 +215,7 @@ tapski_dev
 
 
 
-3345
+3855
 
 tmp
 dir
@@ -234,14 +234,14 @@ dir
 
 Gemfile
 file
-7
+9
 
 
 
-2013-05-28T16:48:37.484375Z
-679aa3222299d9f47ba935d79926fa75
-2013-04-29T19:42:20.784304Z
-7
+2013-06-09T16:10:37.875000Z
+3a2b6a8711fca1bc118621452947c177
+2013-05-11T11:31:41.031062Z
+9
 tapski_dev
 
 
@@ -264,7 +264,7 @@ tapski_dev
 
 
 
-1231
+514
 
 .loadpath
 file

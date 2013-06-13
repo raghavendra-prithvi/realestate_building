@@ -87,17 +87,23 @@ svn:wc:ra_dav:version-url
 V 62
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/editformbtn.png
 END
+groups.png
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/tapski/!svn/ver/4/trunk/app/assets/images/groups.png
+END
 home_form_bg.jpg
 K 25
 svn:wc:ra_dav:version-url
 V 63
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/home_form_bg.jpg
 END
-groups.png
+background-grey.jpg
 K 25
 svn:wc:ra_dav:version-url
-V 57
-/svn/tapski/!svn/ver/4/trunk/app/assets/images/groups.png
+V 66
+/svn/tapski/!svn/ver/9/trunk/app/assets/images/background-grey.jpg
 END
 gray_bg_left.jpg
 K 25
@@ -110,6 +116,18 @@ K 25
 svn:wc:ra_dav:version-url
 V 65
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/post_listing_h.jpg
+END
+read-star.png
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/tapski/!svn/ver/9/trunk/app/assets/images/read-star.png
+END
+background-grey.png
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/tapski/!svn/ver/9/trunk/app/assets/images/background-grey.png
 END
 smallBtnBg.png
 K 25
@@ -165,17 +183,17 @@ svn:wc:ra_dav:version-url
 V 64
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/gray_bg_right.jpg
 END
-Logo_bg.jpg
-K 25
-svn:wc:ra_dav:version-url
-V 58
-/svn/tapski/!svn/ver/4/trunk/app/assets/images/Logo_bg.jpg
-END
 backBtn.png
 K 25
 svn:wc:ra_dav:version-url
 V 58
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/backBtn.png
+END
+Logo_bg.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tapski/!svn/ver/4/trunk/app/assets/images/Logo_bg.jpg
 END
 gray_bg_center.jpg
 K 25
@@ -207,6 +225,12 @@ svn:wc:ra_dav:version-url
 V 56
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/rails.png
 END
+star.jpeg
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/tapski/!svn/ver/9/trunk/app/assets/images/star.jpeg
+END
 Tapski_logo.png
 K 25
 svn:wc:ra_dav:version-url
@@ -230,6 +254,12 @@ K 25
 svn:wc:ra_dav:version-url
 V 63
 /svn/tapski/!svn/ver/4/trunk/app/assets/images/topInnerForm.png
+END
+delete1.png
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tapski/!svn/ver/9/trunk/app/assets/images/delete1.png
 END
 messageBtn.png
 K 25

@@ -2,13 +2,17 @@
 <div class="innerLeft">
   <form action="/my_search_listing" method="post" id="my_search_form">
 	<div class="sectionHeading">
-		<% @ud = User.find(session[:user_id]) %>
+          Welcome
+		  <% if !session[:user_id].nil?%>
+			<% @ud = User.find(session[:user_id]) %>
                 <%= @ud.name %>
-          <%#*User Name%>
+			<% end %>
+        
 	</div>
-        <div class="leftColLabelLeft">Keyword</div>
+    <br/>
+        <div class="leftColLabelLeft">Keyword Search</div>
 	<div class="leftColObjectRight">
-          <input type="text" class="mid" name='key_search' style="width:100px;height:30px;" />
+          <input type="text" class="mid" id="key_search"  name='key_search' style="width:100px;height:30px;" />
         </div>
 
 	<div class="clrbth"></div>
@@ -38,7 +42,7 @@
 	</div>
 	<div class="labelMid">to</div>
 	<div class="labelRight">
-		<%=select_tag :max_amount, options_for_select([ ['No Max',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000] ]) %>
+		<%=select_tag :max_amount, options_for_select([ ['No Max',''],[500,500],[1000,1000],[5000,5000],[10000,10000],[50000,50000],[100000,100000],[1000000,1000000],[5000000,5000000] ]) %>
 	</div>
 	<div class="clrbth tpMargin">&nbsp;</div>
 	<div class="labelLeft">Beds</div>
@@ -69,10 +73,11 @@
 
 	<div class="clrbth"></div>
 
-	<div class="leftColFullContent">
-	<input type="button" class="btnBg" value="Save" id="save_search" />
-	<input type="button" class="btnBg" value="Search" id="search" />
-	</div>
+	<div class="leftColFullContent form-row">
+	<input type="button" class="submit"  style="width:55px" value="Save" id="save_search" />
+	<input type="button" class="submit"  style="width:55px" value="Search" id="search" />
+        <input type="button" class="cancel"  style="width:55px" value="Reset" id="reset" />
+        </div>
 </form>
 	<div class="leftColFullContent">
 	<input type="checkbox" />
@@ -98,17 +103,20 @@
 
 
 
-  <div class="pageHeading"><h1>My Listing</h1></div>
+  <div class="pageHeading"><h1>My Search Listings</h1></div>
   <div class="clrbth" id="home_results"></div>
     <div id="listingPanel">
     <% @listings.each do |l| %>
 	  	<div class="contentUImage"><img src="/assets/user.png"/></div>
-		<div class="contentDiv">Listing <%= l.id%>
+		<div class="contentDiv" style="height:auto"><%= l.name %>
 			<br/>
 			<%=l.listing_type%>
 			<br/>
-			<a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Listing<%=l.id%></li></a>
-		</div>
+                        <%=l.tap_description %>
+			<br/>
+			<a href="#" id=<%=l.id%> class="mylistings" onclick ="showListing(this.id)" ><li>Quick View</li></a>
+                        <%=link_to 'Explore', l %>
+                </div>
 	<div class="clrbth"></div>
 	<% end %>
      </div>
@@ -116,7 +124,7 @@
         <div id="result_data">
           
         </div>
-	<div class="rightColChkBox"><input type="checkbox"/> View Listings Only</div>
+	<!-- <div class="rightColChkBox"><input type="checkbox"/> View Listings Only</div> -->
 
 
 </div>
@@ -139,6 +147,9 @@
 
 
 <script type="text/javascript">
+
+	
+  
 	function showListing(id)
   {
     $.ajax
@@ -166,8 +177,9 @@
       url: "/my_search_listing",
       success: function (data){
         $("#result_data").html("");
+        $('#listingPanel').show();
         $('#listingPanel').html(data);
-        //$('#ListingBack').show();
+        $('#ListingBack').hide();
         if (data == '' || data.length < 1) {
               alert("No Results found for the given search criteria.");
           }
@@ -176,8 +188,41 @@
     });
 
   });
-
+	
+	function getContactDetails(listing_id){
+		var user = '<%= session[:user_id]%>';
+		if(user.length == 0){
+			alert("Please Login to Contact the owner of listing");
+			$("#signIn").click();
+			return false;
+			//window.location.href = "/login";
+		}
+		/*if($(".selector").closest('.ui-dialog').is(':visible')) { 
+			return false;
+		}*/
+			$( ".selector" ).dialog({
+			  show: {
+				effect: "blind",
+				duration: 1000
+			  },
+			  hide: {
+				effect: "explode",
+				duration: 1000
+			  },
+			  position : 'top',
+			  title: "Contact Details",
+			  open: function(event, ui) {
+				$('#divInDialog').load('/get_listing_contact?listing_id='+listing_id, function() {
+				  //alert('Load was performed.');
+				  return false;
+				});
+			  }
+			});
+		
+  };
   $(document).ready(function(){
+  
+	
     $("#save_search").click(function() {
 
        if($("#key_search").val() == "" && $("#min_amount").val() == "" && $("#max_amount").val() == "" && $("#bedrooms").val() == "" && $("#bathrooms").val() == "" && $("#zip").val() == ""){
@@ -215,6 +260,17 @@
 
         return false; // avoid to execute the actual submit of the form.
      });
+
+     $("#reset").click(function(){
+            $("#max_amount").val("0");
+            $("#min_amount").val("0");
+            $("#bedrooms").val("0");
+            $("#zip").val("");
+            $("#days_before").val("0");
+            $("#bathrooms").val("7");
+            $("#key_search").val("");
+
+           });
 
   });
 

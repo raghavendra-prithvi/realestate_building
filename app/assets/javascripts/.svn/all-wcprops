@@ -33,6 +33,12 @@ svn:wc:ra_dav:version-url
 V 78
 /svn/tapski/!svn/ver/4/trunk/app/assets/javascripts/jquery-ui-1.10.0.custom.js
 END
+jquery-ui-1.10.2.custom.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tapski/!svn/ver/9/trunk/app/assets/javascripts/jquery-ui-1.10.2.custom.js
+END
 listings.js.coffee
 K 25
 svn:wc:ra_dav:version-url

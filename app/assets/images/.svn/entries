@@ -1,7 +1,7 @@
 10
 
 dir
-6
+7
 http://home.telaeris.com/svn/tapski/trunk/app/assets/images
 http://home.telaeris.com/svn/tapski
 
@@ -502,16 +502,16 @@ has-props
 
 2434
 
-groups.png
+background-grey.jpg
 file
+9
 
 
 
-
-2013-03-28T18:13:14.453125Z
-b088513a37f5fab4a9d2d37f397c0bcc
-2013-03-30T17:12:17.301757Z
-4
+2013-05-31T15:10:33.671875Z
+ad47af29ad50df1477b9413f9d521db0
+2013-05-11T11:31:41.031062Z
+9
 tapski_dev
 has-props
 
@@ -534,7 +534,7 @@ has-props
 
 
 
-1732
+1179902
 
 home_form_bg.jpg
 file
@@ -569,6 +569,40 @@ has-props
 
 
 2038
+
+groups.png
+file
+
+
+
+
+2013-03-28T18:13:14.453125Z
+b088513a37f5fab4a9d2d37f397c0bcc
+2013-03-30T17:12:17.301757Z
+4
+tapski_dev
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1732
 
 gray_bg_left.jpg
 file
@@ -637,6 +671,74 @@ has-props
 
 
 8195
+
+read-star.png
+file
+9
+
+
+
+2013-05-29T17:04:32.593750Z
+625b32120b94629ece2da8a2776841fc
+2013-05-11T11:31:41.031062Z
+9
+tapski_dev
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5058
+
+background-grey.png
+file
+9
+
+
+
+2013-05-31T15:12:52.406250Z
+6a2172b67e757ca9eae5224d820c7ebe
+2013-05-11T11:31:41.031062Z
+9
+tapski_dev
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+553
 
 smallBtnBg.png
 file
@@ -944,40 +1046,6 @@ has-props
 
 398
 
-backBtn.png
-file
-
-
-
-
-2013-03-28T18:13:14.421875Z
-1ac4243c276cd1184a5cc8c0de8d0652
-2013-03-30T17:12:17.301757Z
-4
-tapski_dev
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2045
-
 Logo_bg.jpg
 file
 
@@ -1011,6 +1079,40 @@ has-props
 
 
 1306
+
+backBtn.png
+file
+
+
+
+
+2013-03-28T18:13:14.421875Z
+1ac4243c276cd1184a5cc8c0de8d0652
+2013-03-30T17:12:17.301757Z
+4
+tapski_dev
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2045
 
 gray_bg_center.jpg
 file
@@ -1182,6 +1284,40 @@ has-props
 
 8774
 
+star.jpeg
+file
+9
+
+
+
+2013-05-29T16:56:37.562500Z
+0caa1659981c8c585074c3a2af74d91a
+2013-05-11T11:31:41.031062Z
+9
+tapski_dev
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4480
+
 Tapski_logo.png
 file
 
@@ -1317,6 +1453,40 @@ has-props
 
 
 1118
+
+delete1.png
+file
+9
+
+
+
+2013-05-29T17:26:54.156250Z
+8e49b5787869fff5bccaeb06652fd2ca
+2013-05-11T11:31:41.031062Z
+9
+tapski_dev
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+520
 
 home.png
 file

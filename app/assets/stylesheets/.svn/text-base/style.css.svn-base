@@ -222,7 +222,7 @@ body{font:normal 12px Arial, Helvetica, sans-serif;}
 }
 
 .continueFormBtn{
-	background:url(/assets/continueBtn.png);
+	background:url(/assets/background-grey.png);
 	width:116px;
 	height:32px;
 	font:bold 12px Arial, Helvetica, sans-serif;
@@ -365,7 +365,7 @@ input[type=text].small{
 }
 
 .backFormBtn{
-	background:url(/assets/backBtn.png);
+	background:url(/assets/background-grey.png);
 	width:116px;
 	height:32px;
 	font:bold 12px Arial, Helvetica, sans-serif;
@@ -374,7 +374,7 @@ input[type=text].small{
 }
 
 .continueFormBtnLarge{
-	background:url(/assets/cont.png);
+	background:url(/assets/background-grey.png);
 	width:200px;
 	height:32px;
 	font:bold 12px Arial, Helvetica, sans-serif;
@@ -496,7 +496,7 @@ input[type=text].small{
 
 .btnBg{
 	background:url(/assets/smallBtnBg.png);
-	width:77px;
+	width:55px;
 	border:0px solid #000;
 	font:normal 11px Arial, Helvetica, sans-serif;
 	text-align:center;
@@ -639,4 +639,28 @@ float:left;
 
 .findProperty .info{
 	margin:10px;
+}
+
+.form-row {
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  min-width: 100px;
+  display: inline-block;
+}
+
+.form-row .submit {
+  padding: 7px 14px;
+  background: #4280D0;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-row .cancel {
+  padding: 7px 14px;
+  background: #D3D7CF;
+  color: #333;
+  text-decoration: none;
 }

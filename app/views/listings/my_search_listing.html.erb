@@ -11,7 +11,9 @@
 			<h3>
 		  <%= listing.name %></h3><br/>
 		  <h4><%= listing.listing_type %></h4><br/>
-		  <%= listing.tap_description %>
+                  <span style="height:80px;">
+		  <%= listing.tap_description[0..100] %>
+                    </span>
 		  <br/>
 		  <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
 		  <%=link_to 'Explore', listing%>
@@ -38,7 +40,7 @@
 	  <!-- <div class="contentUImage"><img src="/assets/user.png"/></div> -->
 		  <%= listing.name %><br/>
 		  <%= listing.listing_type %><br/>
-		  <%= listing.tap_description %>
+		  <%= listing.tap_description[0..100] %>
 		  <br/>
 		  <a href="#" id="<%= listing.id %>" class="mylistings" onclick ="showListing(this.id)">Quick View</a>
 		  <%=link_to 'Explore', listing%>

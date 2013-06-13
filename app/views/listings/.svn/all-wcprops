@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/svn/tapski/!svn/ver/5/trunk/app/views/listings
+/svn/tapski/!svn/ver/7/trunk/app/views/listings
 END
 edit.html.erb
 K 25
@@ -13,7 +13,7 @@ index.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 62
-/svn/tapski/!svn/ver/4/trunk/app/views/listings/index.html.erb
+/svn/tapski/!svn/ver/8/trunk/app/views/listings/index.html.erb
 END
 new.html.erb
 K 25
@@ -25,7 +25,7 @@ get_contact.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/svn/tapski/!svn/ver/7/trunk/app/views/listings/get_contact.html.erb
+/svn/tapski/!svn/ver/8/trunk/app/views/listings/get_contact.html.erb
 END
 add_images.html.erb
 K 25
@@ -37,23 +37,23 @@ home_search.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/svn/tapski/!svn/ver/7/trunk/app/views/listings/home_search.html.erb
+/svn/tapski/!svn/ver/9/trunk/app/views/listings/home_search.html.erb
 END
 show.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/tapski/!svn/ver/7/trunk/app/views/listings/show.html.erb
+/svn/tapski/!svn/ver/8/trunk/app/views/listings/show.html.erb
 END
 _form.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 62
-/svn/tapski/!svn/ver/7/trunk/app/views/listings/_form.html.erb
+/svn/tapski/!svn/ver/8/trunk/app/views/listings/_form.html.erb
 END
 my_search_listing.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 74
-/svn/tapski/!svn/ver/5/trunk/app/views/listings/my_search_listing.html.erb
+/svn/tapski/!svn/ver/8/trunk/app/views/listings/my_search_listing.html.erb
 END

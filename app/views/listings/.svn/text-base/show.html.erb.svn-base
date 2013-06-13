@@ -4,6 +4,7 @@
 <%=stylesheet_link_tag 'smartpaginator'%>
 
 <% @length = @pictures.length %>
+<% @listing_name = @listing.name %>
 <script>
   var length = "<%= @length %>";
   $('#black').smartpaginator({ totalrecords: length,
@@ -11,11 +12,15 @@
                                         datacontainer: 'homeImageHolder',
                                         dataelement: 'div',
                                         theme: 'black' });
+  var lname = "<%= @listing_name %>";
+  $(document).ready(function(){
+     $("#page_heading").find('h1').html(lname);
+   });
 
 </script>
 <p id="notice"><%= notice %></p>
 <div class="infoAction">
-
+  
   <div class="contentInnerLeft">
     <div class="homeImageHolder" id="homeImageHolder">
       <% @pictures.each do |p| %>
@@ -35,7 +40,8 @@
       <input type="button" class="btnStyle rename" value="Rename"/>
       <!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
       <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btnStyle modify" value="Modify"/> </a>
-      <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href=<%=@listing%> > <input type="button" class="btnStyle delete" value="Delete"/></a>
+      <%= link_to (button_tag "Delete", :class => "btnStyle delete", :type => "input"),
+        listing_path(@listing), :method => :delete, :confirm => "Are you sure?", :rel => "nofollow" %>
       <input type="button" class="btnStyle addEvent" value="Add Event"/>
     </div>
     <div id="ContactLink" style="display:none" >
@@ -59,10 +65,10 @@
     <div class="right"><%= @listing.price %></div>
   </div>
 
-  <div class="info">
+  <!--<div class="info">
     <div class="left">Loan Payment</div>
     <div class="right"><%= @listing.laonpayment %></div>
-  </div>
+  </div> -->
 
   <div class="info">
     <div class="left">Bedroom</div>
@@ -100,7 +106,12 @@
 
   <div class="info">
     <div class="left">Days on Tapski</div>
-    <div class="right"><%= @listing.daysontapski %></div>
+    <% diff_days = ((((Time.now - @listing.created_at).abs)/3600)/24).to_i %>
+    <% if diff_days < 1  %>
+      <% diff_days = "To Day" %>
+    <% end %>
+
+    <div class="right"><%= diff_days %></div>
   </div>
   <div class="info">
     <div class="left">Neighborhood</div>
@@ -134,35 +145,23 @@
 
   <%=hidden_field_tag :long, @listing.long, {:id=>"longitude"}%>
   <%=hidden_field_tag :lat, @listing.lat, {:id=>"lattitude"}%>
-<div class="bottomContent" id="downLinkAttach">
+<!-- <div class="bottomContent" id="downLinkAttach">
   
   <div> Link to: <input type="text" /> </div>
   <div>Attach Docs: <input type="file" /></div>
-</div>
+</div> -->
 
 
-
+<% @arq = @ajxRqst %>
 <script type="text/javascript">
-  function getContactDetails(listing_id){
-    $( ".selector" ).dialog({
-      show: {
-        effect: "blind",
-        duration: 1000
-      },
-      hide: {
-        effect: "explode",
-        duration: 1000
-      },
-      position : 'top',
-      title: "Contact Details",
-      open: function(event, ui) {
-        $('#divInDialog').load('/get_listing_contact?listing_id='+listing_id, function() {
-          //alert('Load was performed.');
-        });
-      }
-    });
-  };
   $(document).ready(function(){
+     var ajaxRequest = <%=  @arq %>;
+     if(ajaxRequest == true)
+       {
+         $(".content").attr("style","height:760px");
+         $("#editButtonsDiv").hide();
+          $("#rightCheck").hide();
+       }
      var map;
       var lat;
       var lng;
@@ -179,8 +178,8 @@
           directionsDisplay = new google.maps.DirectionsRenderer();
           directionsDisplay.suppressMarkers = true;
           map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-          var edit_lng = $("#longitude").val();
-    var edit_lat = $("#lattitude").val();
+          var edit_lat= $("#longitude").val();
+    var edit_lng  = $("#lattitude").val();
     var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(edit_lat, edit_lng),
                             map: map

@@ -1,31 +1,29 @@
 <div class="innerPageContent">
-<div class="innerLeft">
-<% if !@searches.empty? %>
-  <div id="listingPanelNew">
-    <% @searches.each do |l| %>	  	
-		<div class="contentDiv" style="width:150px">
-                        <%=l.name%>
-			<br/>			
-			<a href="#" id=<%=l.id%> class="mylistings" onclick ="showSearch(this.id)" ><li>Display Search</li></a>
-                        <a href="#" id=<%=l.id%> class="mylistings" onclick ="searchSave(this.id)"><li>Search with this criteria</li></a>
-
-		</div>
-	<div class="clrbth"></div>
-        <br/>
-			<br/>
-	<% end %>
-
-     </div>
-<% end %>
-</div>
-</div>
-<div class="innerRight oneColRight">
-<div id ="listingPanel">
-  
-</div>
-</div>
-<div class="selector">
-  <div id="divInDialog">
+  <div class="innerLeft">
+    <% if !@searches.empty? %>
+      <div id="listingPanelNew">
+        <% @searches.each do |l| %>	  	
+          <div class="contentDiv" style="width:150px; height: auto;">
+            <ul class="no-list-style">
+              <li><%=l.name%></li>
+              <li><a href="#" id=<%=l.id%> class="mylistings" onclick ="showSearch(this.id)" >Display Search</a></li>
+              <li><%= link_to "Edit Search", edit_mysearch_path(l) %></li>
+              <li><a href="#" id=<%=l.id%> class="mylistings" onclick ="searchSave(this.id)">Search with this criteria</a></li>
+            </ul>
+          </div>
+          <div class="clrbth"></div>
+          <br/>
+          <br/>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div id ="listingPanel" style="float: left; width: 463px;">
+  </div>
+  <div class="clrbth"></div>
+  <div class="selector">
+    <div id="divInDialog">
+    </div>
   </div>
 </div>
 <script type="text/javascript">

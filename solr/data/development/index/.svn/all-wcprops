@@ -3,17 +3,17 @@ svn:wc:ra_dav:version-url
 V 56
 /svn/tapski/!svn/ver/4/trunk/solr/data/development/index
 END
-_1.fdx
-K 25
-svn:wc:ra_dav:version-url
-V 63
-/svn/tapski/!svn/ver/4/trunk/solr/data/development/index/_1.fdx
-END
 _2.fnm
 K 25
 svn:wc:ra_dav:version-url
 V 63
 /svn/tapski/!svn/ver/4/trunk/solr/data/development/index/_2.fnm
+END
+_1.fdx
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/tapski/!svn/ver/4/trunk/solr/data/development/index/_1.fdx
 END
 _2.fdx
 K 25
@@ -81,17 +81,17 @@ svn:wc:ra_dav:version-url
 V 63
 /svn/tapski/!svn/ver/4/trunk/solr/data/development/index/_0.tis
 END
+segments.gen
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/tapski/!svn/ver/8/trunk/solr/data/development/index/segments.gen
+END
 _1.tis
 K 25
 svn:wc:ra_dav:version-url
 V 63
 /svn/tapski/!svn/ver/4/trunk/solr/data/development/index/_1.tis
-END
-segments.gen
-K 25
-svn:wc:ra_dav:version-url
-V 69
-/svn/tapski/!svn/ver/4/trunk/solr/data/development/index/segments.gen
 END
 _2.tis
 K 25

@@ -23,7 +23,7 @@
 <div class="btom-section">
 <div class="gray-bg-left"></div>
 <div class="gray-bg-center">
-<div class="left-section" title="Post a Listing">&nbsp;</div>
+<a href="/listings/new"><div class="left-section" title="Post a Listing">&nbsp;</div></a>
 <div class="center-section"><img src="/assets/search_home.jpg" alt="" width="276" height="129" /></div>
 <div class="right-section">
 <div class="form-bg">

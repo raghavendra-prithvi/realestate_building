@@ -13,7 +13,7 @@ development.log
 K 25
 svn:wc:ra_dav:version-url
 V 48
-/svn/tapski/!svn/ver/4/trunk/log/development.log
+/svn/tapski/!svn/ver/8/trunk/log/development.log
 END
 .gitkeep
 K 25
@@ -31,5 +31,5 @@ sunspot-solr-development.log
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/tapski/!svn/ver/4/trunk/log/sunspot-solr-development.log
+/svn/tapski/!svn/ver/8/trunk/log/sunspot-solr-development.log
 END

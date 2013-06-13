@@ -7,7 +7,7 @@ index.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/svn/tapski/!svn/ver/4/trunk/app/views/home/index.html.erb
+/svn/tapski/!svn/ver/8/trunk/app/views/home/index.html.erb
 END
 get_search_details.html.erb
 K 25
@@ -19,11 +19,11 @@ search_with_criteria.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 73
-/svn/tapski/!svn/ver/6/trunk/app/views/home/search_with_criteria.html.erb
+/svn/tapski/!svn/ver/9/trunk/app/views/home/search_with_criteria.html.erb
 END
 mysearches.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 63
-/svn/tapski/!svn/ver/6/trunk/app/views/home/mysearches.html.erb
+/svn/tapski/!svn/ver/9/trunk/app/views/home/mysearches.html.erb
 END

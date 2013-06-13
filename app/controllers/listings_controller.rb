@@ -24,6 +24,14 @@ class ListingsController < ApplicationController
     end
     @listing = Listing.find(params[:id])
     puts @listing.inspect
+
+    @favourite = false
+    if(!session[:user_id].nil?)
+      @user = User.find(session[:user_id])
+      if @listing.voted_on_by?(@user)
+        @favourite = true
+      end
+    end
     @pictures = @listing.pictures
 
     render :html => "show", :layout => @ajxRqst
@@ -115,7 +123,13 @@ class ListingsController < ApplicationController
 
   def home_search
     puts params.inspect
-	@recent_listings = Listing.find(:all, :order => "id desc", :limit => 5)
+    @recent_listings = Listing.find(:all, :order => "id desc", :limit => 5)
+    if(!session[:user_id].nil?)
+      @user = User.find(session[:user_id])
+      @favs = @user.votes.up.collect { |obj| obj.votable_id }
+      @favourite_listings = Listing.find(@favs)
+    end
+    
     @listings = Listing.where(:listing_type => params[:buy_rent], :status => true)
     puts "*********************"
     puts @listings.inspect
@@ -181,4 +195,26 @@ class ListingsController < ApplicationController
     @listing.update_attribute('name', params["listing-name"])
     redirect_to mylistings_path
   end
+
+  def vote_up
+    @user = User.find(session[:user_id])
+    @listing = Listing.find(params[:lid])
+    @listing.liked_by @user
+    render :text => "Favourite Added"
+  end
+
+  def vote_remove
+    @user = User.find(session[:user_id])
+    @listing = Listing.find(params[:lid])
+    @listing.unvote :voter => @user
+    render :text => "Favourite Removed."
+  end
+
+  def vote_down
+    @user = User.find(session[:user_id])
+    @listing = Listing.find(params[:lid])
+    @listing.downvote_from @user
+    render :text => "disliked"
+  end
+
 end

@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 28
-/svn/tapski/!svn/ver/6/trunk
+/svn/tapski/!svn/ver/7/trunk
 END
 Gemfile.lock
 K 25
 svn:wc:ra_dav:version-url
 V 41
-/svn/tapski/!svn/ver/4/trunk/Gemfile.lock
+/svn/tapski/!svn/ver/8/trunk/Gemfile.lock
 END
 Rakefile
 K 25
@@ -31,7 +31,7 @@ Gemfile
 K 25
 svn:wc:ra_dav:version-url
 V 36
-/svn/tapski/!svn/ver/7/trunk/Gemfile
+/svn/tapski/!svn/ver/9/trunk/Gemfile
 END
 .loadpath
 K 25

@@ -1,7 +1,7 @@
 10
 
 dir
-6
+7
 http://home.telaeris.com/svn/tapski/trunk/db/migrate
 http://home.telaeris.com/svn/tapski
 
@@ -127,6 +127,40 @@ tapski_dev
 
 
 244
+
+20130527163937_add_lat_long_to_user.rb
+file
+9
+
+
+
+2013-05-27T16:41:47.031250Z
+a757c8fef3975f150ea1edd8d3522b2a
+2013-05-11T11:31:41.031062Z
+9
+tapski_dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+151
 
 20130121104416_tap_score_questionare.rb
 file
@@ -332,6 +366,40 @@ tapski_dev
 
 337
 
+20130526181810_create_messages.rb
+file
+9
+
+
+
+2013-05-26T18:18:10.968750Z
+5c6f629d2c2a150d9b9ddbe1b99220e4
+2013-05-11T11:31:41.031062Z
+9
+tapski_dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+378
+
 20130124135605_users.rb
 file
 
@@ -434,16 +502,16 @@ tapski_dev
 
 232
 
-20130121105243_create_pictures.rb
+20130608152944_add_listing_details_to_message.rb
 file
+9
 
 
 
-
-2013-01-21T10:53:04.000000Z
-11537e3ed40974ac18c27766cb317a61
-2013-03-30T17:12:17.301757Z
-4
+2013-06-08T15:31:52.484375Z
+323e5c92f810beaa1524ca0747d201b6
+2013-05-11T11:31:41.031062Z
+9
 tapski_dev
 
 
@@ -466,7 +534,7 @@ tapski_dev
 
 
 
-158
+130
 
 20130205074958_adduidcoloumn_to_user_details.rb
 file
@@ -501,6 +569,40 @@ tapski_dev
 
 
 125
+
+20130121105243_create_pictures.rb
+file
+
+
+
+
+2013-01-21T10:53:04.000000Z
+11537e3ed40974ac18c27766cb317a61
+2013-03-30T17:12:17.301757Z
+4
+tapski_dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+158
 
 20130205075958_addnamecoloumn_to_user_details.rb
 file
@@ -637,6 +739,40 @@ tapski_dev
 
 
 190
+
+20130531152236_create_residential_types.rb
+file
+9
+
+
+
+2013-05-31T15:29:04.093750Z
+7472644b8ab46f36e558d2091cf754ca
+2013-05-11T11:31:41.031062Z
+9
+tapski_dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+447
 
 20130121103655_create_listings.rb
 file

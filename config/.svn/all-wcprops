@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 35
-/svn/tapski/!svn/ver/6/trunk/config
+/svn/tapski/!svn/ver/7/trunk/config
 END
 routes.rb
 K 25
 svn:wc:ra_dav:version-url
 V 45
-/svn/tapski/!svn/ver/7/trunk/config/routes.rb
+/svn/tapski/!svn/ver/8/trunk/config/routes.rb
 END
 database.yml
 K 25

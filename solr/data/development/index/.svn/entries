@@ -1,7 +1,7 @@
 10
 
 dir
-6
+7
 http://home.telaeris.com/svn/tapski/trunk/solr/data/development/index
 http://home.telaeris.com/svn/tapski
 
@@ -470,14 +470,14 @@ has-props
 
 segments.gen
 file
+8
 
 
 
-
-2013-03-29T09:57:34.250000Z
-8a1fca715e08c2b190cf096804220f5c
-2013-03-30T17:12:17.301757Z
-4
+2013-03-30T18:47:16.500000Z
+58f155f285e096f23502e7344559c087
+2013-05-10T15:57:05.948054Z
+8
 tapski_dev
 has-props
 

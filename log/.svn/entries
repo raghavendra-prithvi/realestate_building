@@ -1,7 +1,7 @@
 10
 
 dir
-6
+7
 http://home.telaeris.com/svn/tapski/trunk/log
 http://home.telaeris.com/svn/tapski
 
@@ -32,7 +32,7 @@ file
 
 
 
-2013-03-29T09:45:05.968750Z
+2013-03-31T09:45:02.078125Z
 d41d8cd98f00b204e9800998ecf8427e
 2013-03-30T17:12:17.301757Z
 4
@@ -62,14 +62,14 @@ tapski_dev
 
 development.log
 file
+8
 
 
 
-
-2013-03-29T10:03:25.015625Z
-e629cf3c1df59784336ea3208812caca
-2013-03-30T17:12:17.301757Z
-4
+2013-06-08T17:47:55.031250Z
+97caa69c377448d6d1b4df263e18b88f
+2013-05-10T15:57:05.948054Z
+8
 tapski_dev
 
 
@@ -92,7 +92,7 @@ tapski_dev
 
 
 
-7318831
+18590269
 
 .gitkeep
 file
@@ -164,14 +164,14 @@ tapski_dev
 
 sunspot-solr-development.log
 file
+8
 
 
 
-
-2013-03-29T09:58:27.015625Z
-0fd9219d5c374ae5f07357d34ffad045
-2013-03-30T17:12:17.301757Z
-4
+2013-03-31T09:46:19.734375Z
+c88dc559a6626a3da703b808a9f65485
+2013-05-10T15:57:05.948054Z
+8
 tapski_dev
 
 
@@ -194,5 +194,5 @@ tapski_dev
 
 
 
-32027
+18882
 

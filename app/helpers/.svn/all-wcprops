@@ -15,6 +15,12 @@ svn:wc:ra_dav:version-url
 V 62
 /svn/tapski/!svn/ver/4/trunk/app/helpers/application_helper.rb
 END
+mysearches_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/tapski/!svn/ver/9/trunk/app/helpers/mysearches_helper.rb
+END
 sessions_helper.rb
 K 25
 svn:wc:ra_dav:version-url

@@ -1,11 +1,11 @@
 class ListingsController < ApplicationController
   # GET /listingssession
   # GET /listings.json
-  before_filter :require_login
+  before_filter :require_login, :except => ['show','home_search','my_search_listing','get_contact','show_image']
   def index
     @user = User.find(session[:user_id])
     puts @user.inspect
-    @listings = @user.listings
+    @listings = @user.listings.all(:order => 'created_at DESC')
     puts @listings
     #@listings = Listing.all
 
@@ -18,11 +18,15 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @ajxRqst = false
+    if(!request.xhr?)
+      @ajxRqst = true
+    end
     @listing = Listing.find(params[:id])
     puts @listing.inspect
     @pictures = @listing.pictures
 
-    render :html => "show", :layout => false
+    render :html => "show", :layout => @ajxRqst
 
 #    respond_to do |format|
 #      #format.html { :layout => false }# show.html.erb
@@ -50,6 +54,8 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
+    puts params[:listing]
+    params[:listing][:tap_description] = params[:listing][:description].to_s + "-"+params[:listing][:bedrooms].to_s + "Beds-"+ params[:listing][:bathrooms].to_s + "Baths -" + params[:listing][:squarefootage].to_s + "sq.ft"
     @listing = Listing.new(params[:listing])
     @listing.user_id = current_user.id
     if !params[:image_file].nil?
@@ -109,61 +115,32 @@ class ListingsController < ApplicationController
 
   def home_search
     puts params.inspect
-    @listings = Listing.where(:listing_type => params[:buy_rent]).where("price <= ?",params[:amount].to_i)
+    @listings = Listing.where(:listing_type => params[:buy_rent], :status => true)
     puts "*********************"
+    puts @listings.inspect
+    @listings = @listings.where("price <= ?",params[:amount].to_i) if params[:amount].present?
+    puts "****************23*****"
     puts @listings.inspect
   end
 
   def my_search_listing
-   
-    @lists_key = []
-    if(!params[:key_search].nil? && params[:key_search] != '')
-#      puts "inside param keyword"
-#      puts params[:key_search]
-#      @search = Listing.search do
-#         params[:key_search]
-#      end
-#      @lists_key = @search.results
-#      puts @lists_key.inspect
-#      puts "**********"
-      @lists_key = Listing.search(params[:key_search])
-    end
-    query = "Select * from LISTINGS where "
-
-    unless params[:buy_rent].blank?
-      query = query + "listing_type= '" + params[:buy_rent] + "'"
+    @key_search_listings = Listing.search(params[:key_search]) if params[:key_search].present?
+    query = []
+    query << "listing_type = '#{params[:buy_rent]}'" if params[:buy_rent].present?
+    query << "price >= #{params[:min_amount]}" if params[:min_amount].present?
+    query << "price <= #{params[:max_amount]}" if params[:max_amount].present?
+    query << "bedrooms = #{params[:bedrooms]}" if params[:bedrooms].present?
+    query << "bathrooms = #{params[:bathrooms]}" if params[:bathrooms].present?
+    query << "zip = #{params[:zip]}" if params[:zip].present?
+    query << "status = true"
+    if params[:days_before] == "active"
+      #query << "status = true"
+    else
+      query << "created_at >= '#{params[:days_before].to_i.days.ago}'"
     end
 
-    unless params[:max_amount].blank?
-      query = query + " AND price <= " + params[:max_amount]
-    end
-
-    unless params[:min_amount].blank?
-      query = query + " AND price >= " + params[:min_amount]
-    end
-
-    unless params[:bedrooms].blank?
-      query = query + " AND bedrooms = " + params[:bedrooms]
-    end
-
-    unless params[:bathrooms].blank?
-      query = query + " AND bathrooms = " + params[:bathrooms]
-    end
-
-    unless params[:zip].blank?
-      query = query + " AND zip like " + params[:zip]
-    end
-
-    unless params[:days_before].blank?
-      #query = query + " AND created_at >= " + (Time.now - params[:days_before].to_i.days).strftime('%d-%m-%Y').to_s
-    end
-
-    puts "sql query #{query}"
-    @listings = Listing.find_by_sql(query) #where(:listing_type => params[:buy_rent]).where("price <= ?",params[:max_amount]).where("price >=",params[:min_amount])
-    
-    puts @listings.inspect
-    #    render :text => @lists_key.to_s
-    render :html => "my_search_listing", :layout => false
+    @listings = Listing.where(query.join(" AND "))
+    render :layout => false
   end
 
 
@@ -196,5 +173,11 @@ class ListingsController < ApplicationController
     uploadimages.save!
     render :text => uploadimages.id
     #puts "saved"
+  end
+
+  def rename
+    @listing = Listing.find(params[:id])
+    @listing.update_attribute('name', params["listing-name"])
+    redirect_to mylistings_path
   end
 end

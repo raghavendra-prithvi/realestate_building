@@ -1,30 +1,90 @@
-<form action="/save_profile">
+<div class="innerPageContent oneCol">
+	<form action="/save_profile" enctype="multipart/form-data" accept-charset="UTF-8" method="post">
+	<div class="pageHeading"><h1>Edit <%=@ud.first_name%>  Profile </h1></div>
+	<div class="clrbth"></div>
+		<div class="colmid">
+			<div class="colText">Firstname :</div>
+			<div class="colObj"><input type = "text" name="first_name" value=<%=@ud.first_name%>  ></input></div>
+		</div>
+		<div class="clrbth"></div>
+		<div class="colmid">
+			<div class="colText">Lastname :</div>
+			<div class="colObj"><input type = "text" name="last_name" value=<%=@ud.last_name%>  ></input> </div>
+		</div>
+		<div class="clrbth"></div>
+		<div class="colmid">
+			<div class="colText">Address1:</div>
+			<div class="colObj"><input type = "text" name="address1" value=<%= @ud.address1 %> ></input> </div>
+		</div>
+		<div class="clrbth"></div>
+		<div class="colmid">
+			<div class="colText">Address2:</div>
+			<div class="colObj"><input type = "text" name="address2" value=<%= @ud.address2 %> ></input> </div>
+		</div>
+		<div class="clrbth"></div>
+		<div class="colmid">
+			<div class="colText">City:</div>
+			<div class="colObj"><input type = "text" name="city" value=<%= @ud.city %> ></input> </div>
+		</div>
+		<div class="clrbth"></div>
+		<div class="colmid">
+			<div class="colText">ZIP:</div>
+			<div class="colObj"><input type = "text" name="zip" value=<%= @ud.zip %> ></input> </div>
+		</div>
+		<div class="clrbth"></div>
+		<div class="colmid">
+		<div class="colText">
+			<label>Attach Photo</label>
+			</div>
+		   <div class="colObj">
+			 <input type="file" name="image_file" value = "Select a file" />			
+		   </div>
+		   </div>
+		   <div class="clrbth"></div>
+		    <div id="dialog"></div>
+		<div class="colmid">
+			<div class="colText">ProfileType:</div>
+			<div class="colObj"><%if @ud.profile_public?%>
+			<input type = "checkbox" name="profile_public" checked="checked" /> </br>
+			<% else %>
+			<input type = "checkbox" name="profile_public" /> </div>
+			<% end %>
+		</div>
+		<div class="clrbth"></div>
+		<div class="colmid">
+			<div class="colText">Email :</div>
+			<div class="colObj"><input type = "text" name="email" value=<%=@ud.email%> > </input></div>
+		</div>
+		<div class="clrbth"></div>
+		<div class="colmid">
+			<div class="colText">Phone:</div>
+			<div class="colObj"><input type = "text" name="phone" value=<%=@ud.phone%> ></input></div>
+		</div>
+		<div class="clrbth"></div>				
+		<div class="colmid">
+			<div class="colText"></div>
+			<div class="colObj"><input type = "submit" name="submit" value="Submit"/></div>
+		</div>
+		<div class="clrbth"></div>
+	</form>
 
-Firstname :
-<input type = "text" name="first_name" value=<%=@ud.first_name%>  ></input> </br>
-Lastname :
-<input type = "text" name="last_name" value=<%=@ud.last_name%>  ></input> </br>
+</div>
+<script>
+$(document).ready(function(){
 
-Address :
-<br/>
-Address1:<input type = "text" name="address1" value=<%= @ud.address1 %> ></input> </br>
-Address2:<input type = "text" name="address2" value=<%= @ud.address2 %> ></input> </br>
-City:<input type = "text" name="city" value=<%= @ud.city %> ></input> </br>
-ZIP:<input type = "text" name="zip" value=<%= @ud.zip %> ></input> </br>
-ProfileType:
-<%if @ud.profile_public?%>
-<input type = "checkbox" name="profile_public" checked="checked" /> </br>
-<% else %>
-<input type = "checkbox" name="profile_public" /> </br>
-
-<% end %>
-Email :
-<input type = "text" name="email" value=<%=@ud.email%> > </input> </br>
-
-Phone:
-<input type = "text" name="phone" value=<%=@ud.phone%> ></input> </br>
-
-Submit:
-<input type = "submit" name="submit"/> </br>
-
-</form>
+	$("#dialog")
+  .dialog(
+   {
+	bgiframe: true,
+	autoOpen: false,
+	x:100,
+	y:100,
+	position:'top',
+	width: 600,
+	title:"Upload Images",
+	//height: 100,
+	modal: true
+   }
+  );
+ }); 
+ </script>

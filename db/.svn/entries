@@ -1,14 +1,14 @@
 10
 
 dir
-6
+7
 http://home.telaeris.com/svn/tapski/trunk/db
 http://home.telaeris.com/svn/tapski
 
 
 
-2013-04-01T18:27:22.315429Z
-6
+2013-04-29T19:42:20.784304Z
+7
 tapski_dev
 
 
@@ -28,14 +28,14 @@ tapski_dev
 
 schema.rb
 file
-7
+8
 
 
 
-2013-05-27T16:42:03.968750Z
-dda85a1b1137da98025d3276b1d6fbc0
-2013-04-29T19:42:20.784304Z
-7
+2013-06-08T15:32:22.015625Z
+aaeaf6ee419d0e541da2a59ab358d526
+2013-05-10T15:57:05.948054Z
+8
 tapski_dev
 
 
@@ -58,7 +58,7 @@ tapski_dev
 
 
 
-4654
+4772
 
 test.sqlite3
 file
@@ -164,4 +164,38 @@ tapski_dev
 
 migrate
 dir
+
+data.yml
+file
+9
+
+
+
+2013-06-10T11:28:16.265625Z
+8be9bc49640025516973d49aa20c9497
+2013-05-11T11:31:41.031062Z
+9
+tapski_dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+441224
 

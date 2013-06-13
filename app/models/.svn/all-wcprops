@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 39
-/svn/tapski/!svn/ver/5/trunk/app/models
+/svn/tapski/!svn/ver/7/trunk/app/models
 END
 user.rb
 K 25
@@ -13,7 +13,7 @@ user_detail.rb
 K 25
 svn:wc:ra_dav:version-url
 V 54
-/svn/tapski/!svn/ver/4/trunk/app/models/user_detail.rb
+/svn/tapski/!svn/ver/8/trunk/app/models/user_detail.rb
 END
 .gitkeep
 K 25
@@ -21,11 +21,23 @@ svn:wc:ra_dav:version-url
 V 48
 /svn/tapski/!svn/ver/4/trunk/app/models/.gitkeep
 END
+message.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tapski/!svn/ver/9/trunk/app/models/message.rb
+END
+residential_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/tapski/!svn/ver/9/trunk/app/models/residential_type.rb
+END
 search.rb
 K 25
 svn:wc:ra_dav:version-url
 V 49
-/svn/tapski/!svn/ver/5/trunk/app/models/search.rb
+/svn/tapski/!svn/ver/8/trunk/app/models/search.rb
 END
 identity.rb
 K 25
@@ -37,7 +49,7 @@ listing.rb
 K 25
 svn:wc:ra_dav:version-url
 V 50
-/svn/tapski/!svn/ver/7/trunk/app/models/listing.rb
+/svn/tapski/!svn/ver/8/trunk/app/models/listing.rb
 END
 picture.rb
 K 25

@@ -37,7 +37,7 @@ style.css
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/tapski/!svn/ver/4/trunk/app/assets/stylesheets/style.css
+/svn/tapski/!svn/ver/9/trunk/app/assets/stylesheets/style.css
 END
 home.css.scss
 K 25
@@ -49,5 +49,5 @@ application.css
 K 25
 svn:wc:ra_dav:version-url
 V 67
-/svn/tapski/!svn/ver/4/trunk/app/assets/stylesheets/application.css
+/svn/tapski/!svn/ver/8/trunk/app/assets/stylesheets/application.css
 END

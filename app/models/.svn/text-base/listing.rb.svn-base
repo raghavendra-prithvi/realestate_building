@@ -2,59 +2,8 @@ class Listing < ActiveRecord::Base
     has_many :pictures
   attr_accessible :bathrooms, :name,:listing_type, :bedrooms, :costpersqft, :daysontapski, :laonpayment, :lotsize, :mls, :neighbourhood, :price, :squarefootage, :status, :adjustment_type, :yearbuilt,:description, :tap_description, :address_line1, :city, :address_line2, :state, :zip,:image_file,:lat, :long
   belongs_to :user
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['upper(name) LIKE upper(:search) OR upper(description) LIKE upper(:search) OR upper(tap_description) LIKE upper(:search)', {:search => "%#{search}%"}])
-#    else
-#      find(:all).limit(0)
-    end
+
+  def self.search(keyword)
+    where('name ilike :keyword OR description ilike :keyword OR tap_description ilike :keyword', { :keyword => "%#{keyword}%" })
   end
-
-##  searchable do
-##    #text :listing_type, :name,:city,:description, :tap_description
-##    text :description
-##  end
-#  define_index do
-#    # fields
-#    indexes name, :sortable => true
-#    indexes description
-#    #indexes author.name, :as => :author, :sortable => true
-#
-#    # attributes
-#    #has author_id, created_at, updated_at
-#  end
-#
-#
-#def listings
-#  @listings ||= find_products
-#end
-#
-#private
-#
-#def find_products
-#  Listing.find(:all, :conditions => conditions)
-#end
-#
-#def keyword_conditions
-#  ["listings.name LIKE ?", "%#{keywords}%"] unless keywords.blank?
-#end
-#
-#def conditions
-#  [conditions_clauses.join(' AND '), *conditions_options]
-#end
-#
-#def conditions_clauses
-#  conditions_parts.map { |condition| condition.first }
-#end
-#
-#def conditions_options
-#  conditions_parts.map { |condition| condition[1..-1] }.flatten
-#end
-#
-#def conditions_parts
-#  private_methods(false).grep(/_conditions$/).map { |m| send(m) }.compact
-#end
-
-
-
 end

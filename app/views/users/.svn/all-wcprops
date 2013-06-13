@@ -13,7 +13,19 @@ edit_profile.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/svn/tapski/!svn/ver/4/trunk/app/views/users/edit_profile.html.erb
+/svn/tapski/!svn/ver/8/trunk/app/views/users/edit_profile.html.erb
+END
+edit_profile1.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/tapski/!svn/ver/9/trunk/app/views/users/edit_profile1.html.erb
+END
+messages.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/tapski/!svn/ver/9/trunk/app/views/users/messages.html.erb
 END
 new.html.erb
 K 25
@@ -25,11 +37,17 @@ profile.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/tapski/!svn/ver/4/trunk/app/views/users/profile.html.erb
+/svn/tapski/!svn/ver/8/trunk/app/views/users/profile.html.erb
 END
 show.html.erb
 K 25
 svn:wc:ra_dav:version-url
 V 58
 /svn/tapski/!svn/ver/4/trunk/app/views/users/show.html.erb
+END
+profile1.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/tapski/!svn/ver/9/trunk/app/views/users/profile1.html.erb
 END
