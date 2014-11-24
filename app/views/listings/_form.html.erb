@@ -4,17 +4,13 @@
 	<div id="tabs">
 		<ul>
 		<li><a href="#tabs-1">Create Listing</a></li>
-		<li><a href="#tabs-2">Feature Listing</a></li>
-		<li><a href="#tabs-3">Post</a></li>
+		<li><a href="#tabs-2">Post</a></li>
 		</ul>
 		<div id="tabs-1">
 			<div class="pageHeading"><h1>Create Listing</h1></div>
 			<div class="clrbth"></div>
 			<div class="colmid">
-                          Locate Your Listing
-                          <div class="">
-                            <%= text_field_tag :key_word,'',{:id => "key_word",:style=>"width:150px;height:25px"} %>
-		          </div>
+                          
                           <%= form_for(@listing, :html => {:multipart => true}) do |f| %>
                             <% if @listing.errors.any? %>
                                 <div id="error_explanation">
@@ -27,8 +23,7 @@
                                   </ul>
                                 </div>
                             <% end %>
-                          <div id ="map_canvas" style="width:100%;height:200px;border-radius:10px;margin-top:20px;">
-                          </div>
+                          
                           <%= f.hidden_field :lat,{:id => "lattitude"} %>
                           <%= f.hidden_field :long,{:id => "longitude"} %>
 				<div class="lblText">
@@ -54,8 +49,7 @@
 			<div class="colmid">
 				<label>Name:</label>
 				<%= f.text_field :name %>
-				<!-- <input type="radio"/> Rent
-				<input type="radio"/> Sale -->
+			
 			</div>
 			<div class="colmid">
 				<label>This property is for:</label>
@@ -110,12 +104,7 @@
 			<div class="clrbth"></div>
 
 
-			<div class="colmid">
-				<div class="colText"><label>Lot Size</label></div>
-				<div class="colObj"><%= f.number_field :lotsize %></div>
-			</div>
-			<div class="clrbth"></div>
-
+			
 
     		<div class="colmid">
 				<div class="colText"><label>Year Built</label></div>
@@ -134,12 +123,7 @@
 				<div class="colText"><%= f.label :daysontapski %></div>
 				<div class="colObj"><%= f.text_field :daysontapski %></div>
 			</div> -->
-			<div class="clrbth"></div>
-
-    		<div class="colmid">
-				<div class="colText">MLS #</div>
-				<div class="colObj"><%= f.text_field :mls %></div>
-			</div>
+			
 			<div class="clrbth"></div>
 
     		<div class="colmid">
@@ -148,80 +132,16 @@
 			</div>
 			<div class="clrbth"></div>
 
-			<div class="colmid">
-                          <% unless @listing.pictures.blank? %>
-                                <% @listing.pictures.each do |p| %>
-                                    <%= image_tag url_for(:action => 'show_image', :id => p.id), :size => "100x100" %>
-                                  <% end %>
-                          <% end %>
-                          </div>
-				<div class="colText">
-                                  <label>Attach Photos</label>
-                                </div>
-                               <div class="colObj">
-                                 <% if @listing.id.nil? %>
-                                    <input type="file" name="image_file" value = "Select a file" />
-                                 <% else %>
-                                  <input type="button" onclick="jQuery('#dialog').load('/add_images?listing_id=<%=@listing.id%>').dialog('open');"  value="Upload Image" />
-                                 <% end %>
-                               </div>
-
+	
 			
 
 			<div class="btnHolders">
 				<input type="button" class="continueFormBtn" value="Continue" id="tab1_continue"/>
 			</div>
 		</div>
+			
+
 			<div id="tabs-2">
-			<div class="pageHeading"><h1>Feature Listing</h1></div>
-			<div class="clrbth"></div>
-
-			<div class="colmid">
-			<div class="colOneSmallForm"><label>Normal Listing</label></div>
-			<div class="colOneVerySmallForm"><img src="/assets/user.png"/></div>
-			<div class="colOneObjHolder"><textarea rows="3" cols="50" readonly="true"></textarea></div>
-			</div>
-			<div class="clrbth"></div>
-
-			<div class="colmid">
-				<div class="formListingOptCol"><input type="checkbox"/></div>
-				<div class="optHeading">Generate Your TapScore:$0.99</div>
-				<div class="clrbth"></div>
-				<div class="optText">For a small fee of $0.99, generate your tapscore to include more details about your listing and let potential buyers instantly know how your listing is rated. Your listing will also get more real estate in the feed.</div>
-				<div class="clrbth"></div>
-				<div class="formListingOptColUImage"><img src="images/user.png"/></div>
-				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79<br/><img src="images/home.png" width="200px"/></div>
-
-				<div class="clrbth"></div>
-
-				<div class="formListingOptCol"><input type="checkbox"/></div>
-				<div class="optHeading">Mark as Featured: $0.99</div>
-				<div class="clrbth"></div>
-
-				<div class="formListingOptColUImage"><img src="images/user.png"/></div>
-				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79</div>
-				<div class="clrbth"></div>
-
-				<div class="formListingOptCol"><input type="checkbox"/></div>
-				<div class="optHeading">Mark as Must Sell: $0.99</div>
-				<div class="clrbth"></div>
-
-				<div class="formListingOptColUImage"><img src="images/user.png"/></div>
-				<div class="optTextarea">$1,700 3BR 3BA beautiful Townhome in Clairemont http://bitly.com/fdj5d TapScore:79</div>
-				<div class="clrbth"></div>
-
-				<div class="btnLeftHolder">
-					<input type="button" class="backFormBtn" value="Back" id="tab2_back"/>
-				</div>
-				<div class="btnRightHolder">
-					<input type="button" class="continueFormBtnLarge" value="Skip and Continue" id="tab2_continue"/>
-				</div>
-				</div>
-
-			</div>
-
-
-			<div id="tabs-3">
 				<div class="pageHeading"><h1>Preview Tap Listing</h1></div>
 				<div class="clrbth"></div>
 				<p>This is how your Tap Listing will appear in the user feed.</p>
@@ -269,21 +189,8 @@
   </div>
 
   <div class="info">
-    <div class="left">Lot Size</div>
-    <div class="right"><span id="lotSize"></span></div>
-  </div>
-<!--
-  <div class="info">
-    <div class="left">Days on Tapski</div>
-    <div class="right"><%= @listing.daysontapski %></div>
-  </div> -->
-  <div class="info">
     <div class="left">Neighborhood</div>
     <div class="right"><span id="neighbour"></span></div>
-  </div>
-  <div class="info">
-    <div class="left">MLS#</div>
-    <div class="right"><span id="mlsId"></span></div>
   </div>
   <div class="info">
     <div class="left">Status</div>
@@ -330,14 +237,12 @@ $(document).ready(function(){
        }
       );
 
-	$("#tab1_continue").click(function(){
-		$("#ui-id-2").click();
-	});
+	
 	$("#tab2_back").click(function(){
 		$("#ui-id-1").click();
 	});
-	$("#tab2_continue").click(function(){                
-		$("#ui-id-3").click();
+	$("#tab1_continue").click(function(){                
+		$("#ui-id-2").click();
                 $("#listingType").html($("#listing_listing_type").val());
                 $("#price").html($("#listing_price").val());
                 $("#beds").html($("#listing_bedrooms").val());
@@ -356,192 +261,9 @@ $(document).ready(function(){
                 var prev_lat = $("#lattitude").val();
                 var prev_lng = $("#longitude").val();
 
-          /*      var myOptions1 = {
-            zoom: 14,
-            center: new google.maps.LatLng(prev_lat,prev_lng),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          //directionsDisplay = new google.maps.DirectionsRenderer();
-          //directionsDisplay.suppressMarkers = true;
-          var map1 = new google.maps.Map(document.getElementById('map_canvas_preview'), myOptions1);
-          //directionsDisplay.setMap(map1);
-          var marker1 = new google.maps.Marker({
-                            position: new google.maps.LatLng(prev_lat, prev_lng),
-                            map: map1
-                        });
-          marker1.setMap(map1);
-          map1.setCenter(new google.maps.LatLng(prev_lat, prev_lng));*/
+          
 	});
 });
 
-$(document).ready(function(){
-      var directionDisplay;
-      var directionsService = new google.maps.DirectionsService();
-      //var directionsDisplay = new google.maps.DirectionsRenderer();
 
-      var map;
-      var lat;
-      var lng;
-    /* HTML 5 geolocation. */
-
-          lat = 40.714623;
-          lng = -74.006605;
-
-          var myOptions = {
-            zoom: 14,
-            center: new google.maps.LatLng(lat, lng),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          //directionsDisplay = new google.maps.DirectionsRenderer();
-          //directionsDisplay.suppressMarkers = true;
-          map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-          //directionsDisplay.setMap(map);
-
-
-          var len = parseInt('#{@length}');
-          <%#*lats = #{@mkr["lat"]};%>
-          <%#*lngs = #{@mkr["lng"]};%>
-          <%#*names = #{@mkr["name"]};;%>
-          var waypts = [];
-          if(len > 2){
-          for(i = 1;i<len-1;i++){
-            waypts.push({
-                location:new google.maps.LatLng(lats[i], lngs[i]),
-                stopover:true
-            })
-          }
-          }
-          /*var request = {
-                          origin:new google.maps.LatLng(lats[0], lngs[0]),
-                          destination:new google.maps.LatLng(lats[len-1], lngs[len-1]),
-                          waypoints: waypts,
-                          optimizeWaypoints: true,
-                          travelMode: google.maps.TravelMode.DRIVING
-                      };
-                      directionsService.route(request, function(result, status) {
-                          if (status == google.maps.DirectionsStatus.OK) {
-                            directionsDisplay.setDirections(result);
-                          }
-                      });
-          for(i=0;i<len;i++)
-          {
-                console.log("inside for loop")
-                switch(i)
-                {
-                      case 0:
-                        image_url = "http://i.imgur.com/Aquit.png"
-                        break;
-                      case 1:
-                        image_url = "http://i.imgur.com/Yd3Vk.png"
-                        break;
-                      case 2:
-                        image_url = "http://i.imgur.com/7dXVu.png"
-                        break;
-                      case 3:
-                        image_url = "http://i.imgur.com/oXSO1.png"
-                        break;
-                      case 4:
-                        image_url = "http://i.imgur.com/n56IU.png"
-                        break;
-                      case 5:
-                        image_url = "http://i.imgur.com/plOUM.png"
-                        break;
-                      case 6:
-                        image_url = "http://i.imgur.com/JX8JN.png"
-                        break;
-                      case 7:
-                        image_url = "http://i.imgur.com/GUMDT.png"
-                        break;
-                      case 8:
-                        image_url = "http://i.imgur.com/TGwLF.png"
-                        break;
-                      case 9:
-                        image_url = "http://i.imgur.com/VaYnu.png"
-                        break;
-                      default:
-                        image_url = "http://i.imgur.com/Aquit.png"
-                        break;
-                }
-                //image_url = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld="+(i+1)+"|FF0000|000000"
-                var marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(lats[i], lngs[i]),
-                            map: map,
-                            icon: image_url
-                        });
-               marker.setMap(map);
-
-
-
-
-
-
-   }*/
-
-   
-    var marker;
-    var  geocoder;
-      function placeMarker(location) {
-        if ( marker ) {
-          marker.setPosition(location);
-        } else {
-          marker = new google.maps.Marker({
-            position: location,
-            map: map
-          });
-        }
-        
-        $("#lattitude").val(location.lb);
-        $("#longitude").val(location.kb);
-        getAddress(location);
-      }
-       geocoder = new google.maps.Geocoder();
-      function getAddress(latLng) {
-        geocoder.geocode( {'latLng': latLng},
-          function(results, status) {
-            if(status == google.maps.GeocoderStatus.OK) {
-              if(results[0]) {
-
-                var str= results[0].formatted_address;
-                var n=str.split(",");
-                document.getElementById("listing_address_line1").value = n[0];
-                document.getElementById("listing_city").value = n[1];
-                var state = n[2].split(" ");
-                document.getElementById("listing_state").value = state[1];
-                document.getElementById("listing_zip").value = state[2];
-                //document.getElementById("listing_address_line1").value = n[4];
-              }
-              else {
-                document.getElementById("listing_address_line1").value = "No results";
-              }
-            }
-            else {
-              document.getElementById("listing_address_line1").value = status;
-            }
-          });
-    }
-      google.maps.event.addListener(map, 'click', function(event) {
-        placeMarker(event.latLng);
-      });
-
-        var inputKey = document.getElementById('key_word');
-        var autocomplete = new google.maps.places.Autocomplete(inputKey);
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                  var place = autocomplete.getPlace();
-                  lat = place['geometry']['location'].lat();
-                  lng = place['geometry']['location'].lng();
-                  map.setCenter(new google.maps.LatLng(lat, lng));
-                  });
-
-    var edit_lng = $("#longitude").val();
-    var edit_lat = $("#lattitude").val();    
-    var marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(edit_lng,edit_lat),
-                            map: map
-                        });
-    if((edit_lng.length > 0) || (edit_lat.length > 0))
-    {
-      marker.setMap(map);
-      map.setCenter(new google.maps.LatLng(edit_lng,edit_lat));
-    }
-  });
 </script>

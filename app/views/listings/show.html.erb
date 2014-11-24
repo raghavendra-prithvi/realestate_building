@@ -6,13 +6,7 @@
 <% @length = @pictures.length %>
 <% @listing_name = @listing.name %>
 <script>
-  var length = "<%= @length %>";
-  $('#black').smartpaginator({ totalrecords: length,
-                                        recordsperpage: 1,
-                                        datacontainer: 'homeImageHolder',
-                                        dataelement: 'div',
-                                        theme: 'black' });
-  var lname = "<%= @listing_name %>";
+  
   $(document).ready(function(){
      $("#page_heading").find('h1').html(lname);
    });
@@ -24,58 +18,22 @@
   
   <div class="contentInnerLeft">
     <div class="homeImageHolder" id="homeImageHolder">
-      <% @pictures.each do |p| %>
-        <div>
-          <%= image_tag url_for(:action => 'show_image', :id => p.id), :size => "300x200" %>
-        </div>
-    <% end %>
+      
 
-      <!-- <img src="/assets/home.png"/>
-      <img src="/assets/pagination.png" style="margin:10px 0px;"/> -->
+     <img src="/assets/home.png"/>
+     
     </div>
     <div id="black" style="margin: auto;"></div>
   </div>
 
   <div class="contentInnerRight">
-    <div id="editButtonsDiv">
-      <input type="button" class="btn-rename" value="Rename"/>
+    <div id="editButtonsDiv">      
       <!--      <%= link_to 'Modify', edit_listing_path(@listing) %> -->
       <a href=<%=edit_listing_path(@listing) %> ><input type="button" class="btn-modify" value="Modify"/> </a>
       <a href=<%=listing_path(@listing) %>   data-method="delete" data-confirm="Are you sure?" ><input type="button" class="btn-delete" value="Delete"/> </a>
 
-      <!-- <%= link_to (button_tag "Delete", :class => "btn-delete", :type => "input"),        listing_path(@listing), :method => :delete, :confirm => "Are you sure?", :rel => "nofollow" %> -->
-	  
-      <input type="button" class="btn-event" value="Add Event"/>
     </div>
-    <div id="ContactLink" style="display:none" >
-      <div>
-        
-        <% if @favourite %>
-          <a href="#" id="voteremove" onclick="voteremove()">
-            <image src="/assets/star.jpeg" width="50" height="50" />
-          </a>
-          <a href="#" id="voteup" onclick="voteup()"  style="display:none">
-            <image src="/assets/read-star.png" width="50" height="50" />
-          </a>
-        <% else %>
-          <a href="#" id="voteup" onclick="voteup()" >
-            <image src="/assets/read-star.png" width="50" height="50" />
-          </a>
-        <a href="#" id="voteremove" onclick="voteremove()" style="display:none">
-            <image src="/assets/star.jpeg" width="50" height="50" />
-          </a>
-        <% end %>
-        <a href="#" id="votedown" onclick="votedown()" >
-            <image src="/assets/block.png" width="50" height="50" />
-          </a>
-      </div>
-      <br/>
-      <input type="button" class="btn-contact" value="Contact" onclick="getContactDetails(this.id); return false;"  id=<%=@listing.id%> />
-      <div class="selector">
-        <div id="divInDialog"></div>
-      </div>
-    </div>
-  </div>
+    
 
 
 </div>
@@ -93,10 +51,6 @@
     <div class="right"><%= @listing.price %></div>
   </div>
 
-  <!--<div class="info">
-    <div class="left">Loan Payment</div>
-    <div class="right"><%= @listing.laonpayment %></div>
-  </div> -->
 
   <div class="info">
     <div class="left">Bedroom</div>
@@ -132,7 +86,7 @@
   </div>
 
   <div class="info">
-    <div class="left">Days on Tapski</div>
+    <div class="left">Days on Site</div>
     <% diff_days = ((((Time.now - @listing.created_at).abs)/3600)/24).to_i %>
     <% if diff_days < 1  %>
       <% diff_days = "To Day" %>
@@ -145,10 +99,6 @@
     <div class="right"><%= @listing.neighbourhood %></div>
   </div>
   <div class="info">
-    <div class="left">MLS#</div>
-    <div class="right"><%= @listing.mls %></div>
-  </div>
-  <div class="info">
     <div class="left">Status</div>
     <div class="right"><% if @listing.status == true%>
         Active
@@ -156,80 +106,17 @@
         InActive
       <% end %></div>
   </div>
-  <div class="info">
-    <div id ="map_canvas" style="width:100%;height:200px;border-radius:10px;margin-top:20px;">
-    </div>
-</div>
+ 
 
 
 </div>
 
-<div class="contentInnerRight" id="rightCheck">
-  <div><input type="checkbox" id="activeChk" /> <label for="activeChk" >Active</label></div>
-  <div><input type="checkbox" id="reportChk" /> <label for="reportChk">Report this Weekly</label></div>
-  <div><input type="checkbox" id="tapsChk" /> <label for="tapsChk">Use this listing to search Wanted Taps</label></div>
-</div>
-
-  <%=hidden_field_tag :long, @listing.long, {:id=>"longitude"}%>
-  <%=hidden_field_tag :lat, @listing.lat, {:id=>"lattitude"}%>
-<div class="bottomContent" id="downLinkAttach">
-  <h1>File Upload</h1>
-  <form action='/upload_file' enctype='multipart/form-data'>
-    <p><label for="upload_file">Select File</label> :
-    <%= file_field 'upload', 'datafile' %></p>
-    <%= submit_tag "Upload" %>
-  </form>
-  <%#*<div> Link to: <input type="text" /> </div>%>
-  <%#*<div>Attach Docs: <input type="file" /></div>%>
-</div>
 
 
 <% @arq = @ajxRqst %>
 <script type="text/javascript">
 
-  function voteup(){
-    var lid="<%=@listing.id%>"
-
-    $.ajax
-    ({
-      type: "post",
-      url: "/vote_listing?lid="+lid,
-      success: function (data){
-        $("#voteup").hide();
-        $("#voteremove").show();
-      }
-    });
-
-  }
-
-  function votedown(){
-    var lid="<%=@listing.id%>"
-
-    $.ajax
-    ({
-      type: "post",
-      url: "/votedown_listing?lid="+lid,
-      success: function (data){
-        //$("#voteup").hide();
-        //$("#voteremove").show();
-      }
-    });
-
-  }
-
-  function voteremove(){
-    var lid="<%=@listing.id%>";
-    $.ajax
-    ({
-      type: "post",
-      url: "/remove_vote_listing?lid="+lid,
-      success: function (data){
-        $("#voteup").show();
-        $("#voteremove").hide();
-      }
-    });
-
-  }
+ 
 
   $(document).ready(function(){
      var ajaxRequest = <%=  @arq %>;
@@ -239,32 +126,6 @@
          $("#editButtonsDiv").hide();
           $("#rightCheck").hide();
        }
-     var map;
-      var lat;
-      var lng;
-    /* HTML 5 geolocation. */
-
-          lat = 40.714623;
-          lng = -74.006605;
-
-          var myOptions = {
-            zoom: 14,
-            center: new google.maps.LatLng(lat, lng),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          directionsDisplay = new google.maps.DirectionsRenderer();
-          directionsDisplay.suppressMarkers = true;
-          map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-          var edit_lat= $("#longitude").val();
-    var edit_lng  = $("#lattitude").val();
-    var marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(edit_lat, edit_lng),
-                            map: map
-                        });
-    if((edit_lng.length > 0) || (edit_lat.length > 0))
-    {
-      marker.setMap(map);
-      map.setCenter(new google.maps.LatLng(edit_lat, edit_lng));
-    }
+    
   });
 </script>

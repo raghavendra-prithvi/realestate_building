@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'yaml_db'
 gem 'rails', '3.2.9'
-gem 'pg'
+gem 'sqlite3'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'omniauth'

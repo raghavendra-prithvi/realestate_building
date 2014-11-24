@@ -16,18 +16,18 @@
 <div class="container">
 <!--==============Header=============-->
 <div class="header">
-<div class="logo"><a href="/"><img src="/assets/Tapski_logo.png" alt="Tapski" title="Tapski" width="218" height="71" /></a></div>
+<div class="logo"><a href="/"><span style="font-size:34px;color:#FFF;margin-top:10px">Real Estate Application</span></a></div>
 <ul>
-<li><a href="#" title="Contact"><span id="icons"><img src="/assets/contact_icon.jpg" alt="" /></span>Contact</a></li>
+<li><!-- <a href="#" title="Contact"><span id="icons"><img src="/assets/contact_icon.jpg" alt="" /></span>Contact</a></li> -->
 <% if !session[:user_id].nil? %>
 <li>
   <% @user = User.find(session[:user_id])  %>
   <% @message_count = @user.unread_message_count %>
-  <a href="/messages" title="Profile"><span id="icons"><img src="/assets/messaging.png"/></span>
+  <!-- <a href="/messages" title="Profile"><span id="icons"><img src="/assets/messaging.png"/></span>
 	Messaging(<%=@message_count %>)
-        </a>
+        </a> -->
 </li>
-<li><a href="/profile" title="Profile"><span id="icons"><img src="/assets/contact_icon.jpg" alt="" /></span>Profile</a></li>
+<li><!-- <a href="/profile" title="Profile"><span id="icons"><img src="/assets/contact_icon.jpg" alt="" /></span>Profile</a></li> -->
 <li>
 		<a href="/signout" title="Signout"><img src="/assets/signout_icon.jpg" alt="" />Signout</a>
 </li>
@@ -46,8 +46,8 @@
 <ul>
 <li ><a href="/" title="Agents" id="home">Home</a></li>
 <li><a href="/listings/new" id="new_listing" title="Home Searches">Create Listing</a></li>
-<li><a href="/mylistings" id="my_listings" title="About Us">My Listing</a></li>
-<li><a href="/mysearches" id="saved_searches" title="Saved Searches">Saved Searches</a></li>
+<li><a href="/mylistings" id="my_listings" title="About Us">My Listings</a></li> 
+<!-- <li><a href="/mysearches" id="saved_searches" title="Saved Searches">Saved Searches</a></li> -->
 </ul>
 <% end %>
 </div>
@@ -63,7 +63,7 @@
 </div>
 <!--==============Content End=============-->
 <!--==============Footer=============-->
-<div class="footer">&copy;2012 allright reserved.</div>
+<div class="footer">&copy;2014 allright reserved.</div>
 <% if !current_user %>
 <div class="form-bg" id="formSignInId"">
 
@@ -71,10 +71,10 @@
   <%= form_tag "/auth/identity/callback" do %>
 		<table>
                   <tr><td>Email</td>
-		<td><%= text_field_tag :auth_key %></td></tr>
+		<td><%= text_field_tag :auth_key, '',:style => "height:25px;" %></td></tr>
 		<tr><td>
 		Password</td><td>
-		<%= password_field_tag :password %></td></tr>
+		<%= password_field_tag :password, '',:style => "height:25px;" %></td></tr>
                 <tr>
                   <td>
                   <%= submit_tag "Login" %></td>
